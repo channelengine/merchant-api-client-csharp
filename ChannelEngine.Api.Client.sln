@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Api.Client", "src\ChannelEngine.Api.Client\ChannelEngine.Api.Client.csproj", "{6F36314A-9831-47C7-8994-B0CA00778564}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Api.Client.Test", "src\ChannelEngine.Api.Client.Test\ChannelEngine.Api.Client.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+EndProject
+Global
+GlobalSection(SolutionConfigurationPlatforms) = preSolution
+Debug|Any CPU = Debug|Any CPU
+Release|Any CPU = Release|Any CPU
+EndGlobalSection
+GlobalSection(ProjectConfigurationPlatforms) = postSolution
+{6F36314A-9831-47C7-8994-B0CA00778564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+{6F36314A-9831-47C7-8994-B0CA00778564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+{6F36314A-9831-47C7-8994-B0CA00778564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+{6F36314A-9831-47C7-8994-B0CA00778564}.Release|Any CPU.Build.0 = Release|Any CPU
+{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+EndGlobalSection
+GlobalSection(SolutionProperties) = preSolution
+HideSolutionNode = FALSE
+EndGlobalSection
+EndGlobal
