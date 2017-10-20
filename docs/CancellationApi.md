@@ -30,7 +30,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
             Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -97,7 +96,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
             Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

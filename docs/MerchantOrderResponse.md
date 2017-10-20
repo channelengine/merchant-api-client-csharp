@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ChannelName** | **string** |  | [optional] 
 **ChannelOrderSupport** | **string** |  | [optional] 
 **ChannelOrderNo** | **string** |  | [optional] 
+**Status** | **string** |  | [optional] 
 **Lines** | [**List&lt;MerchantOrderLineResponse&gt;**](MerchantOrderLineResponse.md) |  | [optional] 
 **Phone** | **string** |  | [optional] 
 **Email** | **string** |  | 

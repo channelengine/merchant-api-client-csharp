@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**OrderAcknowledge**](OrderApi.md#orderacknowledge) | **POST** /v2/orders/acknowledge | Merchant: Acknowledge Order
 [**OrderCreate**](OrderApi.md#ordercreate) | **POST** /v2/orders | Channel: Create Order
+[**OrderGetByFilter**](OrderApi.md#ordergetbyfilter) | **GET** /v2/orders | Merchant: Get Orders By Filter
 [**OrderGetNew**](OrderApi.md#ordergetnew) | **GET** /v2/orders/new | Merchant: Get New Orders
 [**OrderInvoice**](OrderApi.md#orderinvoice) | **GET** /v2/orders/{merchantOrderNo}/invoice | Merchant: Download Invoice
 [**OrderPackingSlip**](OrderApi.md#orderpackingslip) | **GET** /v2/orders/{merchantOrderNo}/packingslip | Merchant: Download Packing Slip
@@ -33,7 +34,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
             Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -100,7 +100,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
             Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -145,6 +144,80 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="ordergetbyfilter"></a>
+# **OrderGetByFilter**
+> CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
+
+Merchant: Get Orders By Filter
+
+For merchants.                Fetch orders based on the provided OrderFilter
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using ChannelEngine.Api.Client.Api;
+using ChannelEngine.Api.Client.Client;
+using ChannelEngine.Api.Client.Model;
+
+namespace Example
+{
+    public class OrderGetByFilterExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: apikey
+            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+
+            var apiInstance = new OrderApi();
+            var filterStatuses = new List<string>(); // List<string> |  (optional) 
+            var filterMerchantOrderNos = new List<string>(); // List<string> |  (optional) 
+            var filterExcludeMarketplaceFulfilledOrdersAndLines = true;  // bool? |  (optional) 
+            var filterFulfillmentType = filterFulfillmentType_example;  // string | Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional) 
+            var filterPage = 56;  // int? |  (optional) 
+
+            try
+            {
+                // Merchant: Get Orders By Filter
+                CollectionOfMerchantOrderResponse result = apiInstance.OrderGetByFilter(filterStatuses, filterMerchantOrderNos, filterExcludeMarketplaceFulfilledOrdersAndLines, filterFulfillmentType, filterPage);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling OrderApi.OrderGetByFilter: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterStatuses** | [**List&lt;string&gt;**](string.md)|  | [optional] 
+ **filterMerchantOrderNos** | [**List&lt;string&gt;**](string.md)|  | [optional] 
+ **filterExcludeMarketplaceFulfilledOrdersAndLines** | **bool?**|  | [optional] 
+ **filterFulfillmentType** | **string**| Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. | [optional] 
+ **filterPage** | **int?**|  | [optional] 
+
+### Return type
+
+[**CollectionOfMerchantOrderResponse**](CollectionOfMerchantOrderResponse.md)
+
+### Authorization
+
+[apikey](../README.md#apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="ordergetnew"></a>
 # **OrderGetNew**
 > CollectionOfMerchantOrderResponse OrderGetNew ()
@@ -167,7 +240,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
             Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -230,7 +302,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
             Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -299,7 +370,6 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
             Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed

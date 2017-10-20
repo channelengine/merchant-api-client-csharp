@@ -4,7 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Content** | [**List&lt;MerchantReturnResponse&gt;**](MerchantReturnResponse.md) |  | [optional] 
-**Count** | **int?** |  | [optional] 
+**Count** | **int?** | The number of items in the current response | [optional] 
+**TotalCount** | **int?** | The total number of items | [optional] 
+**ItemsPerPage** | **int?** | The number of items per page | [optional] 
 **StatusCode** | **int?** |  | [optional] 
 **Success** | **bool?** |  | [optional] 
 **Message** | **string** |  | [optional] 
