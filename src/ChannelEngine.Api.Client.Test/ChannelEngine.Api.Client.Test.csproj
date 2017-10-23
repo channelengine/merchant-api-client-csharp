@@ -75,7 +75,7 @@ OpenAPI spec version: 2.4.0
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\ChannelEngine.Api.Client\ChannelEngine.Api.Client.csproj">
-          <Project>{B50F7684-9B0E-48FB-BDBF-1B81CECCBA03}</Project>
+          <Project>{6B422B91-3824-47E9-8FAE-72DB871535DB}</Project>
           <Name>ChannelEngine.Api.Client</Name>
       </ProjectReference>
   </ItemGroup>
