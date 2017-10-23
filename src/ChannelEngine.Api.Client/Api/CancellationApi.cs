@@ -126,15 +126,9 @@ namespace ChannelEngine.Api.Client.Api
         /// <returns></returns>
         public CancellationApi(String basePath)
         {
-            this.Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration { BasePath = basePath };
 
             ExceptionFactory = ChannelEngine.Api.Client.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -151,12 +145,6 @@ namespace ChannelEngine.Api.Client.Api
                 this.Configuration = configuration;
 
             ExceptionFactory = ChannelEngine.Api.Client.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -205,9 +193,9 @@ namespace ChannelEngine.Api.Client.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<String, String> DefaultHeader()
+        public IDictionary<String, String> DefaultHeader()
         {
-            return this.Configuration.DefaultHeader;
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
         }
 
         /// <summary>
@@ -248,7 +236,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -283,9 +271,8 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -332,7 +319,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -367,7 +354,7 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request
@@ -414,7 +401,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -434,14 +421,13 @@ namespace ChannelEngine.Api.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (createdSince != null) localVarQueryParams.Add("createdSince", Configuration.ApiClient.ParameterToString(createdSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -488,7 +474,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/cancellations";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -508,12 +494,12 @@ namespace ChannelEngine.Api.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (createdSince != null) localVarQueryParams.Add("createdSince", Configuration.ApiClient.ParameterToString(createdSince)); // query parameter
+            if (createdSince != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request

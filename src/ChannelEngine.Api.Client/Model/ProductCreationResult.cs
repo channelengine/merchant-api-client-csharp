@@ -85,40 +85,38 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ProductCreationResult);
+            return this.Equals(input as ProductCreationResult);
         }
 
         /// <summary>
         /// Returns true if ProductCreationResult instances are equal
         /// </summary>
-        /// <param name="other">Instance of ProductCreationResult to be compared</param>
+        /// <param name="input">Instance of ProductCreationResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProductCreationResult other)
+        public bool Equals(ProductCreationResult input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.RejectedCount == other.RejectedCount ||
-                    this.RejectedCount != null &&
-                    this.RejectedCount.Equals(other.RejectedCount)
+                    this.RejectedCount == input.RejectedCount ||
+                    (this.RejectedCount != null &&
+                    this.RejectedCount.Equals(input.RejectedCount))
                 ) && 
                 (
-                    this.AcceptedCount == other.AcceptedCount ||
-                    this.AcceptedCount != null &&
-                    this.AcceptedCount.Equals(other.AcceptedCount)
+                    this.AcceptedCount == input.AcceptedCount ||
+                    (this.AcceptedCount != null &&
+                    this.AcceptedCount.Equals(input.AcceptedCount))
                 ) && 
                 (
-                    this.ProductMessages == other.ProductMessages ||
+                    this.ProductMessages == input.ProductMessages ||
                     this.ProductMessages != null &&
-                    this.ProductMessages.SequenceEqual(other.ProductMessages)
+                    this.ProductMessages.SequenceEqual(input.ProductMessages)
                 );
         }
 
@@ -128,18 +126,16 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.RejectedCount != null)
-                    hash = hash * 59 + this.RejectedCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.RejectedCount.GetHashCode();
                 if (this.AcceptedCount != null)
-                    hash = hash * 59 + this.AcceptedCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.AcceptedCount.GetHashCode();
                 if (this.ProductMessages != null)
-                    hash = hash * 59 + this.ProductMessages.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ProductMessages.GetHashCode();
+                return hashCode;
             }
         }
 

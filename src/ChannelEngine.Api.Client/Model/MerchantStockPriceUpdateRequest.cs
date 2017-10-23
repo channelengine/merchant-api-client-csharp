@@ -101,40 +101,38 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MerchantStockPriceUpdateRequest);
+            return this.Equals(input as MerchantStockPriceUpdateRequest);
         }
 
         /// <summary>
         /// Returns true if MerchantStockPriceUpdateRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of MerchantStockPriceUpdateRequest to be compared</param>
+        /// <param name="input">Instance of MerchantStockPriceUpdateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantStockPriceUpdateRequest other)
+        public bool Equals(MerchantStockPriceUpdateRequest input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.MerchantProductNo == other.MerchantProductNo ||
-                    this.MerchantProductNo != null &&
-                    this.MerchantProductNo.Equals(other.MerchantProductNo)
+                    this.MerchantProductNo == input.MerchantProductNo ||
+                    (this.MerchantProductNo != null &&
+                    this.MerchantProductNo.Equals(input.MerchantProductNo))
                 ) && 
                 (
-                    this.Stock == other.Stock ||
-                    this.Stock != null &&
-                    this.Stock.Equals(other.Stock)
+                    this.Stock == input.Stock ||
+                    (this.Stock != null &&
+                    this.Stock.Equals(input.Stock))
                 ) && 
                 (
-                    this.Price == other.Price ||
-                    this.Price != null &&
-                    this.Price.Equals(other.Price)
+                    this.Price == input.Price ||
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 );
         }
 
@@ -144,18 +142,16 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.MerchantProductNo != null)
-                    hash = hash * 59 + this.MerchantProductNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
                 if (this.Stock != null)
-                    hash = hash * 59 + this.Stock.GetHashCode();
+                    hashCode = hashCode * 59 + this.Stock.GetHashCode();
                 if (this.Price != null)
-                    hash = hash * 59 + this.Price.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Price.GetHashCode();
+                return hashCode;
             }
         }
 

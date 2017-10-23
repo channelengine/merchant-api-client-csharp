@@ -136,65 +136,63 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CollectionOfChannelReturnResponse);
+            return this.Equals(input as CollectionOfChannelReturnResponse);
         }
 
         /// <summary>
         /// Returns true if CollectionOfChannelReturnResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of CollectionOfChannelReturnResponse to be compared</param>
+        /// <param name="input">Instance of CollectionOfChannelReturnResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CollectionOfChannelReturnResponse other)
+        public bool Equals(CollectionOfChannelReturnResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Content == other.Content ||
+                    this.Content == input.Content ||
                     this.Content != null &&
-                    this.Content.SequenceEqual(other.Content)
+                    this.Content.SequenceEqual(input.Content)
                 ) && 
                 (
-                    this.Count == other.Count ||
-                    this.Count != null &&
-                    this.Count.Equals(other.Count)
+                    this.Count == input.Count ||
+                    (this.Count != null &&
+                    this.Count.Equals(input.Count))
                 ) && 
                 (
-                    this.TotalCount == other.TotalCount ||
-                    this.TotalCount != null &&
-                    this.TotalCount.Equals(other.TotalCount)
+                    this.TotalCount == input.TotalCount ||
+                    (this.TotalCount != null &&
+                    this.TotalCount.Equals(input.TotalCount))
                 ) && 
                 (
-                    this.ItemsPerPage == other.ItemsPerPage ||
-                    this.ItemsPerPage != null &&
-                    this.ItemsPerPage.Equals(other.ItemsPerPage)
+                    this.ItemsPerPage == input.ItemsPerPage ||
+                    (this.ItemsPerPage != null &&
+                    this.ItemsPerPage.Equals(input.ItemsPerPage))
                 ) && 
                 (
-                    this.StatusCode == other.StatusCode ||
-                    this.StatusCode != null &&
-                    this.StatusCode.Equals(other.StatusCode)
+                    this.StatusCode == input.StatusCode ||
+                    (this.StatusCode != null &&
+                    this.StatusCode.Equals(input.StatusCode))
                 ) && 
                 (
-                    this.Success == other.Success ||
-                    this.Success != null &&
-                    this.Success.Equals(other.Success)
+                    this.Success == input.Success ||
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.ValidationErrors == other.ValidationErrors ||
+                    this.ValidationErrors == input.ValidationErrors ||
                     this.ValidationErrors != null &&
-                    this.ValidationErrors.SequenceEqual(other.ValidationErrors)
+                    this.ValidationErrors.SequenceEqual(input.ValidationErrors)
                 );
         }
 
@@ -204,28 +202,26 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Content != null)
-                    hash = hash * 59 + this.Content.GetHashCode();
+                    hashCode = hashCode * 59 + this.Content.GetHashCode();
                 if (this.Count != null)
-                    hash = hash * 59 + this.Count.GetHashCode();
+                    hashCode = hashCode * 59 + this.Count.GetHashCode();
                 if (this.TotalCount != null)
-                    hash = hash * 59 + this.TotalCount.GetHashCode();
+                    hashCode = hashCode * 59 + this.TotalCount.GetHashCode();
                 if (this.ItemsPerPage != null)
-                    hash = hash * 59 + this.ItemsPerPage.GetHashCode();
+                    hashCode = hashCode * 59 + this.ItemsPerPage.GetHashCode();
                 if (this.StatusCode != null)
-                    hash = hash * 59 + this.StatusCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 if (this.Success != null)
-                    hash = hash * 59 + this.Success.GetHashCode();
+                    hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.ValidationErrors != null)
-                    hash = hash * 59 + this.ValidationErrors.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ValidationErrors.GetHashCode();
+                return hashCode;
             }
         }
 

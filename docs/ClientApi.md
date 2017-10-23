@@ -30,9 +30,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ClientApi();
             var language = language_example;  // string | The programming language

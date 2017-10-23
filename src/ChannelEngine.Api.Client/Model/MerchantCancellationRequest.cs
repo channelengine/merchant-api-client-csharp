@@ -126,45 +126,43 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MerchantCancellationRequest);
+            return this.Equals(input as MerchantCancellationRequest);
         }
 
         /// <summary>
         /// Returns true if MerchantCancellationRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of MerchantCancellationRequest to be compared</param>
+        /// <param name="input">Instance of MerchantCancellationRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantCancellationRequest other)
+        public bool Equals(MerchantCancellationRequest input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.MerchantCancellationNo == other.MerchantCancellationNo ||
-                    this.MerchantCancellationNo != null &&
-                    this.MerchantCancellationNo.Equals(other.MerchantCancellationNo)
+                    this.MerchantCancellationNo == input.MerchantCancellationNo ||
+                    (this.MerchantCancellationNo != null &&
+                    this.MerchantCancellationNo.Equals(input.MerchantCancellationNo))
                 ) && 
                 (
-                    this.MerchantOrderNo == other.MerchantOrderNo ||
-                    this.MerchantOrderNo != null &&
-                    this.MerchantOrderNo.Equals(other.MerchantOrderNo)
+                    this.MerchantOrderNo == input.MerchantOrderNo ||
+                    (this.MerchantOrderNo != null &&
+                    this.MerchantOrderNo.Equals(input.MerchantOrderNo))
                 ) && 
                 (
-                    this.Lines == other.Lines ||
+                    this.Lines == input.Lines ||
                     this.Lines != null &&
-                    this.Lines.SequenceEqual(other.Lines)
+                    this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 );
         }
 
@@ -174,20 +172,18 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.MerchantCancellationNo != null)
-                    hash = hash * 59 + this.MerchantCancellationNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantCancellationNo.GetHashCode();
                 if (this.MerchantOrderNo != null)
-                    hash = hash * 59 + this.MerchantOrderNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantOrderNo.GetHashCode();
                 if (this.Lines != null)
-                    hash = hash * 59 + this.Lines.GetHashCode();
+                    hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                return hashCode;
             }
         }
 

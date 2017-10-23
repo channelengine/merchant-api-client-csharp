@@ -109,40 +109,38 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ChannelCancellationResponse);
+            return this.Equals(input as ChannelCancellationResponse);
         }
 
         /// <summary>
         /// Returns true if ChannelCancellationResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of ChannelCancellationResponse to be compared</param>
+        /// <param name="input">Instance of ChannelCancellationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChannelCancellationResponse other)
+        public bool Equals(ChannelCancellationResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ChannelOrderNo == other.ChannelOrderNo ||
-                    this.ChannelOrderNo != null &&
-                    this.ChannelOrderNo.Equals(other.ChannelOrderNo)
+                    this.ChannelOrderNo == input.ChannelOrderNo ||
+                    (this.ChannelOrderNo != null &&
+                    this.ChannelOrderNo.Equals(input.ChannelOrderNo))
                 ) && 
                 (
-                    this.Lines == other.Lines ||
+                    this.Lines == input.Lines ||
                     this.Lines != null &&
-                    this.Lines.SequenceEqual(other.Lines)
+                    this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 );
         }
 
@@ -152,18 +150,16 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ChannelOrderNo != null)
-                    hash = hash * 59 + this.ChannelOrderNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.Lines != null)
-                    hash = hash * 59 + this.Lines.GetHashCode();
+                    hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                return hashCode;
             }
         }
 

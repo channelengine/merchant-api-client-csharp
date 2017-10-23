@@ -127,50 +127,48 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ChannelShipmentResponse);
+            return this.Equals(input as ChannelShipmentResponse);
         }
 
         /// <summary>
         /// Returns true if ChannelShipmentResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of ChannelShipmentResponse to be compared</param>
+        /// <param name="input">Instance of ChannelShipmentResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChannelShipmentResponse other)
+        public bool Equals(ChannelShipmentResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ChannelOrderNo == other.ChannelOrderNo ||
-                    this.ChannelOrderNo != null &&
-                    this.ChannelOrderNo.Equals(other.ChannelOrderNo)
+                    this.ChannelOrderNo == input.ChannelOrderNo ||
+                    (this.ChannelOrderNo != null &&
+                    this.ChannelOrderNo.Equals(input.ChannelOrderNo))
                 ) && 
                 (
-                    this.Lines == other.Lines ||
+                    this.Lines == input.Lines ||
                     this.Lines != null &&
-                    this.Lines.SequenceEqual(other.Lines)
+                    this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
-                    this.TrackTraceNo == other.TrackTraceNo ||
-                    this.TrackTraceNo != null &&
-                    this.TrackTraceNo.Equals(other.TrackTraceNo)
+                    this.TrackTraceNo == input.TrackTraceNo ||
+                    (this.TrackTraceNo != null &&
+                    this.TrackTraceNo.Equals(input.TrackTraceNo))
                 ) && 
                 (
-                    this.TrackTraceUrl == other.TrackTraceUrl ||
-                    this.TrackTraceUrl != null &&
-                    this.TrackTraceUrl.Equals(other.TrackTraceUrl)
+                    this.TrackTraceUrl == input.TrackTraceUrl ||
+                    (this.TrackTraceUrl != null &&
+                    this.TrackTraceUrl.Equals(input.TrackTraceUrl))
                 ) && 
                 (
-                    this.Method == other.Method ||
-                    this.Method != null &&
-                    this.Method.Equals(other.Method)
+                    this.Method == input.Method ||
+                    (this.Method != null &&
+                    this.Method.Equals(input.Method))
                 );
         }
 
@@ -180,22 +178,20 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ChannelOrderNo != null)
-                    hash = hash * 59 + this.ChannelOrderNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.Lines != null)
-                    hash = hash * 59 + this.Lines.GetHashCode();
+                    hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 if (this.TrackTraceNo != null)
-                    hash = hash * 59 + this.TrackTraceNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.TrackTraceNo.GetHashCode();
                 if (this.TrackTraceUrl != null)
-                    hash = hash * 59 + this.TrackTraceUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.TrackTraceUrl.GetHashCode();
                 if (this.Method != null)
-                    hash = hash * 59 + this.Method.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Method.GetHashCode();
+                return hashCode;
             }
         }
 

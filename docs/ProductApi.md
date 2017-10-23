@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ProductAcknowledgeDataChanges**](ProductApi.md#productacknowledgedatachanges) | **POST** /v2/products/data | Channel: Acknowledge Product Data Changes
 [**ProductAcknowledgeOfferChanges**](ProductApi.md#productacknowledgeofferchanges) | **POST** /v2/products/offers | Channel: Acknowledge Product Offer Changes
-[**ProductCreate**](ProductApi.md#productcreate) | **POST** /v2/products | Merchant: Create Product
+[**ProductCreate**](ProductApi.md#productcreate) | **POST** /v2/products | Merchant: Upsert Products
 [**ProductDelete**](ProductApi.md#productdelete) | **DELETE** /v2/products/{merchantProductNo} | Merchant: Delete Product
 [**ProductGetByMerchantProductNo**](ProductApi.md#productgetbymerchantproductno) | **GET** /v2/products/merchant/{merchantProductNo} | Merchant: Get Product
 [**ProductGetDataChanges**](ProductApi.md#productgetdatachanges) | **GET** /v2/products/data | Channel: Get Product Data Changes
@@ -35,11 +35,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ProductApi();
             var changes = new ChannelProcessedChangesRequest(); // ChannelProcessedChangesRequest | The merchant references of the products which have been                successfully created, updated or deleted (after a call to 'GetDataChanges')
@@ -102,11 +101,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ProductApi();
             var changes = ;  // List<string> | The channel references of the updated products
@@ -151,9 +149,9 @@ Name | Type | Description  | Notes
 # **ProductCreate**
 > SingleOfProductCreationResult ProductCreate (List<MerchantProductRequest> products)
 
-Merchant: Create Product
+Merchant: Upsert Products
 
-For merchants.    Create a product. The parent serves as the 'base' product of the children.  For example, the children could be different sizes or colors of the parent product.  For channels where every size and color are different products this does not make any difference  (the children will just be sent separately, while ignoring the parent).  But there are channels where the parent and the children need to be sent together, for example  when there is one product with a list of sizes. In this case all the product information is retrieved  from the parent product while the size list is generated from the children.    Note that the parent itself is a 'blueprint' of the child products and we do our best to make sure it  does not end up on the marketplaces itself. Only the children can be purchased.    It's not possible to nest parent and children more than one level (A parent can have many children,  but any child cannot itself also have children).    The supplied MerchantProductNo needs to be unique.
+For merchants.    Upsert (update or create) products. The parent serves as the 'base' product of the children.  For example, the children could be different sizes or colors of the parent product.  For channels where every size and color are different products this does not make any difference  (the children will just be sent separately, while ignoring the parent).  But there are channels where the parent and the children need to be sent together, for example  when there is one product with a list of sizes. In this case all the product information is retrieved  from the parent product while the size list is generated from the children.    Note that the parent itself is a 'blueprint' of the child products and we do our best to make sure it  does not end up on the marketplaces itself. Only the children can be purchased.    It's not possible to nest parent and children more than one level (A parent can have many children,  but any child cannot itself also have children).    The supplied MerchantProductNo needs to be unique.
 
 ### Example
 ```csharp
@@ -169,18 +167,17 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ProductApi();
             var products = new List<MerchantProductRequest>(); // List<MerchantProductRequest> | 
 
             try
             {
-                // Merchant: Create Product
+                // Merchant: Upsert Products
                 SingleOfProductCreationResult result = apiInstance.ProductCreate(products);
                 Debug.WriteLine(result);
             }
@@ -220,7 +217,7 @@ Name | Type | Description  | Notes
 
 Merchant: Delete Product
 
-For merchants.    Deactivate a product based on the merchant reference.  Note that we do not really delete a product, as the product  might still be referenced by orders etc. Therefore, the references  used for this product cannot be reused. We do however deactivate the product  which means that it will not be sent to channels.
+For merchants.    Delete a product based on the merchant reference.  Note that we do not really delete a product, as the product  might still be referenced by orders etc. Therefore, the references  used for this product cannot be reused. We do however deactivate the product  which means that it will not be sent to channels.
 
 ### Example
 ```csharp
@@ -236,11 +233,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ProductApi();
             var merchantProductNo = merchantProductNo_example;  // string | 
@@ -303,11 +299,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ProductApi();
             var merchantProductNo = merchantProductNo_example;  // string | 
@@ -370,11 +365,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ProductApi();
             var maxCount = 56;  // int? | Optional - limit the amount of products returned for each field              (ToBeCreated, ToBeUpdated, ToBeRemoved) to this number. (optional) 
@@ -437,11 +431,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ProductApi();
 

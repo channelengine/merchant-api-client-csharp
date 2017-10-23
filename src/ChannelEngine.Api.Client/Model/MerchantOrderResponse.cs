@@ -386,115 +386,113 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MerchantOrderResponse);
+            return this.Equals(input as MerchantOrderResponse);
         }
 
         /// <summary>
         /// Returns true if MerchantOrderResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of MerchantOrderResponse to be compared</param>
+        /// <param name="input">Instance of MerchantOrderResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantOrderResponse other)
+        public bool Equals(MerchantOrderResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.ChannelName == other.ChannelName ||
-                    this.ChannelName != null &&
-                    this.ChannelName.Equals(other.ChannelName)
+                    this.ChannelName == input.ChannelName ||
+                    (this.ChannelName != null &&
+                    this.ChannelName.Equals(input.ChannelName))
                 ) && 
                 (
-                    this.ChannelOrderSupport == other.ChannelOrderSupport ||
-                    this.ChannelOrderSupport != null &&
-                    this.ChannelOrderSupport.Equals(other.ChannelOrderSupport)
+                    this.ChannelOrderSupport == input.ChannelOrderSupport ||
+                    (this.ChannelOrderSupport != null &&
+                    this.ChannelOrderSupport.Equals(input.ChannelOrderSupport))
                 ) && 
                 (
-                    this.ChannelOrderNo == other.ChannelOrderNo ||
-                    this.ChannelOrderNo != null &&
-                    this.ChannelOrderNo.Equals(other.ChannelOrderNo)
+                    this.ChannelOrderNo == input.ChannelOrderNo ||
+                    (this.ChannelOrderNo != null &&
+                    this.ChannelOrderNo.Equals(input.ChannelOrderNo))
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.Lines == other.Lines ||
+                    this.Lines == input.Lines ||
                     this.Lines != null &&
-                    this.Lines.SequenceEqual(other.Lines)
+                    this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
-                    this.Phone == other.Phone ||
-                    this.Phone != null &&
-                    this.Phone.Equals(other.Phone)
+                    this.Phone == input.Phone ||
+                    (this.Phone != null &&
+                    this.Phone.Equals(input.Phone))
                 ) && 
                 (
-                    this.Email == other.Email ||
-                    this.Email != null &&
-                    this.Email.Equals(other.Email)
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.CompanyRegistrationNo == other.CompanyRegistrationNo ||
-                    this.CompanyRegistrationNo != null &&
-                    this.CompanyRegistrationNo.Equals(other.CompanyRegistrationNo)
+                    this.CompanyRegistrationNo == input.CompanyRegistrationNo ||
+                    (this.CompanyRegistrationNo != null &&
+                    this.CompanyRegistrationNo.Equals(input.CompanyRegistrationNo))
                 ) && 
                 (
-                    this.VatNo == other.VatNo ||
-                    this.VatNo != null &&
-                    this.VatNo.Equals(other.VatNo)
+                    this.VatNo == input.VatNo ||
+                    (this.VatNo != null &&
+                    this.VatNo.Equals(input.VatNo))
                 ) && 
                 (
-                    this.PaymentMethod == other.PaymentMethod ||
-                    this.PaymentMethod != null &&
-                    this.PaymentMethod.Equals(other.PaymentMethod)
+                    this.PaymentMethod == input.PaymentMethod ||
+                    (this.PaymentMethod != null &&
+                    this.PaymentMethod.Equals(input.PaymentMethod))
                 ) && 
                 (
-                    this.ShippingCostsInclVat == other.ShippingCostsInclVat ||
-                    this.ShippingCostsInclVat != null &&
-                    this.ShippingCostsInclVat.Equals(other.ShippingCostsInclVat)
+                    this.ShippingCostsInclVat == input.ShippingCostsInclVat ||
+                    (this.ShippingCostsInclVat != null &&
+                    this.ShippingCostsInclVat.Equals(input.ShippingCostsInclVat))
                 ) && 
                 (
-                    this.CurrencyCode == other.CurrencyCode ||
-                    this.CurrencyCode != null &&
-                    this.CurrencyCode.Equals(other.CurrencyCode)
+                    this.CurrencyCode == input.CurrencyCode ||
+                    (this.CurrencyCode != null &&
+                    this.CurrencyCode.Equals(input.CurrencyCode))
                 ) && 
                 (
-                    this.OrderDate == other.OrderDate ||
-                    this.OrderDate != null &&
-                    this.OrderDate.Equals(other.OrderDate)
+                    this.OrderDate == input.OrderDate ||
+                    (this.OrderDate != null &&
+                    this.OrderDate.Equals(input.OrderDate))
                 ) && 
                 (
-                    this.ChannelCustomerNo == other.ChannelCustomerNo ||
-                    this.ChannelCustomerNo != null &&
-                    this.ChannelCustomerNo.Equals(other.ChannelCustomerNo)
+                    this.ChannelCustomerNo == input.ChannelCustomerNo ||
+                    (this.ChannelCustomerNo != null &&
+                    this.ChannelCustomerNo.Equals(input.ChannelCustomerNo))
                 ) && 
                 (
-                    this.BillingAddress == other.BillingAddress ||
-                    this.BillingAddress != null &&
-                    this.BillingAddress.Equals(other.BillingAddress)
+                    this.BillingAddress == input.BillingAddress ||
+                    (this.BillingAddress != null &&
+                    this.BillingAddress.Equals(input.BillingAddress))
                 ) && 
                 (
-                    this.ShippingAddress == other.ShippingAddress ||
-                    this.ShippingAddress != null &&
-                    this.ShippingAddress.Equals(other.ShippingAddress)
+                    this.ShippingAddress == input.ShippingAddress ||
+                    (this.ShippingAddress != null &&
+                    this.ShippingAddress.Equals(input.ShippingAddress))
                 ) && 
                 (
-                    this.ExtraData == other.ExtraData ||
+                    this.ExtraData == input.ExtraData ||
                     this.ExtraData != null &&
-                    this.ExtraData.SequenceEqual(other.ExtraData)
+                    this.ExtraData.SequenceEqual(input.ExtraData)
                 );
         }
 
@@ -504,48 +502,46 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.ChannelName != null)
-                    hash = hash * 59 + this.ChannelName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelName.GetHashCode();
                 if (this.ChannelOrderSupport != null)
-                    hash = hash * 59 + this.ChannelOrderSupport.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelOrderSupport.GetHashCode();
                 if (this.ChannelOrderNo != null)
-                    hash = hash * 59 + this.ChannelOrderNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Lines != null)
-                    hash = hash * 59 + this.Lines.GetHashCode();
+                    hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 if (this.Phone != null)
-                    hash = hash * 59 + this.Phone.GetHashCode();
+                    hashCode = hashCode * 59 + this.Phone.GetHashCode();
                 if (this.Email != null)
-                    hash = hash * 59 + this.Email.GetHashCode();
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 if (this.CompanyRegistrationNo != null)
-                    hash = hash * 59 + this.CompanyRegistrationNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.CompanyRegistrationNo.GetHashCode();
                 if (this.VatNo != null)
-                    hash = hash * 59 + this.VatNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.VatNo.GetHashCode();
                 if (this.PaymentMethod != null)
-                    hash = hash * 59 + this.PaymentMethod.GetHashCode();
+                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
                 if (this.ShippingCostsInclVat != null)
-                    hash = hash * 59 + this.ShippingCostsInclVat.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingCostsInclVat.GetHashCode();
                 if (this.CurrencyCode != null)
-                    hash = hash * 59 + this.CurrencyCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
                 if (this.OrderDate != null)
-                    hash = hash * 59 + this.OrderDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.OrderDate.GetHashCode();
                 if (this.ChannelCustomerNo != null)
-                    hash = hash * 59 + this.ChannelCustomerNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelCustomerNo.GetHashCode();
                 if (this.BillingAddress != null)
-                    hash = hash * 59 + this.BillingAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.BillingAddress.GetHashCode();
                 if (this.ShippingAddress != null)
-                    hash = hash * 59 + this.ShippingAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingAddress.GetHashCode();
                 if (this.ExtraData != null)
-                    hash = hash * 59 + this.ExtraData.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
+                return hashCode;
             }
         }
 

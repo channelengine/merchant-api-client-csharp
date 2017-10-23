@@ -209,50 +209,48 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as OrderFilter);
+            return this.Equals(input as OrderFilter);
         }
 
         /// <summary>
         /// Returns true if OrderFilter instances are equal
         /// </summary>
-        /// <param name="other">Instance of OrderFilter to be compared</param>
+        /// <param name="input">Instance of OrderFilter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderFilter other)
+        public bool Equals(OrderFilter input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Statuses == other.Statuses ||
+                    this.Statuses == input.Statuses ||
                     this.Statuses != null &&
-                    this.Statuses.SequenceEqual(other.Statuses)
+                    this.Statuses.SequenceEqual(input.Statuses)
                 ) && 
                 (
-                    this.MerchantOrderNos == other.MerchantOrderNos ||
+                    this.MerchantOrderNos == input.MerchantOrderNos ||
                     this.MerchantOrderNos != null &&
-                    this.MerchantOrderNos.SequenceEqual(other.MerchantOrderNos)
+                    this.MerchantOrderNos.SequenceEqual(input.MerchantOrderNos)
                 ) && 
                 (
-                    this.ExcludeMarketplaceFulfilledOrdersAndLines == other.ExcludeMarketplaceFulfilledOrdersAndLines ||
-                    this.ExcludeMarketplaceFulfilledOrdersAndLines != null &&
-                    this.ExcludeMarketplaceFulfilledOrdersAndLines.Equals(other.ExcludeMarketplaceFulfilledOrdersAndLines)
+                    this.ExcludeMarketplaceFulfilledOrdersAndLines == input.ExcludeMarketplaceFulfilledOrdersAndLines ||
+                    (this.ExcludeMarketplaceFulfilledOrdersAndLines != null &&
+                    this.ExcludeMarketplaceFulfilledOrdersAndLines.Equals(input.ExcludeMarketplaceFulfilledOrdersAndLines))
                 ) && 
                 (
-                    this.FulfillmentType == other.FulfillmentType ||
-                    this.FulfillmentType != null &&
-                    this.FulfillmentType.Equals(other.FulfillmentType)
+                    this.FulfillmentType == input.FulfillmentType ||
+                    (this.FulfillmentType != null &&
+                    this.FulfillmentType.Equals(input.FulfillmentType))
                 ) && 
                 (
-                    this.Page == other.Page ||
-                    this.Page != null &&
-                    this.Page.Equals(other.Page)
+                    this.Page == input.Page ||
+                    (this.Page != null &&
+                    this.Page.Equals(input.Page))
                 );
         }
 
@@ -262,22 +260,20 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Statuses != null)
-                    hash = hash * 59 + this.Statuses.GetHashCode();
+                    hashCode = hashCode * 59 + this.Statuses.GetHashCode();
                 if (this.MerchantOrderNos != null)
-                    hash = hash * 59 + this.MerchantOrderNos.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantOrderNos.GetHashCode();
                 if (this.ExcludeMarketplaceFulfilledOrdersAndLines != null)
-                    hash = hash * 59 + this.ExcludeMarketplaceFulfilledOrdersAndLines.GetHashCode();
+                    hashCode = hashCode * 59 + this.ExcludeMarketplaceFulfilledOrdersAndLines.GetHashCode();
                 if (this.FulfillmentType != null)
-                    hash = hash * 59 + this.FulfillmentType.GetHashCode();
+                    hashCode = hashCode * 59 + this.FulfillmentType.GetHashCode();
                 if (this.Page != null)
-                    hash = hash * 59 + this.Page.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Page.GetHashCode();
+                return hashCode;
             }
         }
 

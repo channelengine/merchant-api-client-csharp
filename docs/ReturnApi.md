@@ -32,11 +32,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ReturnApi();
             var model = new ChannelReturnRequest(); // ChannelReturnRequest | 
@@ -99,11 +98,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ReturnApi();
             var model = new MerchantReturnRequest(); // MerchantReturnRequest | 
@@ -166,11 +164,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ReturnApi();
             var createdSince = 2013-10-20T19:20:30+01:00;  // DateTime? | 
@@ -233,11 +230,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ReturnApi();
             var createdSince = 2013-10-20T19:20:30+01:00;  // DateTime? | 

@@ -129,45 +129,43 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ExtraDataItem);
+            return this.Equals(input as ExtraDataItem);
         }
 
         /// <summary>
         /// Returns true if ExtraDataItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of ExtraDataItem to be compared</param>
+        /// <param name="input">Instance of ExtraDataItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExtraDataItem other)
+        public bool Equals(ExtraDataItem input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == other.Key ||
-                    this.Key != null &&
-                    this.Key.Equals(other.Key)
+                    this.Key == input.Key ||
+                    (this.Key != null &&
+                    this.Key.Equals(input.Key))
                 ) && 
                 (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.IsPublic == other.IsPublic ||
-                    this.IsPublic != null &&
-                    this.IsPublic.Equals(other.IsPublic)
+                    this.IsPublic == input.IsPublic ||
+                    (this.IsPublic != null &&
+                    this.IsPublic.Equals(input.IsPublic))
                 );
         }
 
@@ -177,20 +175,18 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Key != null)
-                    hash = hash * 59 + this.Key.GetHashCode();
+                    hashCode = hashCode * 59 + this.Key.GetHashCode();
                 if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.IsPublic != null)
-                    hash = hash * 59 + this.IsPublic.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.IsPublic.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -287,130 +287,128 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ChannelProductResponse);
+            return this.Equals(input as ChannelProductResponse);
         }
 
         /// <summary>
         /// Returns true if ChannelProductResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of ChannelProductResponse to be compared</param>
+        /// <param name="input">Instance of ChannelProductResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChannelProductResponse other)
+        public bool Equals(ChannelProductResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.ParentChannelProductNo == other.ParentChannelProductNo ||
-                    this.ParentChannelProductNo != null &&
-                    this.ParentChannelProductNo.Equals(other.ParentChannelProductNo)
+                    this.ParentChannelProductNo == input.ParentChannelProductNo ||
+                    (this.ParentChannelProductNo != null &&
+                    this.ParentChannelProductNo.Equals(input.ParentChannelProductNo))
                 ) && 
                 (
-                    this.MappedFields == other.MappedFields ||
+                    this.MappedFields == input.MappedFields ||
                     this.MappedFields != null &&
-                    this.MappedFields.SequenceEqual(other.MappedFields)
+                    this.MappedFields.SequenceEqual(input.MappedFields)
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Brand == other.Brand ||
-                    this.Brand != null &&
-                    this.Brand.Equals(other.Brand)
+                    this.Brand == input.Brand ||
+                    (this.Brand != null &&
+                    this.Brand.Equals(input.Brand))
                 ) && 
                 (
-                    this.Size == other.Size ||
-                    this.Size != null &&
-                    this.Size.Equals(other.Size)
+                    this.Size == input.Size ||
+                    (this.Size != null &&
+                    this.Size.Equals(input.Size))
                 ) && 
                 (
-                    this.Color == other.Color ||
-                    this.Color != null &&
-                    this.Color.Equals(other.Color)
+                    this.Color == input.Color ||
+                    (this.Color != null &&
+                    this.Color.Equals(input.Color))
                 ) && 
                 (
-                    this.Ean == other.Ean ||
-                    this.Ean != null &&
-                    this.Ean.Equals(other.Ean)
+                    this.Ean == input.Ean ||
+                    (this.Ean != null &&
+                    this.Ean.Equals(input.Ean))
                 ) && 
                 (
-                    this.ManufacturerProductNumber == other.ManufacturerProductNumber ||
-                    this.ManufacturerProductNumber != null &&
-                    this.ManufacturerProductNumber.Equals(other.ManufacturerProductNumber)
+                    this.ManufacturerProductNumber == input.ManufacturerProductNumber ||
+                    (this.ManufacturerProductNumber != null &&
+                    this.ManufacturerProductNumber.Equals(input.ManufacturerProductNumber))
                 ) && 
                 (
-                    this.Stock == other.Stock ||
-                    this.Stock != null &&
-                    this.Stock.Equals(other.Stock)
+                    this.Stock == input.Stock ||
+                    (this.Stock != null &&
+                    this.Stock.Equals(input.Stock))
                 ) && 
                 (
-                    this.Price == other.Price ||
-                    this.Price != null &&
-                    this.Price.Equals(other.Price)
+                    this.Price == input.Price ||
+                    (this.Price != null &&
+                    this.Price.Equals(input.Price))
                 ) && 
                 (
-                    this.MSRP == other.MSRP ||
-                    this.MSRP != null &&
-                    this.MSRP.Equals(other.MSRP)
+                    this.MSRP == input.MSRP ||
+                    (this.MSRP != null &&
+                    this.MSRP.Equals(input.MSRP))
                 ) && 
                 (
-                    this.PurchasePrice == other.PurchasePrice ||
-                    this.PurchasePrice != null &&
-                    this.PurchasePrice.Equals(other.PurchasePrice)
+                    this.PurchasePrice == input.PurchasePrice ||
+                    (this.PurchasePrice != null &&
+                    this.PurchasePrice.Equals(input.PurchasePrice))
                 ) && 
                 (
-                    this.VatRateType == other.VatRateType ||
-                    this.VatRateType != null &&
-                    this.VatRateType.Equals(other.VatRateType)
+                    this.VatRateType == input.VatRateType ||
+                    (this.VatRateType != null &&
+                    this.VatRateType.Equals(input.VatRateType))
                 ) && 
                 (
-                    this.ShippingCost == other.ShippingCost ||
-                    this.ShippingCost != null &&
-                    this.ShippingCost.Equals(other.ShippingCost)
+                    this.ShippingCost == input.ShippingCost ||
+                    (this.ShippingCost != null &&
+                    this.ShippingCost.Equals(input.ShippingCost))
                 ) && 
                 (
-                    this.ShippingTime == other.ShippingTime ||
-                    this.ShippingTime != null &&
-                    this.ShippingTime.Equals(other.ShippingTime)
+                    this.ShippingTime == input.ShippingTime ||
+                    (this.ShippingTime != null &&
+                    this.ShippingTime.Equals(input.ShippingTime))
                 ) && 
                 (
-                    this.Url == other.Url ||
-                    this.Url != null &&
-                    this.Url.Equals(other.Url)
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.ImageUrl == other.ImageUrl ||
-                    this.ImageUrl != null &&
-                    this.ImageUrl.Equals(other.ImageUrl)
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
-                    this.CategoryTrail == other.CategoryTrail ||
-                    this.CategoryTrail != null &&
-                    this.CategoryTrail.Equals(other.CategoryTrail)
+                    this.CategoryTrail == input.CategoryTrail ||
+                    (this.CategoryTrail != null &&
+                    this.CategoryTrail.Equals(input.CategoryTrail))
                 ) && 
                 (
-                    this.ExtraData == other.ExtraData ||
+                    this.ExtraData == input.ExtraData ||
                     this.ExtraData != null &&
-                    this.ExtraData.SequenceEqual(other.ExtraData)
+                    this.ExtraData.SequenceEqual(input.ExtraData)
                 );
         }
 
@@ -420,54 +418,52 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.ParentChannelProductNo != null)
-                    hash = hash * 59 + this.ParentChannelProductNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ParentChannelProductNo.GetHashCode();
                 if (this.MappedFields != null)
-                    hash = hash * 59 + this.MappedFields.GetHashCode();
+                    hashCode = hashCode * 59 + this.MappedFields.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Brand != null)
-                    hash = hash * 59 + this.Brand.GetHashCode();
+                    hashCode = hashCode * 59 + this.Brand.GetHashCode();
                 if (this.Size != null)
-                    hash = hash * 59 + this.Size.GetHashCode();
+                    hashCode = hashCode * 59 + this.Size.GetHashCode();
                 if (this.Color != null)
-                    hash = hash * 59 + this.Color.GetHashCode();
+                    hashCode = hashCode * 59 + this.Color.GetHashCode();
                 if (this.Ean != null)
-                    hash = hash * 59 + this.Ean.GetHashCode();
+                    hashCode = hashCode * 59 + this.Ean.GetHashCode();
                 if (this.ManufacturerProductNumber != null)
-                    hash = hash * 59 + this.ManufacturerProductNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.ManufacturerProductNumber.GetHashCode();
                 if (this.Stock != null)
-                    hash = hash * 59 + this.Stock.GetHashCode();
+                    hashCode = hashCode * 59 + this.Stock.GetHashCode();
                 if (this.Price != null)
-                    hash = hash * 59 + this.Price.GetHashCode();
+                    hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.MSRP != null)
-                    hash = hash * 59 + this.MSRP.GetHashCode();
+                    hashCode = hashCode * 59 + this.MSRP.GetHashCode();
                 if (this.PurchasePrice != null)
-                    hash = hash * 59 + this.PurchasePrice.GetHashCode();
+                    hashCode = hashCode * 59 + this.PurchasePrice.GetHashCode();
                 if (this.VatRateType != null)
-                    hash = hash * 59 + this.VatRateType.GetHashCode();
+                    hashCode = hashCode * 59 + this.VatRateType.GetHashCode();
                 if (this.ShippingCost != null)
-                    hash = hash * 59 + this.ShippingCost.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingCost.GetHashCode();
                 if (this.ShippingTime != null)
-                    hash = hash * 59 + this.ShippingTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.ShippingTime.GetHashCode();
                 if (this.Url != null)
-                    hash = hash * 59 + this.Url.GetHashCode();
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.ImageUrl != null)
-                    hash = hash * 59 + this.ImageUrl.GetHashCode();
+                    hashCode = hashCode * 59 + this.ImageUrl.GetHashCode();
                 if (this.CategoryTrail != null)
-                    hash = hash * 59 + this.CategoryTrail.GetHashCode();
+                    hashCode = hashCode * 59 + this.CategoryTrail.GetHashCode();
                 if (this.ExtraData != null)
-                    hash = hash * 59 + this.ExtraData.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
+                return hashCode;
             }
         }
 

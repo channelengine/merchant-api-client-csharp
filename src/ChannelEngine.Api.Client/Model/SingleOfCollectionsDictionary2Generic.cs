@@ -106,50 +106,48 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SingleOfCollectionsDictionary2Generic);
+            return this.Equals(input as SingleOfCollectionsDictionary2Generic);
         }
 
         /// <summary>
         /// Returns true if SingleOfCollectionsDictionary2Generic instances are equal
         /// </summary>
-        /// <param name="other">Instance of SingleOfCollectionsDictionary2Generic to be compared</param>
+        /// <param name="input">Instance of SingleOfCollectionsDictionary2Generic to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SingleOfCollectionsDictionary2Generic other)
+        public bool Equals(SingleOfCollectionsDictionary2Generic input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Content == other.Content ||
+                    this.Content == input.Content ||
                     this.Content != null &&
-                    this.Content.SequenceEqual(other.Content)
+                    this.Content.SequenceEqual(input.Content)
                 ) && 
                 (
-                    this.StatusCode == other.StatusCode ||
-                    this.StatusCode != null &&
-                    this.StatusCode.Equals(other.StatusCode)
+                    this.StatusCode == input.StatusCode ||
+                    (this.StatusCode != null &&
+                    this.StatusCode.Equals(input.StatusCode))
                 ) && 
                 (
-                    this.Success == other.Success ||
-                    this.Success != null &&
-                    this.Success.Equals(other.Success)
+                    this.Success == input.Success ||
+                    (this.Success != null &&
+                    this.Success.Equals(input.Success))
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 ) && 
                 (
-                    this.ValidationErrors == other.ValidationErrors ||
+                    this.ValidationErrors == input.ValidationErrors ||
                     this.ValidationErrors != null &&
-                    this.ValidationErrors.SequenceEqual(other.ValidationErrors)
+                    this.ValidationErrors.SequenceEqual(input.ValidationErrors)
                 );
         }
 
@@ -159,22 +157,20 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Content != null)
-                    hash = hash * 59 + this.Content.GetHashCode();
+                    hashCode = hashCode * 59 + this.Content.GetHashCode();
                 if (this.StatusCode != null)
-                    hash = hash * 59 + this.StatusCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 if (this.Success != null)
-                    hash = hash * 59 + this.Success.GetHashCode();
+                    hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.ValidationErrors != null)
-                    hash = hash * 59 + this.ValidationErrors.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ValidationErrors.GetHashCode();
+                return hashCode;
             }
         }
 

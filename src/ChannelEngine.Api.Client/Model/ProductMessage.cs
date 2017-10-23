@@ -97,45 +97,43 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ProductMessage);
+            return this.Equals(input as ProductMessage);
         }
 
         /// <summary>
         /// Returns true if ProductMessage instances are equal
         /// </summary>
-        /// <param name="other">Instance of ProductMessage to be compared</param>
+        /// <param name="input">Instance of ProductMessage to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProductMessage other)
+        public bool Equals(ProductMessage input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Reference == other.Reference ||
-                    this.Reference != null &&
-                    this.Reference.Equals(other.Reference)
+                    this.Reference == input.Reference ||
+                    (this.Reference != null &&
+                    this.Reference.Equals(input.Reference))
                 ) && 
                 (
-                    this.Warnings == other.Warnings ||
+                    this.Warnings == input.Warnings ||
                     this.Warnings != null &&
-                    this.Warnings.SequenceEqual(other.Warnings)
+                    this.Warnings.SequenceEqual(input.Warnings)
                 ) && 
                 (
-                    this.Errors == other.Errors ||
+                    this.Errors == input.Errors ||
                     this.Errors != null &&
-                    this.Errors.SequenceEqual(other.Errors)
+                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -145,20 +143,18 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Reference != null)
-                    hash = hash * 59 + this.Reference.GetHashCode();
+                    hashCode = hashCode * 59 + this.Reference.GetHashCode();
                 if (this.Warnings != null)
-                    hash = hash * 59 + this.Warnings.GetHashCode();
+                    hashCode = hashCode * 59 + this.Warnings.GetHashCode();
                 if (this.Errors != null)
-                    hash = hash * 59 + this.Errors.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                return hashCode;
             }
         }
 

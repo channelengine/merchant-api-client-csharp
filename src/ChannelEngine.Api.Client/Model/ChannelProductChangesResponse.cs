@@ -88,40 +88,38 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ChannelProductChangesResponse);
+            return this.Equals(input as ChannelProductChangesResponse);
         }
 
         /// <summary>
         /// Returns true if ChannelProductChangesResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of ChannelProductChangesResponse to be compared</param>
+        /// <param name="input">Instance of ChannelProductChangesResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChannelProductChangesResponse other)
+        public bool Equals(ChannelProductChangesResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ToBeCreated == other.ToBeCreated ||
+                    this.ToBeCreated == input.ToBeCreated ||
                     this.ToBeCreated != null &&
-                    this.ToBeCreated.SequenceEqual(other.ToBeCreated)
+                    this.ToBeCreated.SequenceEqual(input.ToBeCreated)
                 ) && 
                 (
-                    this.ToBeUpdated == other.ToBeUpdated ||
+                    this.ToBeUpdated == input.ToBeUpdated ||
                     this.ToBeUpdated != null &&
-                    this.ToBeUpdated.SequenceEqual(other.ToBeUpdated)
+                    this.ToBeUpdated.SequenceEqual(input.ToBeUpdated)
                 ) && 
                 (
-                    this.ToBeRemoved == other.ToBeRemoved ||
+                    this.ToBeRemoved == input.ToBeRemoved ||
                     this.ToBeRemoved != null &&
-                    this.ToBeRemoved.SequenceEqual(other.ToBeRemoved)
+                    this.ToBeRemoved.SequenceEqual(input.ToBeRemoved)
                 );
         }
 
@@ -131,18 +129,16 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ToBeCreated != null)
-                    hash = hash * 59 + this.ToBeCreated.GetHashCode();
+                    hashCode = hashCode * 59 + this.ToBeCreated.GetHashCode();
                 if (this.ToBeUpdated != null)
-                    hash = hash * 59 + this.ToBeUpdated.GetHashCode();
+                    hashCode = hashCode * 59 + this.ToBeUpdated.GetHashCode();
                 if (this.ToBeRemoved != null)
-                    hash = hash * 59 + this.ToBeRemoved.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ToBeRemoved.GetHashCode();
+                return hashCode;
             }
         }
 

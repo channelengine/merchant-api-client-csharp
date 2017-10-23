@@ -314,15 +314,9 @@ namespace ChannelEngine.Api.Client.Api
         /// <returns></returns>
         public OrderApi(String basePath)
         {
-            this.Configuration = new Configuration(new ApiClient(basePath));
+            this.Configuration = new Configuration { BasePath = basePath };
 
             ExceptionFactory = ChannelEngine.Api.Client.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -339,12 +333,6 @@ namespace ChannelEngine.Api.Client.Api
                 this.Configuration = configuration;
 
             ExceptionFactory = ChannelEngine.Api.Client.Client.Configuration.DefaultExceptionFactory;
-
-            // ensure API client has configuration ready
-            if (Configuration.ApiClient.Configuration == null)
-            {
-                this.Configuration.ApiClient.Configuration = this.Configuration;
-            }
         }
 
         /// <summary>
@@ -393,9 +381,9 @@ namespace ChannelEngine.Api.Client.Api
         /// </summary>
         /// <returns>Dictionary of HTTP header</returns>
         [Obsolete("DefaultHeader is deprecated, please use Configuration.DefaultHeader instead.")]
-        public Dictionary<String, String> DefaultHeader()
+        public IDictionary<String, String> DefaultHeader()
         {
-            return this.Configuration.DefaultHeader;
+            return new ReadOnlyDictionary<string, string>(this.Configuration.DefaultHeader);
         }
 
         /// <summary>
@@ -436,7 +424,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/acknowledge";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -473,9 +461,8 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -522,7 +509,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/acknowledge";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -559,7 +546,7 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request
@@ -606,7 +593,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -641,9 +628,8 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -690,7 +676,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -725,7 +711,7 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request
@@ -777,7 +763,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -797,18 +783,17 @@ namespace ChannelEngine.Api.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (filterStatuses != null) localVarQueryParams.Add("filter.statuses", Configuration.ApiClient.ParameterToString(filterStatuses)); // query parameter
-            if (filterMerchantOrderNos != null) localVarQueryParams.Add("filter.merchantOrderNos", Configuration.ApiClient.ParameterToString(filterMerchantOrderNos)); // query parameter
-            if (filterExcludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.Add("filter.excludeMarketplaceFulfilledOrdersAndLines", Configuration.ApiClient.ParameterToString(filterExcludeMarketplaceFulfilledOrdersAndLines)); // query parameter
-            if (filterFulfillmentType != null) localVarQueryParams.Add("filter.fulfillmentType", Configuration.ApiClient.ParameterToString(filterFulfillmentType)); // query parameter
-            if (filterPage != null) localVarQueryParams.Add("filter.page", Configuration.ApiClient.ParameterToString(filterPage)); // query parameter
+            if (filterStatuses != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.statuses", filterStatuses)); // query parameter
+            if (filterMerchantOrderNos != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.merchantOrderNos", filterMerchantOrderNos)); // query parameter
+            if (filterExcludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.excludeMarketplaceFulfilledOrdersAndLines", filterExcludeMarketplaceFulfilledOrdersAndLines)); // query parameter
+            if (filterFulfillmentType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.fulfillmentType", filterFulfillmentType)); // query parameter
+            if (filterPage != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -860,7 +845,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -880,16 +865,16 @@ namespace ChannelEngine.Api.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (filterStatuses != null) localVarQueryParams.Add("filter.statuses", Configuration.ApiClient.ParameterToString(filterStatuses)); // query parameter
-            if (filterMerchantOrderNos != null) localVarQueryParams.Add("filter.merchantOrderNos", Configuration.ApiClient.ParameterToString(filterMerchantOrderNos)); // query parameter
-            if (filterExcludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.Add("filter.excludeMarketplaceFulfilledOrdersAndLines", Configuration.ApiClient.ParameterToString(filterExcludeMarketplaceFulfilledOrdersAndLines)); // query parameter
-            if (filterFulfillmentType != null) localVarQueryParams.Add("filter.fulfillmentType", Configuration.ApiClient.ParameterToString(filterFulfillmentType)); // query parameter
-            if (filterPage != null) localVarQueryParams.Add("filter.page", Configuration.ApiClient.ParameterToString(filterPage)); // query parameter
+            if (filterStatuses != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.statuses", filterStatuses)); // query parameter
+            if (filterMerchantOrderNos != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.merchantOrderNos", filterMerchantOrderNos)); // query parameter
+            if (filterExcludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.excludeMarketplaceFulfilledOrdersAndLines", filterExcludeMarketplaceFulfilledOrdersAndLines)); // query parameter
+            if (filterFulfillmentType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.fulfillmentType", filterFulfillmentType)); // query parameter
+            if (filterPage != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request
@@ -931,7 +916,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/new";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -955,9 +940,8 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -999,7 +983,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/new";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1023,7 +1007,7 @@ namespace ChannelEngine.Api.Client.Api
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request
@@ -1072,7 +1056,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/{merchantOrderNo}/invoice";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1092,14 +1076,13 @@ namespace ChannelEngine.Api.Client.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (merchantOrderNo != null) localVarPathParams.Add("merchantOrderNo", Configuration.ApiClient.ParameterToString(merchantOrderNo)); // path parameter
-            if (useCustomerCulture != null) localVarQueryParams.Add("useCustomerCulture", Configuration.ApiClient.ParameterToString(useCustomerCulture)); // query parameter
+            if (useCustomerCulture != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "useCustomerCulture", useCustomerCulture)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -1148,7 +1131,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/{merchantOrderNo}/invoice";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1168,12 +1151,12 @@ namespace ChannelEngine.Api.Client.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (merchantOrderNo != null) localVarPathParams.Add("merchantOrderNo", Configuration.ApiClient.ParameterToString(merchantOrderNo)); // path parameter
-            if (useCustomerCulture != null) localVarQueryParams.Add("useCustomerCulture", Configuration.ApiClient.ParameterToString(useCustomerCulture)); // query parameter
+            if (useCustomerCulture != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "useCustomerCulture", useCustomerCulture)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request
@@ -1222,7 +1205,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/{merchantOrderNo}/packingslip";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1242,14 +1225,13 @@ namespace ChannelEngine.Api.Client.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (merchantOrderNo != null) localVarPathParams.Add("merchantOrderNo", Configuration.ApiClient.ParameterToString(merchantOrderNo)); // path parameter
-            if (useCustomerCulture != null) localVarQueryParams.Add("useCustomerCulture", Configuration.ApiClient.ParameterToString(useCustomerCulture)); // query parameter
+            if (useCustomerCulture != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "useCustomerCulture", useCustomerCulture)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
-
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
@@ -1298,7 +1280,7 @@ namespace ChannelEngine.Api.Client.Api
 
             var localVarPath = "/v2/orders/{merchantOrderNo}/packingslip";
             var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
@@ -1318,12 +1300,12 @@ namespace ChannelEngine.Api.Client.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (merchantOrderNo != null) localVarPathParams.Add("merchantOrderNo", Configuration.ApiClient.ParameterToString(merchantOrderNo)); // path parameter
-            if (useCustomerCulture != null) localVarQueryParams.Add("useCustomerCulture", Configuration.ApiClient.ParameterToString(useCustomerCulture)); // query parameter
+            if (useCustomerCulture != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "useCustomerCulture", useCustomerCulture)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("apikey")))
             {
-                localVarQueryParams["apikey"] = Configuration.GetApiKeyWithPrefix("apikey");
+                localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", Configuration.GetApiKeyWithPrefix("apikey")));
             }
 
             // make the HTTP request

@@ -294,70 +294,68 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MerchantOrderLineResponse);
+            return this.Equals(input as MerchantOrderLineResponse);
         }
 
         /// <summary>
         /// Returns true if MerchantOrderLineResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of MerchantOrderLineResponse to be compared</param>
+        /// <param name="input">Instance of MerchantOrderLineResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantOrderLineResponse other)
+        public bool Equals(MerchantOrderLineResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.IsFulfillmentByMarketplace == other.IsFulfillmentByMarketplace ||
-                    this.IsFulfillmentByMarketplace != null &&
-                    this.IsFulfillmentByMarketplace.Equals(other.IsFulfillmentByMarketplace)
+                    this.IsFulfillmentByMarketplace == input.IsFulfillmentByMarketplace ||
+                    (this.IsFulfillmentByMarketplace != null &&
+                    this.IsFulfillmentByMarketplace.Equals(input.IsFulfillmentByMarketplace))
                 ) && 
                 (
-                    this.MerchantProductNo == other.MerchantProductNo ||
-                    this.MerchantProductNo != null &&
-                    this.MerchantProductNo.Equals(other.MerchantProductNo)
+                    this.MerchantProductNo == input.MerchantProductNo ||
+                    (this.MerchantProductNo != null &&
+                    this.MerchantProductNo.Equals(input.MerchantProductNo))
                 ) && 
                 (
-                    this.ChannelProductNo == other.ChannelProductNo ||
-                    this.ChannelProductNo != null &&
-                    this.ChannelProductNo.Equals(other.ChannelProductNo)
+                    this.ChannelProductNo == input.ChannelProductNo ||
+                    (this.ChannelProductNo != null &&
+                    this.ChannelProductNo.Equals(input.ChannelProductNo))
                 ) && 
                 (
-                    this.Quantity == other.Quantity ||
-                    this.Quantity != null &&
-                    this.Quantity.Equals(other.Quantity)
+                    this.Quantity == input.Quantity ||
+                    (this.Quantity != null &&
+                    this.Quantity.Equals(input.Quantity))
                 ) && 
                 (
-                    this.UnitPriceInclVat == other.UnitPriceInclVat ||
-                    this.UnitPriceInclVat != null &&
-                    this.UnitPriceInclVat.Equals(other.UnitPriceInclVat)
+                    this.UnitPriceInclVat == input.UnitPriceInclVat ||
+                    (this.UnitPriceInclVat != null &&
+                    this.UnitPriceInclVat.Equals(input.UnitPriceInclVat))
                 ) && 
                 (
-                    this.FeeFixed == other.FeeFixed ||
-                    this.FeeFixed != null &&
-                    this.FeeFixed.Equals(other.FeeFixed)
+                    this.FeeFixed == input.FeeFixed ||
+                    (this.FeeFixed != null &&
+                    this.FeeFixed.Equals(input.FeeFixed))
                 ) && 
                 (
-                    this.FeeRate == other.FeeRate ||
-                    this.FeeRate != null &&
-                    this.FeeRate.Equals(other.FeeRate)
+                    this.FeeRate == input.FeeRate ||
+                    (this.FeeRate != null &&
+                    this.FeeRate.Equals(input.FeeRate))
                 ) && 
                 (
-                    this.Condition == other.Condition ||
-                    this.Condition != null &&
-                    this.Condition.Equals(other.Condition)
+                    this.Condition == input.Condition ||
+                    (this.Condition != null &&
+                    this.Condition.Equals(input.Condition))
                 );
         }
 
@@ -367,30 +365,28 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.IsFulfillmentByMarketplace != null)
-                    hash = hash * 59 + this.IsFulfillmentByMarketplace.GetHashCode();
+                    hashCode = hashCode * 59 + this.IsFulfillmentByMarketplace.GetHashCode();
                 if (this.MerchantProductNo != null)
-                    hash = hash * 59 + this.MerchantProductNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
                 if (this.ChannelProductNo != null)
-                    hash = hash * 59 + this.ChannelProductNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelProductNo.GetHashCode();
                 if (this.Quantity != null)
-                    hash = hash * 59 + this.Quantity.GetHashCode();
+                    hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 if (this.UnitPriceInclVat != null)
-                    hash = hash * 59 + this.UnitPriceInclVat.GetHashCode();
+                    hashCode = hashCode * 59 + this.UnitPriceInclVat.GetHashCode();
                 if (this.FeeFixed != null)
-                    hash = hash * 59 + this.FeeFixed.GetHashCode();
+                    hashCode = hashCode * 59 + this.FeeFixed.GetHashCode();
                 if (this.FeeRate != null)
-                    hash = hash * 59 + this.FeeRate.GetHashCode();
+                    hashCode = hashCode * 59 + this.FeeRate.GetHashCode();
                 if (this.Condition != null)
-                    hash = hash * 59 + this.Condition.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Condition.GetHashCode();
+                return hashCode;
             }
         }
 

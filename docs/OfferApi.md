@@ -28,9 +28,9 @@ namespace Example
         public void main()
         {
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new OfferApi();
             var updates = new List<MerchantStockPriceUpdateRequest>(); // List<MerchantStockPriceUpdateRequest> | References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.

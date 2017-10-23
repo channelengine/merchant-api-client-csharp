@@ -195,85 +195,83 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as EntitiesAddressModels);
+            return this.Equals(input as EntitiesAddressModels);
         }
 
         /// <summary>
         /// Returns true if EntitiesAddressModels instances are equal
         /// </summary>
-        /// <param name="other">Instance of EntitiesAddressModels to be compared</param>
+        /// <param name="input">Instance of EntitiesAddressModels to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(EntitiesAddressModels other)
+        public bool Equals(EntitiesAddressModels input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Gender == other.Gender ||
-                    this.Gender != null &&
-                    this.Gender.Equals(other.Gender)
+                    this.Gender == input.Gender ||
+                    (this.Gender != null &&
+                    this.Gender.Equals(input.Gender))
                 ) && 
                 (
-                    this.CompanyName == other.CompanyName ||
-                    this.CompanyName != null &&
-                    this.CompanyName.Equals(other.CompanyName)
+                    this.CompanyName == input.CompanyName ||
+                    (this.CompanyName != null &&
+                    this.CompanyName.Equals(input.CompanyName))
                 ) && 
                 (
-                    this.FirstName == other.FirstName ||
-                    this.FirstName != null &&
-                    this.FirstName.Equals(other.FirstName)
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.StreetName == other.StreetName ||
-                    this.StreetName != null &&
-                    this.StreetName.Equals(other.StreetName)
+                    this.StreetName == input.StreetName ||
+                    (this.StreetName != null &&
+                    this.StreetName.Equals(input.StreetName))
                 ) && 
                 (
-                    this.HouseNr == other.HouseNr ||
-                    this.HouseNr != null &&
-                    this.HouseNr.Equals(other.HouseNr)
+                    this.HouseNr == input.HouseNr ||
+                    (this.HouseNr != null &&
+                    this.HouseNr.Equals(input.HouseNr))
                 ) && 
                 (
-                    this.HouseNrAddition == other.HouseNrAddition ||
-                    this.HouseNrAddition != null &&
-                    this.HouseNrAddition.Equals(other.HouseNrAddition)
+                    this.HouseNrAddition == input.HouseNrAddition ||
+                    (this.HouseNrAddition != null &&
+                    this.HouseNrAddition.Equals(input.HouseNrAddition))
                 ) && 
                 (
-                    this.ZipCode == other.ZipCode ||
-                    this.ZipCode != null &&
-                    this.ZipCode.Equals(other.ZipCode)
+                    this.ZipCode == input.ZipCode ||
+                    (this.ZipCode != null &&
+                    this.ZipCode.Equals(input.ZipCode))
                 ) && 
                 (
-                    this.City == other.City ||
-                    this.City != null &&
-                    this.City.Equals(other.City)
+                    this.City == input.City ||
+                    (this.City != null &&
+                    this.City.Equals(input.City))
                 ) && 
                 (
-                    this.Region == other.Region ||
-                    this.Region != null &&
-                    this.Region.Equals(other.Region)
+                    this.Region == input.Region ||
+                    (this.Region != null &&
+                    this.Region.Equals(input.Region))
                 ) && 
                 (
-                    this.CountryIso == other.CountryIso ||
-                    this.CountryIso != null &&
-                    this.CountryIso.Equals(other.CountryIso)
+                    this.CountryIso == input.CountryIso ||
+                    (this.CountryIso != null &&
+                    this.CountryIso.Equals(input.CountryIso))
                 ) && 
                 (
-                    this.Original == other.Original ||
-                    this.Original != null &&
-                    this.Original.Equals(other.Original)
+                    this.Original == input.Original ||
+                    (this.Original != null &&
+                    this.Original.Equals(input.Original))
                 );
         }
 
@@ -283,36 +281,34 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Gender != null)
-                    hash = hash * 59 + this.Gender.GetHashCode();
+                    hashCode = hashCode * 59 + this.Gender.GetHashCode();
                 if (this.CompanyName != null)
-                    hash = hash * 59 + this.CompanyName.GetHashCode();
+                    hashCode = hashCode * 59 + this.CompanyName.GetHashCode();
                 if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.StreetName != null)
-                    hash = hash * 59 + this.StreetName.GetHashCode();
+                    hashCode = hashCode * 59 + this.StreetName.GetHashCode();
                 if (this.HouseNr != null)
-                    hash = hash * 59 + this.HouseNr.GetHashCode();
+                    hashCode = hashCode * 59 + this.HouseNr.GetHashCode();
                 if (this.HouseNrAddition != null)
-                    hash = hash * 59 + this.HouseNrAddition.GetHashCode();
+                    hashCode = hashCode * 59 + this.HouseNrAddition.GetHashCode();
                 if (this.ZipCode != null)
-                    hash = hash * 59 + this.ZipCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ZipCode.GetHashCode();
                 if (this.City != null)
-                    hash = hash * 59 + this.City.GetHashCode();
+                    hashCode = hashCode * 59 + this.City.GetHashCode();
                 if (this.Region != null)
-                    hash = hash * 59 + this.Region.GetHashCode();
+                    hashCode = hashCode * 59 + this.Region.GetHashCode();
                 if (this.CountryIso != null)
-                    hash = hash * 59 + this.CountryIso.GetHashCode();
+                    hashCode = hashCode * 59 + this.CountryIso.GetHashCode();
                 if (this.Original != null)
-                    hash = hash * 59 + this.Original.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Original.GetHashCode();
+                return hashCode;
             }
         }
 

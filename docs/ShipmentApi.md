@@ -31,11 +31,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ShipmentApi();
             var model = new MerchantShipmentRequest(); // MerchantShipmentRequest | 
@@ -98,11 +97,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ShipmentApi();
             var createdSince = 2013-10-20T19:20:30+01:00;  // DateTime? | 
@@ -165,11 +163,10 @@ namespace Example
     {
         public void main()
         {
-            
             // Configure API key authorization: apikey
-            Configuration.Default.ApiKey.Add("apikey", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("apikey", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("apikey", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("apikey", "Bearer");
 
             var apiInstance = new ShipmentApi();
             var merchantShipmentNo = merchantShipmentNo_example;  // string | The merchant's shipment reference

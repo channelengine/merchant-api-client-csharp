@@ -212,65 +212,63 @@ namespace ChannelEngine.Api.Client.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ChannelReturnResponse);
+            return this.Equals(input as ChannelReturnResponse);
         }
 
         /// <summary>
         /// Returns true if ChannelReturnResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of ChannelReturnResponse to be compared</param>
+        /// <param name="input">Instance of ChannelReturnResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ChannelReturnResponse other)
+        public bool Equals(ChannelReturnResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ChannelReturnNo == other.ChannelReturnNo ||
-                    this.ChannelReturnNo != null &&
-                    this.ChannelReturnNo.Equals(other.ChannelReturnNo)
+                    this.ChannelReturnNo == input.ChannelReturnNo ||
+                    (this.ChannelReturnNo != null &&
+                    this.ChannelReturnNo.Equals(input.ChannelReturnNo))
                 ) && 
                 (
-                    this.ChannelOrderNo == other.ChannelOrderNo ||
-                    this.ChannelOrderNo != null &&
-                    this.ChannelOrderNo.Equals(other.ChannelOrderNo)
+                    this.ChannelOrderNo == input.ChannelOrderNo ||
+                    (this.ChannelOrderNo != null &&
+                    this.ChannelOrderNo.Equals(input.ChannelOrderNo))
                 ) && 
                 (
-                    this.Lines == other.Lines ||
+                    this.Lines == input.Lines ||
                     this.Lines != null &&
-                    this.Lines.SequenceEqual(other.Lines)
+                    this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 ) && 
                 (
-                    this.CustomerComment == other.CustomerComment ||
-                    this.CustomerComment != null &&
-                    this.CustomerComment.Equals(other.CustomerComment)
+                    this.CustomerComment == input.CustomerComment ||
+                    (this.CustomerComment != null &&
+                    this.CustomerComment.Equals(input.CustomerComment))
                 ) && 
                 (
-                    this.MerchantComment == other.MerchantComment ||
-                    this.MerchantComment != null &&
-                    this.MerchantComment.Equals(other.MerchantComment)
+                    this.MerchantComment == input.MerchantComment ||
+                    (this.MerchantComment != null &&
+                    this.MerchantComment.Equals(input.MerchantComment))
                 ) && 
                 (
-                    this.RefundInclVat == other.RefundInclVat ||
-                    this.RefundInclVat != null &&
-                    this.RefundInclVat.Equals(other.RefundInclVat)
+                    this.RefundInclVat == input.RefundInclVat ||
+                    (this.RefundInclVat != null &&
+                    this.RefundInclVat.Equals(input.RefundInclVat))
                 ) && 
                 (
-                    this.RefundExclVat == other.RefundExclVat ||
-                    this.RefundExclVat != null &&
-                    this.RefundExclVat.Equals(other.RefundExclVat)
+                    this.RefundExclVat == input.RefundExclVat ||
+                    (this.RefundExclVat != null &&
+                    this.RefundExclVat.Equals(input.RefundExclVat))
                 );
         }
 
@@ -280,28 +278,26 @@ namespace ChannelEngine.Api.Client.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ChannelReturnNo != null)
-                    hash = hash * 59 + this.ChannelReturnNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelReturnNo.GetHashCode();
                 if (this.ChannelOrderNo != null)
-                    hash = hash * 59 + this.ChannelOrderNo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.Lines != null)
-                    hash = hash * 59 + this.Lines.GetHashCode();
+                    hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.CustomerComment != null)
-                    hash = hash * 59 + this.CustomerComment.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomerComment.GetHashCode();
                 if (this.MerchantComment != null)
-                    hash = hash * 59 + this.MerchantComment.GetHashCode();
+                    hashCode = hashCode * 59 + this.MerchantComment.GetHashCode();
                 if (this.RefundInclVat != null)
-                    hash = hash * 59 + this.RefundInclVat.GetHashCode();
+                    hashCode = hashCode * 59 + this.RefundInclVat.GetHashCode();
                 if (this.RefundExclVat != null)
-                    hash = hash * 59 + this.RefundExclVat.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.RefundExclVat.GetHashCode();
+                return hashCode;
             }
         }
 
