@@ -4,6 +4,6 @@
 language: csharp
 mono:
   - latest
-solution: ChannelEngine.Api.Client.sln
+solution: ChannelEngine.Merchant.ApiClient.sln
 script:
   - /bin/sh ./mono_nunit_test.sh
