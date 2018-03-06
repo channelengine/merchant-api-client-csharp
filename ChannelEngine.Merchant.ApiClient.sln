@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Merchant.ApiClient", "src\ChannelEngine.Merchant.ApiClient\ChannelEngine.Merchant.ApiClient.csproj", "{338C9A62-C2FA-4FB4-B2EB-B4B321792C15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Merchant.ApiClient", "src\ChannelEngine.Merchant.ApiClient\ChannelEngine.Merchant.ApiClient.csproj", "{345CF618-8FC5-46BB-9672-BB81DC2E8F38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{338C9A62-C2FA-4FB4-B2EB-B4B321792C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{338C9A62-C2FA-4FB4-B2EB-B4B321792C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{338C9A62-C2FA-4FB4-B2EB-B4B321792C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{338C9A62-C2FA-4FB4-B2EB-B4B321792C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{345CF618-8FC5-46BB-9672-BB81DC2E8F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{345CF618-8FC5-46BB-9672-BB81DC2E8F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{345CF618-8FC5-46BB-9672-BB81DC2E8F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{345CF618-8FC5-46BB-9672-BB81DC2E8F38}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
