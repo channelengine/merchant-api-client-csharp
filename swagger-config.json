@@ -1,0 +1,7 @@
+{
+	"modelPackage": "Model",
+	"apiPackage": "Api",
+	"packageName": "ChannelEngine.Merchant.ApiClient",
+	"gitUserId": "channelengine",
+	"gitRepoId": "merchant-api-client-csharp"
+}
