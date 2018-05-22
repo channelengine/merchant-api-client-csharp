@@ -4,7 +4,7 @@ ChannelEngine Merchant API
 
 ChannelEngine API for merchants
 
-OpenAPI spec version: 2.6.1
+OpenAPI spec version: 2.0.0
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 2.6.1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{347C77CF-6BF3-4202-A40A-9C4797E73306}</ProjectGuid>
+    <ProjectGuid>{CD50700C-9CB5-4D81-B295-E29350D3B8B2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChannelEngine.Merchant.ApiClient</RootNamespace>
