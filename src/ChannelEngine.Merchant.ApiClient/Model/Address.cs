@@ -31,8 +31,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     public partial class Address :  IEquatable<Address>, IValidatableObject
     {
         /// <summary>
-        /// Defines Gender
+        /// Optional. The customer&#39;s gender
         /// </summary>
+        /// <value>Optional. The customer&#39;s gender</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum GenderEnum
         {
@@ -57,22 +58,23 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets Gender
+        /// Optional. The customer&#39;s gender
         /// </summary>
+        /// <value>Optional. The customer&#39;s gender</value>
         [DataMember(Name="Gender", EmitDefaultValue=false)]
         public GenderEnum? Gender { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Address" /> class.
         /// </summary>
-        /// <param name="gender">gender.</param>
-        /// <param name="companyName">companyName.</param>
-        /// <param name="firstName">firstName.</param>
-        /// <param name="lastName">lastName.</param>
-        /// <param name="streetName">streetName.</param>
-        /// <param name="houseNr">houseNr.</param>
-        /// <param name="houseNrAddition">houseNrAddition.</param>
-        /// <param name="zipCode">zipCode.</param>
-        /// <param name="city">city.</param>
+        /// <param name="gender">Optional. The customer&#39;s gender.</param>
+        /// <param name="companyName">Optional. Company addressed too..</param>
+        /// <param name="firstName">The first name of the customer.</param>
+        /// <param name="lastName">The last name of the customer (includes the surname prefix [tussenvoegsel] like &#39;de&#39;, &#39;van&#39;, &#39;du&#39;).</param>
+        /// <param name="streetName">The name of the street (without house number information).</param>
+        /// <param name="houseNr">The house number.</param>
+        /// <param name="houseNrAddition">Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c.</param>
+        /// <param name="zipCode">The zip or postal code.</param>
+        /// <param name="city">The name of the city.</param>
         /// <param name="region">Optional. State/province/region.</param>
         /// <param name="countryIso">For example: NL, BE, FR.</param>
         /// <param name="original">Optional. The address as a single string: use in case the address lines are entered  as single lines and later parsed into street, house number and house number addition..</param>
@@ -94,50 +96,58 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         
 
         /// <summary>
-        /// Gets or Sets CompanyName
+        /// Optional. Company addressed too.
         /// </summary>
+        /// <value>Optional. Company addressed too.</value>
         [DataMember(Name="CompanyName", EmitDefaultValue=false)]
         public string CompanyName { get; set; }
 
         /// <summary>
-        /// Gets or Sets FirstName
+        /// The first name of the customer
         /// </summary>
+        /// <value>The first name of the customer</value>
         [DataMember(Name="FirstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
+        /// The last name of the customer (includes the surname prefix [tussenvoegsel] like &#39;de&#39;, &#39;van&#39;, &#39;du&#39;)
         /// </summary>
+        /// <value>The last name of the customer (includes the surname prefix [tussenvoegsel] like &#39;de&#39;, &#39;van&#39;, &#39;du&#39;)</value>
         [DataMember(Name="LastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets StreetName
+        /// The name of the street (without house number information)
         /// </summary>
+        /// <value>The name of the street (without house number information)</value>
         [DataMember(Name="StreetName", EmitDefaultValue=false)]
         public string StreetName { get; set; }
 
         /// <summary>
-        /// Gets or Sets HouseNr
+        /// The house number
         /// </summary>
+        /// <value>The house number</value>
         [DataMember(Name="HouseNr", EmitDefaultValue=false)]
         public string HouseNr { get; set; }
 
         /// <summary>
-        /// Gets or Sets HouseNrAddition
+        /// Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c
         /// </summary>
+        /// <value>Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c</value>
         [DataMember(Name="HouseNrAddition", EmitDefaultValue=false)]
         public string HouseNrAddition { get; set; }
 
         /// <summary>
-        /// Gets or Sets ZipCode
+        /// The zip or postal code
         /// </summary>
+        /// <value>The zip or postal code</value>
         [DataMember(Name="ZipCode", EmitDefaultValue=false)]
         public string ZipCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// The name of the city
         /// </summary>
+        /// <value>The name of the city</value>
         [DataMember(Name="City", EmitDefaultValue=false)]
         public string City { get; set; }
 

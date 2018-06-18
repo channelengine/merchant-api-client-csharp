@@ -31,8 +31,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     public partial class MerchantReturnRequest :  IEquatable<MerchantReturnRequest>, IValidatableObject
     {
         /// <summary>
-        /// Defines Reason
+        /// The reason code of the return
         /// </summary>
+        /// <value>The reason code of the return</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReasonEnum
         {
@@ -93,8 +94,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets Reason
+        /// The reason code of the return
         /// </summary>
+        /// <value>The reason code of the return</value>
         [DataMember(Name="Reason", EmitDefaultValue=false)]
         public ReasonEnum? Reason { get; set; }
         /// <summary>
@@ -105,15 +107,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantReturnRequest" /> class.
         /// </summary>
-        /// <param name="merchantOrderNo">merchantOrderNo (required).</param>
-        /// <param name="merchantReturnNo">merchantReturnNo (required).</param>
+        /// <param name="merchantOrderNo">The unique order reference used by the Merchant (sku) (required).</param>
+        /// <param name="merchantReturnNo">The unique return reference used by the Merchant (sku) (required).</param>
         /// <param name="lines">lines (required).</param>
-        /// <param name="id">id.</param>
-        /// <param name="reason">reason.</param>
-        /// <param name="customerComment">customerComment.</param>
-        /// <param name="merchantComment">merchantComment.</param>
-        /// <param name="refundInclVat">refundInclVat.</param>
-        /// <param name="refundExclVat">refundExclVat.</param>
+        /// <param name="id">The unique return reference used by ChannelEngine.</param>
+        /// <param name="reason">The reason code of the return.</param>
+        /// <param name="customerComment">Optional. Comment of customer on the (reason of) the return.</param>
+        /// <param name="merchantComment">Optional. Comment of merchant on the return..</param>
+        /// <param name="refundInclVat">Refund amount incl. VAT.</param>
+        /// <param name="refundExclVat">Refund amount excl. VAT.</param>
         public MerchantReturnRequest(string merchantOrderNo = default(string), string merchantReturnNo = default(string), List<MerchantReturnLineRequest> lines = default(List<MerchantReturnLineRequest>), int? id = default(int?), ReasonEnum? reason = default(ReasonEnum?), string customerComment = default(string), string merchantComment = default(string), double? refundInclVat = default(double?), double? refundExclVat = default(double?))
         {
             // to ensure "merchantOrderNo" is required (not null)
@@ -152,14 +154,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets MerchantOrderNo
+        /// The unique order reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique order reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantOrderNo", EmitDefaultValue=false)]
         public string MerchantOrderNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantReturnNo
+        /// The unique return reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique return reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantReturnNo", EmitDefaultValue=false)]
         public string MerchantReturnNo { get; set; }
 
@@ -170,33 +174,38 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public List<MerchantReturnLineRequest> Lines { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique return reference used by ChannelEngine
         /// </summary>
+        /// <value>The unique return reference used by ChannelEngine</value>
         [DataMember(Name="Id", EmitDefaultValue=false)]
         public int? Id { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets CustomerComment
+        /// Optional. Comment of customer on the (reason of) the return
         /// </summary>
+        /// <value>Optional. Comment of customer on the (reason of) the return</value>
         [DataMember(Name="CustomerComment", EmitDefaultValue=false)]
         public string CustomerComment { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantComment
+        /// Optional. Comment of merchant on the return.
         /// </summary>
+        /// <value>Optional. Comment of merchant on the return.</value>
         [DataMember(Name="MerchantComment", EmitDefaultValue=false)]
         public string MerchantComment { get; set; }
 
         /// <summary>
-        /// Gets or Sets RefundInclVat
+        /// Refund amount incl. VAT
         /// </summary>
+        /// <value>Refund amount incl. VAT</value>
         [DataMember(Name="RefundInclVat", EmitDefaultValue=false)]
         public double? RefundInclVat { get; set; }
 
         /// <summary>
-        /// Gets or Sets RefundExclVat
+        /// Refund amount excl. VAT
         /// </summary>
+        /// <value>Refund amount excl. VAT</value>
         [DataMember(Name="RefundExclVat", EmitDefaultValue=false)]
         public double? RefundExclVat { get; set; }
 

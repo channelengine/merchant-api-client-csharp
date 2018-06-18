@@ -25,40 +25,50 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantReturnLineRequest
+    /// MerchantReturnLineUpdateRequest
     /// </summary>
     [DataContract]
-    public partial class MerchantReturnLineRequest :  IEquatable<MerchantReturnLineRequest>, IValidatableObject
+    public partial class MerchantReturnLineUpdateRequest :  IEquatable<MerchantReturnLineUpdateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantReturnLineRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantReturnLineUpdateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MerchantReturnLineRequest() { }
+        protected MerchantReturnLineUpdateRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantReturnLineRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantReturnLineUpdateRequest" /> class.
         /// </summary>
         /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku) (required).</param>
-        /// <param name="quantity">Number of items of the product in this return (required).</param>
-        public MerchantReturnLineRequest(string merchantProductNo = default(string), int? quantity = default(int?))
+        /// <param name="acceptedQuantity">The amount of items that have been accepted (required).</param>
+        /// <param name="rejectedQuantity">The amount of items that have been rejected (required).</param>
+        public MerchantReturnLineUpdateRequest(string merchantProductNo = default(string), int? acceptedQuantity = default(int?), int? rejectedQuantity = default(int?))
         {
             // to ensure "merchantProductNo" is required (not null)
             if (merchantProductNo == null)
             {
-                throw new InvalidDataException("merchantProductNo is a required property for MerchantReturnLineRequest and cannot be null");
+                throw new InvalidDataException("merchantProductNo is a required property for MerchantReturnLineUpdateRequest and cannot be null");
             }
             else
             {
                 this.MerchantProductNo = merchantProductNo;
             }
-            // to ensure "quantity" is required (not null)
-            if (quantity == null)
+            // to ensure "acceptedQuantity" is required (not null)
+            if (acceptedQuantity == null)
             {
-                throw new InvalidDataException("quantity is a required property for MerchantReturnLineRequest and cannot be null");
+                throw new InvalidDataException("acceptedQuantity is a required property for MerchantReturnLineUpdateRequest and cannot be null");
             }
             else
             {
-                this.Quantity = quantity;
+                this.AcceptedQuantity = acceptedQuantity;
+            }
+            // to ensure "rejectedQuantity" is required (not null)
+            if (rejectedQuantity == null)
+            {
+                throw new InvalidDataException("rejectedQuantity is a required property for MerchantReturnLineUpdateRequest and cannot be null");
+            }
+            else
+            {
+                this.RejectedQuantity = rejectedQuantity;
             }
         }
         
@@ -70,11 +80,18 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string MerchantProductNo { get; set; }
 
         /// <summary>
-        /// Number of items of the product in this return
+        /// The amount of items that have been accepted
         /// </summary>
-        /// <value>Number of items of the product in this return</value>
-        [DataMember(Name="Quantity", EmitDefaultValue=false)]
-        public int? Quantity { get; set; }
+        /// <value>The amount of items that have been accepted</value>
+        [DataMember(Name="AcceptedQuantity", EmitDefaultValue=false)]
+        public int? AcceptedQuantity { get; set; }
+
+        /// <summary>
+        /// The amount of items that have been rejected
+        /// </summary>
+        /// <value>The amount of items that have been rejected</value>
+        [DataMember(Name="RejectedQuantity", EmitDefaultValue=false)]
+        public int? RejectedQuantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +100,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantReturnLineRequest {\n");
+            sb.Append("class MerchantReturnLineUpdateRequest {\n");
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  AcceptedQuantity: ").Append(AcceptedQuantity).Append("\n");
+            sb.Append("  RejectedQuantity: ").Append(RejectedQuantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,15 +124,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantReturnLineRequest);
+            return this.Equals(input as MerchantReturnLineUpdateRequest);
         }
 
         /// <summary>
-        /// Returns true if MerchantReturnLineRequest instances are equal
+        /// Returns true if MerchantReturnLineUpdateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantReturnLineRequest to be compared</param>
+        /// <param name="input">Instance of MerchantReturnLineUpdateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantReturnLineRequest input)
+        public bool Equals(MerchantReturnLineUpdateRequest input)
         {
             if (input == null)
                 return false;
@@ -126,9 +144,14 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.MerchantProductNo.Equals(input.MerchantProductNo))
                 ) && 
                 (
-                    this.Quantity == input.Quantity ||
-                    (this.Quantity != null &&
-                    this.Quantity.Equals(input.Quantity))
+                    this.AcceptedQuantity == input.AcceptedQuantity ||
+                    (this.AcceptedQuantity != null &&
+                    this.AcceptedQuantity.Equals(input.AcceptedQuantity))
+                ) && 
+                (
+                    this.RejectedQuantity == input.RejectedQuantity ||
+                    (this.RejectedQuantity != null &&
+                    this.RejectedQuantity.Equals(input.RejectedQuantity))
                 );
         }
 
@@ -143,8 +166,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 int hashCode = 41;
                 if (this.MerchantProductNo != null)
                     hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
-                if (this.Quantity != null)
-                    hashCode = hashCode * 59 + this.Quantity.GetHashCode();
+                if (this.AcceptedQuantity != null)
+                    hashCode = hashCode * 59 + this.AcceptedQuantity.GetHashCode();
+                if (this.RejectedQuantity != null)
+                    hashCode = hashCode * 59 + this.RejectedQuantity.GetHashCode();
                 return hashCode;
             }
         }

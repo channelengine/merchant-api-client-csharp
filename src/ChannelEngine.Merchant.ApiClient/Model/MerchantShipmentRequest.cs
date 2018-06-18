@@ -38,12 +38,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantShipmentRequest" /> class.
         /// </summary>
-        /// <param name="merchantShipmentNo">merchantShipmentNo (required).</param>
-        /// <param name="merchantOrderNo">merchantOrderNo (required).</param>
+        /// <param name="merchantShipmentNo">The unique shipment reference used by the Merchant (required).</param>
+        /// <param name="merchantOrderNo">The unique order reference used by the Merchant (required).</param>
         /// <param name="lines">lines (required).</param>
-        /// <param name="trackTraceNo">trackTraceNo.</param>
-        /// <param name="trackTraceUrl">trackTraceUrl.</param>
-        /// <param name="method">method.</param>
+        /// <param name="trackTraceNo">The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number).</param>
+        /// <param name="trackTraceUrl">A link to a page of the carrier where the customer can track the shipping of her package..</param>
+        /// <param name="method">Shipment method (carrier).</param>
         public MerchantShipmentRequest(string merchantShipmentNo = default(string), string merchantOrderNo = default(string), List<MerchantShipmentLineRequest> lines = default(List<MerchantShipmentLineRequest>), string trackTraceNo = default(string), string trackTraceUrl = default(string), string method = default(string))
         {
             // to ensure "merchantShipmentNo" is required (not null)
@@ -79,14 +79,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets MerchantShipmentNo
+        /// The unique shipment reference used by the Merchant
         /// </summary>
+        /// <value>The unique shipment reference used by the Merchant</value>
         [DataMember(Name="MerchantShipmentNo", EmitDefaultValue=false)]
         public string MerchantShipmentNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantOrderNo
+        /// The unique order reference used by the Merchant
         /// </summary>
+        /// <value>The unique order reference used by the Merchant</value>
         [DataMember(Name="MerchantOrderNo", EmitDefaultValue=false)]
         public string MerchantOrderNo { get; set; }
 
@@ -97,20 +99,23 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public List<MerchantShipmentLineRequest> Lines { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrackTraceNo
+        /// The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number)
         /// </summary>
+        /// <value>The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number)</value>
         [DataMember(Name="TrackTraceNo", EmitDefaultValue=false)]
         public string TrackTraceNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrackTraceUrl
+        /// A link to a page of the carrier where the customer can track the shipping of her package.
         /// </summary>
+        /// <value>A link to a page of the carrier where the customer can track the shipping of her package.</value>
         [DataMember(Name="TrackTraceUrl", EmitDefaultValue=false)]
         public string TrackTraceUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Method
+        /// Shipment method (carrier)
         /// </summary>
+        /// <value>Shipment method (carrier)</value>
         [DataMember(Name="Method", EmitDefaultValue=false)]
         public string Method { get; set; }
 

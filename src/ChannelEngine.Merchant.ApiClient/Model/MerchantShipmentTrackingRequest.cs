@@ -38,9 +38,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantShipmentTrackingRequest" /> class.
         /// </summary>
-        /// <param name="method">method (required).</param>
-        /// <param name="trackTraceNo">trackTraceNo (required).</param>
-        /// <param name="trackTraceUrl">trackTraceUrl.</param>
+        /// <param name="method">Shipment method (carrier) (required).</param>
+        /// <param name="trackTraceNo">The unique shipping reference used by the Shipping carrier (track &amp;amp; trace number) (required).</param>
+        /// <param name="trackTraceUrl">A link to a page of the carrier where the customer can track the shipping of her package..</param>
         public MerchantShipmentTrackingRequest(string method = default(string), string trackTraceNo = default(string), string trackTraceUrl = default(string))
         {
             // to ensure "method" is required (not null)
@@ -65,20 +65,23 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets Method
+        /// Shipment method (carrier)
         /// </summary>
+        /// <value>Shipment method (carrier)</value>
         [DataMember(Name="Method", EmitDefaultValue=false)]
         public string Method { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrackTraceNo
+        /// The unique shipping reference used by the Shipping carrier (track &amp;amp; trace number)
         /// </summary>
+        /// <value>The unique shipping reference used by the Shipping carrier (track &amp;amp; trace number)</value>
         [DataMember(Name="TrackTraceNo", EmitDefaultValue=false)]
         public string TrackTraceNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets TrackTraceUrl
+        /// A link to a page of the carrier where the customer can track the shipping of her package.
         /// </summary>
+        /// <value>A link to a page of the carrier where the customer can track the shipping of her package.</value>
         [DataMember(Name="TrackTraceUrl", EmitDefaultValue=false)]
         public string TrackTraceUrl { get; set; }
 

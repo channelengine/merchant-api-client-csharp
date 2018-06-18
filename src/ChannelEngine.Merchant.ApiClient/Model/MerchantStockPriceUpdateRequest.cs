@@ -38,9 +38,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantStockPriceUpdateRequest" /> class.
         /// </summary>
-        /// <param name="merchantProductNo">merchantProductNo (required).</param>
-        /// <param name="stock">stock.</param>
-        /// <param name="price">price.</param>
+        /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku) (required).</param>
+        /// <param name="stock">The stock of the product. Should not be negative.</param>
+        /// <param name="price">The price of the product. Should not be negative.</param>
         public MerchantStockPriceUpdateRequest(string merchantProductNo = default(string), int? stock = default(int?), double? price = default(double?))
         {
             // to ensure "merchantProductNo" is required (not null)
@@ -57,20 +57,23 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets MerchantProductNo
+        /// The unique product reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique product reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
         public string MerchantProductNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets Stock
+        /// The stock of the product. Should not be negative
         /// </summary>
+        /// <value>The stock of the product. Should not be negative</value>
         [DataMember(Name="Stock", EmitDefaultValue=false)]
         public int? Stock { get; set; }
 
         /// <summary>
-        /// Gets or Sets Price
+        /// The price of the product. Should not be negative
         /// </summary>
+        /// <value>The price of the product. Should not be negative</value>
         [DataMember(Name="Price", EmitDefaultValue=false)]
         public double? Price { get; set; }
 

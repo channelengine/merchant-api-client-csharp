@@ -31,8 +31,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     public partial class MerchantOrderLineResponse :  IEquatable<MerchantOrderLineResponse>, IValidatableObject
     {
         /// <summary>
-        /// Defines Status
+        /// The status of the order
         /// </summary>
+        /// <value>The status of the order</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -99,8 +100,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of the order
         /// </summary>
+        /// <value>The status of the order</value>
         [DataMember(Name="Status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -168,9 +170,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantOrderLineResponse" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="isFulfillmentByMarketplace">isFulfillmentByMarketplace.</param>
-        /// <param name="merchantProductNo">merchantProductNo.</param>
+        /// <param name="status">The status of the order.</param>
+        /// <param name="isFulfillmentByMarketplace">Is the order fulfilled by the marketplace (amazon: FBA, bol: LVB, etc.)?.</param>
+        /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku).</param>
         /// <param name="unitVat">The total amount of VAT charged over the value of a single unit of the ordered product  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
         /// <param name="lineTotalInclVat">The total value of the order line (quantity * unit price) including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
         /// <param name="lineVat">The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
@@ -178,8 +180,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="originalUnitVat">The total amount of VAT charged over the value of a single unit of the ordered product  (in the currency in which the order was paid for, see CurrencyCode)..</param>
         /// <param name="originalLineTotalInclVat">The total value of the order line (quantity * unit price) including VAT  (in the currency in which the order was paid for, see CurrencyCode)..</param>
         /// <param name="originalLineVat">The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the currency in which the order was paid for, see CurrencyCode)..</param>
-        /// <param name="channelProductNo">channelProductNo (required).</param>
-        /// <param name="quantity">quantity (required).</param>
+        /// <param name="channelProductNo">The unique order reference used by the channel (required).</param>
+        /// <param name="quantity">The number of items of the product (required).</param>
         /// <param name="cancellationRequestedQuantity">The number of items for which cancellation was requested by the customer.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation.  Use this field to check whether it is still possible to cancel the order. If this is the case, submit a cancellation to ChannelEngine (required).</param>
         /// <param name="unitPriceInclVat">The value of a single unit of the ordered product including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="feeFixed">A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
@@ -240,14 +242,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         
 
         /// <summary>
-        /// Gets or Sets IsFulfillmentByMarketplace
+        /// Is the order fulfilled by the marketplace (amazon: FBA, bol: LVB, etc.)?
         /// </summary>
+        /// <value>Is the order fulfilled by the marketplace (amazon: FBA, bol: LVB, etc.)?</value>
         [DataMember(Name="IsFulfillmentByMarketplace", EmitDefaultValue=false)]
         public bool? IsFulfillmentByMarketplace { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantProductNo
+        /// The unique product reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique product reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
         public string MerchantProductNo { get; set; }
 
@@ -301,14 +305,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public double? OriginalLineVat { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChannelProductNo
+        /// The unique order reference used by the channel
         /// </summary>
+        /// <value>The unique order reference used by the channel</value>
         [DataMember(Name="ChannelProductNo", EmitDefaultValue=false)]
         public string ChannelProductNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// The number of items of the product
         /// </summary>
+        /// <value>The number of items of the product</value>
         [DataMember(Name="Quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
 

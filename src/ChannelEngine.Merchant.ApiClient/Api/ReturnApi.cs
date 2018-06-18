@@ -66,6 +66,27 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="createdSince"></param>
         /// <returns>ApiResponse of CollectionOfMerchantReturnResponse</returns>
         ApiResponse<CollectionOfMerchantReturnResponse> ReturnGetDeclaredByChannelWithHttpInfo (DateTime? createdSince);
+        /// <summary>
+        /// Mark a return as received
+        /// </summary>
+        /// <remarks>
+        /// Mark a return as received
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>ApiResponse</returns>
+        ApiResponse ReturnUpdateForMerchant (MerchantReturnUpdateRequest model);
+
+        /// <summary>
+        /// Mark a return as received
+        /// </summary>
+        /// <remarks>
+        /// Mark a return as received
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>ApiResponse of ApiResponse</returns>
+        ApiResponse<ApiResponse> ReturnUpdateForMerchantWithHttpInfo (MerchantReturnUpdateRequest model);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -110,6 +131,27 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="createdSince"></param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantReturnResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantReturnResponse>> ReturnGetDeclaredByChannelAsyncWithHttpInfo (DateTime? createdSince);
+        /// <summary>
+        /// Mark a return as received
+        /// </summary>
+        /// <remarks>
+        /// Mark a return as received
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse> ReturnUpdateForMerchantAsync (MerchantReturnUpdateRequest model);
+
+        /// <summary>
+        /// Mark a return as received
+        /// </summary>
+        /// <remarks>
+        /// Mark a return as received
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>Task of ApiResponse (ApiResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ReturnUpdateForMerchantAsyncWithHttpInfo (MerchantReturnUpdateRequest model);
         #endregion Asynchronous Operations
     }
 
@@ -518,6 +560,175 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             return new ApiResponse<CollectionOfMerchantReturnResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CollectionOfMerchantReturnResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantReturnResponse)));
+        }
+
+        /// <summary>
+        /// Mark a return as received Mark a return as received
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>ApiResponse</returns>
+        public ApiResponse ReturnUpdateForMerchant (MerchantReturnUpdateRequest model)
+        {
+             ApiResponse<ApiResponse> localVarResponse = ReturnUpdateForMerchantWithHttpInfo(model);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Mark a return as received Mark a return as received
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>ApiResponse of ApiResponse</returns>
+        public ApiResponse< ApiResponse > ReturnUpdateForMerchantWithHttpInfo (MerchantReturnUpdateRequest model)
+        {
+            // verify the required parameter 'model' is set
+            if (model == null)
+                throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnUpdateForMerchant");
+
+            var localVarPath = "/v2/returns";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (model != null && model.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(model); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = model; // byte array
+            }
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReturnUpdateForMerchant", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
+        }
+
+        /// <summary>
+        /// Mark a return as received Mark a return as received
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse> ReturnUpdateForMerchantAsync (MerchantReturnUpdateRequest model)
+        {
+             ApiResponse<ApiResponse> localVarResponse = await ReturnUpdateForMerchantAsyncWithHttpInfo(model);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Mark a return as received Mark a return as received
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="model"></param>
+        /// <returns>Task of ApiResponse (ApiResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ReturnUpdateForMerchantAsyncWithHttpInfo (MerchantReturnUpdateRequest model)
+        {
+            // verify the required parameter 'model' is set
+            if (model == null)
+                throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnUpdateForMerchant");
+
+            var localVarPath = "/v2/returns";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json", 
+                "text/json", 
+                "application/xml", 
+                "text/xml", 
+                "application/x-www-form-urlencoded"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (model != null && model.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(model); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = model; // byte array
+            }
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReturnUpdateForMerchant", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
     }

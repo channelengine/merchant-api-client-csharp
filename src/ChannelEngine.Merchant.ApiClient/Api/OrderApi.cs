@@ -52,11 +52,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Fetch orders based on the provided OrderFilter
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
         CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
 
@@ -67,11 +67,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Fetch orders based on the provided OrderFilter
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
         ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
         /// <summary>
@@ -169,11 +169,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Fetch orders based on the provided OrderFilter
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
         System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
 
@@ -184,11 +184,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Fetch orders based on the provided OrderFilter
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
         /// <summary>
@@ -529,11 +529,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Orders By Filter Fetch orders based on the provided OrderFilter
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
         public CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {
@@ -545,11 +545,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Orders By Filter Fetch orders based on the provided OrderFilter
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
         public ApiResponse< CollectionOfMerchantOrderResponse > OrderGetByFilterWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {
@@ -610,11 +610,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Orders By Filter Fetch orders based on the provided OrderFilter
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
         public async System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {
@@ -627,11 +627,11 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Orders By Filter Fetch orders based on the provided OrderFilter
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterStatuses"> (optional)</param>
-        /// <param name="filterMerchantOrderNos"> (optional)</param>
-        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines"> (optional)</param>
+        /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
+        /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
-        /// <param name="filterPage"> (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {

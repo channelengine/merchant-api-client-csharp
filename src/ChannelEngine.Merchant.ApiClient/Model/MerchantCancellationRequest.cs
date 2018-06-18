@@ -31,8 +31,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     public partial class MerchantCancellationRequest :  IEquatable<MerchantCancellationRequest>, IValidatableObject
     {
         /// <summary>
-        /// Defines ReasonCode
+        /// Reason code for cancellation
         /// </summary>
+        /// <value>Reason code for cancellation</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ReasonCodeEnum
         {
@@ -75,8 +76,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets ReasonCode
+        /// Reason code for cancellation
         /// </summary>
+        /// <value>Reason code for cancellation</value>
         [DataMember(Name="ReasonCode", EmitDefaultValue=false)]
         public ReasonCodeEnum? ReasonCode { get; set; }
         /// <summary>
@@ -87,11 +89,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantCancellationRequest" /> class.
         /// </summary>
-        /// <param name="merchantCancellationNo">merchantCancellationNo (required).</param>
-        /// <param name="merchantOrderNo">merchantOrderNo (required).</param>
+        /// <param name="merchantCancellationNo">The unique cancellation reference used by the Merchant (sku) (required).</param>
+        /// <param name="merchantOrderNo">The unique order reference used by the Merchant (sku) (required).</param>
         /// <param name="lines">lines (required).</param>
-        /// <param name="reason">reason.</param>
-        /// <param name="reasonCode">reasonCode.</param>
+        /// <param name="reason">Reason for cancellation (text).</param>
+        /// <param name="reasonCode">Reason code for cancellation.</param>
         public MerchantCancellationRequest(string merchantCancellationNo = default(string), string merchantOrderNo = default(string), List<MerchantCancellationLineRequest> lines = default(List<MerchantCancellationLineRequest>), string reason = default(string), ReasonCodeEnum? reasonCode = default(ReasonCodeEnum?))
         {
             // to ensure "merchantCancellationNo" is required (not null)
@@ -126,14 +128,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets MerchantCancellationNo
+        /// The unique cancellation reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique cancellation reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantCancellationNo", EmitDefaultValue=false)]
         public string MerchantCancellationNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets MerchantOrderNo
+        /// The unique order reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique order reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantOrderNo", EmitDefaultValue=false)]
         public string MerchantOrderNo { get; set; }
 
@@ -144,8 +148,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public List<MerchantCancellationLineRequest> Lines { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reason
+        /// Reason for cancellation (text)
         /// </summary>
+        /// <value>Reason for cancellation (text)</value>
         [DataMember(Name="Reason", EmitDefaultValue=false)]
         public string Reason { get; set; }
 

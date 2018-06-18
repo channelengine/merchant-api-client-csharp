@@ -31,8 +31,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     public partial class MerchantOrderResponse :  IEquatable<MerchantOrderResponse>, IValidatableObject
     {
         /// <summary>
-        /// Defines ChannelOrderSupport
+        /// The type of orders the channel support.
         /// </summary>
+        /// <value>The type of orders the channel support.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ChannelOrderSupportEnum
         {
@@ -63,13 +64,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets ChannelOrderSupport
+        /// The type of orders the channel support.
         /// </summary>
+        /// <value>The type of orders the channel support.</value>
         [DataMember(Name="ChannelOrderSupport", EmitDefaultValue=false)]
         public ChannelOrderSupportEnum? ChannelOrderSupport { get; set; }
         /// <summary>
-        /// Defines Status
+        /// The status of the order
         /// </summary>
+        /// <value>The status of the order</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -136,8 +139,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// The status of the order
         /// </summary>
+        /// <value>The status of the order</value>
         [DataMember(Name="Status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -149,10 +153,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// Initializes a new instance of the <see cref="MerchantOrderResponse" /> class.
         /// </summary>
         /// <param name="id">The unique identifier used by ChannelEngine. This identifier does  not have to be saved. It should only be used in a call to acknowledge the order..</param>
-        /// <param name="channelName">channelName.</param>
-        /// <param name="channelOrderSupport">channelOrderSupport.</param>
-        /// <param name="channelOrderNo">channelOrderNo.</param>
-        /// <param name="status">status.</param>
+        /// <param name="channelName">The name of the channel.</param>
+        /// <param name="channelOrderSupport">The type of orders the channel support..</param>
+        /// <param name="channelOrderNo">The unique order reference used by the channel.</param>
+        /// <param name="status">The status of the order.</param>
         /// <param name="subTotalInclVat">The total value of the order lines including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
         /// <param name="subTotalVat">The total amount of VAT charged over the order lines  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
         /// <param name="shippingCostsVat">The total amount of VAT charged over the shipping fee  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
@@ -165,18 +169,18 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="originalTotalInclVat">The total value of the order including VAT  (in the currency in which the order was paid for, see CurrencyCode)..</param>
         /// <param name="originalTotalVat">The total amount of VAT charged over the total value of te order  (in the currency in which the order was paid for, see CurrencyCode)..</param>
         /// <param name="lines">lines.</param>
-        /// <param name="phone">phone.</param>
-        /// <param name="email">email (required).</param>
+        /// <param name="phone">The customer&#39;s telephone number.</param>
+        /// <param name="email">The customer&#39;s email (required).</param>
         /// <param name="companyRegistrationNo">Optional. A company&#39;s chamber of commerce number.</param>
         /// <param name="vatNo">Optional. A company&#39;s VAT number.</param>
-        /// <param name="paymentMethod">paymentMethod (required).</param>
+        /// <param name="paymentMethod">The payment method used on the order (required).</param>
         /// <param name="shippingCostsInclVat">The shipping fee including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
-        /// <param name="currencyCode">currencyCode (required).</param>
-        /// <param name="orderDate">orderDate (required).</param>
-        /// <param name="channelCustomerNo">channelCustomerNo.</param>
-        /// <param name="billingAddress">billingAddress (required).</param>
-        /// <param name="shippingAddress">shippingAddress (required).</param>
-        /// <param name="extraData">extraData.</param>
+        /// <param name="currencyCode">The currency code for the amounts of the order (required).</param>
+        /// <param name="orderDate">The date the order was done (required).</param>
+        /// <param name="channelCustomerNo">The unique customer reference used by the channel.</param>
+        /// <param name="billingAddress">The billing or invoice address (required).</param>
+        /// <param name="shippingAddress">The shipping address (required).</param>
+        /// <param name="extraData">Extra data on the order.</param>
         public MerchantOrderResponse(int? id = default(int?), string channelName = default(string), ChannelOrderSupportEnum? channelOrderSupport = default(ChannelOrderSupportEnum?), string channelOrderNo = default(string), StatusEnum? status = default(StatusEnum?), double? subTotalInclVat = default(double?), double? subTotalVat = default(double?), double? shippingCostsVat = default(double?), double? totalInclVat = default(double?), double? totalVat = default(double?), double? originalSubTotalInclVat = default(double?), double? originalSubTotalVat = default(double?), double? originalShippingCostsInclVat = default(double?), double? originalShippingCostsVat = default(double?), double? originalTotalInclVat = default(double?), double? originalTotalVat = default(double?), List<MerchantOrderLineResponse> lines = default(List<MerchantOrderLineResponse>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), double? shippingCostsInclVat = default(double?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Address billingAddress = default(Address), Address shippingAddress = default(Address), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "email" is required (not null)
@@ -274,15 +278,17 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public int? Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChannelName
+        /// The name of the channel
         /// </summary>
+        /// <value>The name of the channel</value>
         [DataMember(Name="ChannelName", EmitDefaultValue=false)]
         public string ChannelName { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets ChannelOrderNo
+        /// The unique order reference used by the channel
         /// </summary>
+        /// <value>The unique order reference used by the channel</value>
         [DataMember(Name="ChannelOrderNo", EmitDefaultValue=false)]
         public string ChannelOrderNo { get; set; }
 
@@ -371,14 +377,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public List<MerchantOrderLineResponse> Lines { get; set; }
 
         /// <summary>
-        /// Gets or Sets Phone
+        /// The customer&#39;s telephone number
         /// </summary>
+        /// <value>The customer&#39;s telephone number</value>
         [DataMember(Name="Phone", EmitDefaultValue=false)]
         public string Phone { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// The customer&#39;s email
         /// </summary>
+        /// <value>The customer&#39;s email</value>
         [DataMember(Name="Email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
@@ -397,8 +405,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string VatNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets PaymentMethod
+        /// The payment method used on the order
         /// </summary>
+        /// <value>The payment method used on the order</value>
         [DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
         public string PaymentMethod { get; set; }
 
@@ -410,38 +419,44 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public double? ShippingCostsInclVat { get; set; }
 
         /// <summary>
-        /// Gets or Sets CurrencyCode
+        /// The currency code for the amounts of the order
         /// </summary>
+        /// <value>The currency code for the amounts of the order</value>
         [DataMember(Name="CurrencyCode", EmitDefaultValue=false)]
         public string CurrencyCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets OrderDate
+        /// The date the order was done
         /// </summary>
+        /// <value>The date the order was done</value>
         [DataMember(Name="OrderDate", EmitDefaultValue=false)]
         public DateTime? OrderDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets ChannelCustomerNo
+        /// The unique customer reference used by the channel
         /// </summary>
+        /// <value>The unique customer reference used by the channel</value>
         [DataMember(Name="ChannelCustomerNo", EmitDefaultValue=false)]
         public string ChannelCustomerNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets BillingAddress
+        /// The billing or invoice address
         /// </summary>
+        /// <value>The billing or invoice address</value>
         [DataMember(Name="BillingAddress", EmitDefaultValue=false)]
         public Address BillingAddress { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShippingAddress
+        /// The shipping address
         /// </summary>
+        /// <value>The shipping address</value>
         [DataMember(Name="ShippingAddress", EmitDefaultValue=false)]
         public Address ShippingAddress { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExtraData
+        /// Extra data on the order
         /// </summary>
+        /// <value>Extra data on the order</value>
         [DataMember(Name="ExtraData", EmitDefaultValue=false)]
         public Dictionary<string, string> ExtraData { get; set; }
 

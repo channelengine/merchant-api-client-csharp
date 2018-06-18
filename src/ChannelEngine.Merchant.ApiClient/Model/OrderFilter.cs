@@ -100,8 +100,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
 
 
         /// <summary>
-        /// Gets or Sets Statuses
+        /// Order status(es) to filter on
         /// </summary>
+        /// <value>Order status(es) to filter on</value>
         [DataMember(Name="Statuses", EmitDefaultValue=false)]
         public List<StatusesEnum> Statuses { get; set; }
         /// <summary>
@@ -146,11 +147,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderFilter" /> class.
         /// </summary>
-        /// <param name="statuses">statuses.</param>
-        /// <param name="merchantOrderNos">merchantOrderNos.</param>
-        /// <param name="excludeMarketplaceFulfilledOrdersAndLines">excludeMarketplaceFulfilledOrdersAndLines.</param>
+        /// <param name="statuses">Order status(es) to filter on.</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant.</param>
+        /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.).</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true..</param>
-        /// <param name="page">page.</param>
+        /// <param name="page">The page to filter on. Starts at 1..</param>
         public OrderFilter(List<StatusesEnum> statuses = default(List<StatusesEnum>), List<string> merchantOrderNos = default(List<string>), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentTypeEnum? fulfillmentType = default(FulfillmentTypeEnum?), int? page = default(int?))
         {
             this.Statuses = statuses;
@@ -162,21 +163,24 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         
 
         /// <summary>
-        /// Gets or Sets MerchantOrderNos
+        /// Filter on unique order reference used by the merchant
         /// </summary>
+        /// <value>Filter on unique order reference used by the merchant</value>
         [DataMember(Name="MerchantOrderNos", EmitDefaultValue=false)]
         public List<string> MerchantOrderNos { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExcludeMarketplaceFulfilledOrdersAndLines
+        /// Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.)
         /// </summary>
+        /// <value>Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.)</value>
         [DataMember(Name="ExcludeMarketplaceFulfilledOrdersAndLines", EmitDefaultValue=false)]
         public bool? ExcludeMarketplaceFulfilledOrdersAndLines { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets Page
+        /// The page to filter on. Starts at 1.
         /// </summary>
+        /// <value>The page to filter on. Starts at 1.</value>
         [DataMember(Name="Page", EmitDefaultValue=false)]
         public int? Page { get; set; }
 

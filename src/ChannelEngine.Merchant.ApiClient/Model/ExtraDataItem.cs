@@ -31,8 +31,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     public partial class ExtraDataItem :  IEquatable<ExtraDataItem>, IValidatableObject
     {
         /// <summary>
-        /// Defines Type
+        /// Type of the extra data field
         /// </summary>
+        /// <value>Type of the extra data field</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -63,17 +64,18 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Type of the extra data field
         /// </summary>
+        /// <value>Type of the extra data field</value>
         [DataMember(Name="Type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ExtraDataItem" /> class.
         /// </summary>
-        /// <param name="key">key.</param>
-        /// <param name="value">value.</param>
-        /// <param name="type">type.</param>
-        /// <param name="isPublic">isPublic.</param>
+        /// <param name="key">Name of the extra data field.</param>
+        /// <param name="value">Value of the extra data field.</param>
+        /// <param name="type">Type of the extra data field.</param>
+        /// <param name="isPublic">Add this field to the export of the product feed to the channel.</param>
         public ExtraDataItem(string key = default(string), string value = default(string), TypeEnum? type = default(TypeEnum?), bool? isPublic = default(bool?))
         {
             this.Key = key;
@@ -83,21 +85,24 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets Key
+        /// Name of the extra data field
         /// </summary>
+        /// <value>Name of the extra data field</value>
         [DataMember(Name="Key", EmitDefaultValue=false)]
         public string Key { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Value of the extra data field
         /// </summary>
+        /// <value>Value of the extra data field</value>
         [DataMember(Name="Value", EmitDefaultValue=false)]
         public string Value { get; set; }
 
 
         /// <summary>
-        /// Gets or Sets IsPublic
+        /// Add this field to the export of the product feed to the channel
         /// </summary>
+        /// <value>Add this field to the export of the product feed to the channel</value>
         [DataMember(Name="IsPublic", EmitDefaultValue=false)]
         public bool? IsPublic { get; set; }
 

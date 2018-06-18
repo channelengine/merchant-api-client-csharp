@@ -38,8 +38,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantReturnLineResponse" /> class.
         /// </summary>
-        /// <param name="merchantProductNo">merchantProductNo.</param>
-        /// <param name="quantity">quantity (required).</param>
+        /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku).</param>
+        /// <param name="quantity">Number of items of the product in this return (required).</param>
         public MerchantReturnLineResponse(string merchantProductNo = default(string), int? quantity = default(int?))
         {
             // to ensure "quantity" is required (not null)
@@ -55,14 +55,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets MerchantProductNo
+        /// The unique product reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique product reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
         public string MerchantProductNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Number of items of the product in this return
         /// </summary>
+        /// <value>Number of items of the product in this return</value>
         [DataMember(Name="Quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
 

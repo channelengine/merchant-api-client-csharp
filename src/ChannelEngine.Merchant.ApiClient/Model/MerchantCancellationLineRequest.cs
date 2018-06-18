@@ -38,8 +38,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantCancellationLineRequest" /> class.
         /// </summary>
-        /// <param name="merchantProductNo">merchantProductNo (required).</param>
-        /// <param name="quantity">quantity (required).</param>
+        /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku) (required).</param>
+        /// <param name="quantity">Quantity of the product to cancel (required).</param>
         public MerchantCancellationLineRequest(string merchantProductNo = default(string), int? quantity = default(int?))
         {
             // to ensure "merchantProductNo" is required (not null)
@@ -63,14 +63,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         }
         
         /// <summary>
-        /// Gets or Sets MerchantProductNo
+        /// The unique product reference used by the Merchant (sku)
         /// </summary>
+        /// <value>The unique product reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
         public string MerchantProductNo { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity of the product to cancel
         /// </summary>
+        /// <value>Quantity of the product to cancel</value>
         [DataMember(Name="Quantity", EmitDefaultValue=false)]
         public int? Quantity { get; set; }
 
