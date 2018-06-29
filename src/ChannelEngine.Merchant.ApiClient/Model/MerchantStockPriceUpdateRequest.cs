@@ -41,7 +41,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku) (required).</param>
         /// <param name="stock">The stock of the product. Should not be negative.</param>
         /// <param name="price">The price of the product. Should not be negative.</param>
-        public MerchantStockPriceUpdateRequest(string merchantProductNo = default(string), int? stock = default(int?), double? price = default(double?))
+        public MerchantStockPriceUpdateRequest(string merchantProductNo = default(string), int? stock = default(int?), decimal? price = default(decimal?))
         {
             // to ensure "merchantProductNo" is required (not null)
             if (merchantProductNo == null)
@@ -75,7 +75,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>The price of the product. Should not be negative</value>
         [DataMember(Name="Price", EmitDefaultValue=false)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

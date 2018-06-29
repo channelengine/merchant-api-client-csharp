@@ -96,7 +96,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="extraImageUrl9">Url to an additional image of product (9).</param>
         /// <param name="categoryTrail">The category to which this product belongs.  Please supply this field in the following format:  &#39;maincategory &amp;gt; category &amp;gt; subcategory&#39;  For example:  &#39;vehicles &amp;gt; bikes &amp;gt; mountainbike&#39;.</param>
         /// <param name="extraData">An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products..</param>
-        public MerchantProductRequest(string merchantProductNo = default(string), string parentMerchantProductNo = default(string), string parentMerchantProductNo2 = default(string), string name = default(string), string description = default(string), string brand = default(string), string size = default(string), string color = default(string), string ean = default(string), string manufacturerProductNumber = default(string), int? stock = default(int?), double? price = default(double?), double? mSRP = default(double?), double? purchasePrice = default(double?), VatRateTypeEnum? vatRateType = default(VatRateTypeEnum?), double? shippingCost = default(double?), string shippingTime = default(string), string url = default(string), string imageUrl = default(string), string extraImageUrl1 = default(string), string extraImageUrl2 = default(string), string extraImageUrl3 = default(string), string extraImageUrl4 = default(string), string extraImageUrl5 = default(string), string extraImageUrl6 = default(string), string extraImageUrl7 = default(string), string extraImageUrl8 = default(string), string extraImageUrl9 = default(string), string categoryTrail = default(string), List<ExtraDataItem> extraData = default(List<ExtraDataItem>))
+        public MerchantProductRequest(string merchantProductNo = default(string), string parentMerchantProductNo = default(string), string parentMerchantProductNo2 = default(string), string name = default(string), string description = default(string), string brand = default(string), string size = default(string), string color = default(string), string ean = default(string), string manufacturerProductNumber = default(string), int? stock = default(int?), decimal? price = default(decimal?), decimal? mSRP = default(decimal?), decimal? purchasePrice = default(decimal?), VatRateTypeEnum? vatRateType = default(VatRateTypeEnum?), decimal? shippingCost = default(decimal?), string shippingTime = default(string), string url = default(string), string imageUrl = default(string), string extraImageUrl1 = default(string), string extraImageUrl2 = default(string), string extraImageUrl3 = default(string), string extraImageUrl4 = default(string), string extraImageUrl5 = default(string), string extraImageUrl6 = default(string), string extraImageUrl7 = default(string), string extraImageUrl8 = default(string), string extraImageUrl9 = default(string), string categoryTrail = default(string), List<ExtraDataItem> extraData = default(List<ExtraDataItem>))
         {
             this.MerchantProductNo = merchantProductNo;
             this.ParentMerchantProductNo = parentMerchantProductNo;
@@ -212,21 +212,21 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>Price, including VAT.</value>
         [DataMember(Name="Price", EmitDefaultValue=false)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// Manufacturer&#39;s suggested retail price
         /// </summary>
         /// <value>Manufacturer&#39;s suggested retail price</value>
         [DataMember(Name="MSRP", EmitDefaultValue=false)]
-        public double? MSRP { get; set; }
+        public decimal? MSRP { get; set; }
 
         /// <summary>
         /// Optional. The purchase price of the product. Useful for repricing.
         /// </summary>
         /// <value>Optional. The purchase price of the product. Useful for repricing.</value>
         [DataMember(Name="PurchasePrice", EmitDefaultValue=false)]
-        public double? PurchasePrice { get; set; }
+        public decimal? PurchasePrice { get; set; }
 
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>Shipping cost of the product.</value>
         [DataMember(Name="ShippingCost", EmitDefaultValue=false)]
-        public double? ShippingCost { get; set; }
+        public decimal? ShippingCost { get; set; }
 
         /// <summary>
         /// A textual representation of the shippingtime.  For example, in Dutch: &#39;Op werkdagen voor 22:00 uur besteld, morgen in huis&#39;

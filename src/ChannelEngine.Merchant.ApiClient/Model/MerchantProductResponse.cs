@@ -67,6 +67,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// Initializes a new instance of the <see cref="MerchantProductResponse" /> class.
         /// </summary>
         /// <param name="isActive">Is the product active for the Merchant?.</param>
+        /// <param name="merchantProductNo">A unique identifier of the product. (sku).</param>
         /// <param name="name">The name of the product.</param>
         /// <param name="description">A description of the product.</param>
         /// <param name="brand">The brand of the product.</param>
@@ -94,9 +95,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="extraImageUrl9">Url to an additional image of product (9).</param>
         /// <param name="categoryTrail">The category to which this product belongs.  Please supply this field in the following format:  &#39;maincategory &amp;gt; category &amp;gt; subcategory&#39;  For example:  &#39;vehicles &amp;gt; bikes &amp;gt; mountainbike&#39;.</param>
         /// <param name="extraData">An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products..</param>
-        public MerchantProductResponse(bool? isActive = default(bool?), string name = default(string), string description = default(string), string brand = default(string), string size = default(string), string color = default(string), string ean = default(string), string manufacturerProductNumber = default(string), int? stock = default(int?), double? price = default(double?), double? mSRP = default(double?), double? purchasePrice = default(double?), VatRateTypeEnum? vatRateType = default(VatRateTypeEnum?), double? shippingCost = default(double?), string shippingTime = default(string), string url = default(string), string imageUrl = default(string), string extraImageUrl1 = default(string), string extraImageUrl2 = default(string), string extraImageUrl3 = default(string), string extraImageUrl4 = default(string), string extraImageUrl5 = default(string), string extraImageUrl6 = default(string), string extraImageUrl7 = default(string), string extraImageUrl8 = default(string), string extraImageUrl9 = default(string), string categoryTrail = default(string), List<ExtraDataItem> extraData = default(List<ExtraDataItem>))
+        public MerchantProductResponse(bool? isActive = default(bool?), string merchantProductNo = default(string), string name = default(string), string description = default(string), string brand = default(string), string size = default(string), string color = default(string), string ean = default(string), string manufacturerProductNumber = default(string), int? stock = default(int?), decimal? price = default(decimal?), decimal? mSRP = default(decimal?), decimal? purchasePrice = default(decimal?), VatRateTypeEnum? vatRateType = default(VatRateTypeEnum?), decimal? shippingCost = default(decimal?), string shippingTime = default(string), string url = default(string), string imageUrl = default(string), string extraImageUrl1 = default(string), string extraImageUrl2 = default(string), string extraImageUrl3 = default(string), string extraImageUrl4 = default(string), string extraImageUrl5 = default(string), string extraImageUrl6 = default(string), string extraImageUrl7 = default(string), string extraImageUrl8 = default(string), string extraImageUrl9 = default(string), string categoryTrail = default(string), List<ExtraDataItem> extraData = default(List<ExtraDataItem>))
         {
             this.IsActive = isActive;
+            this.MerchantProductNo = merchantProductNo;
             this.Name = name;
             this.Description = description;
             this.Brand = brand;
@@ -132,6 +134,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <value>Is the product active for the Merchant?</value>
         [DataMember(Name="IsActive", EmitDefaultValue=false)]
         public bool? IsActive { get; set; }
+
+        /// <summary>
+        /// A unique identifier of the product. (sku)
+        /// </summary>
+        /// <value>A unique identifier of the product. (sku)</value>
+        [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
+        public string MerchantProductNo { get; set; }
 
         /// <summary>
         /// The name of the product
@@ -194,21 +203,21 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>Price, including VAT.</value>
         [DataMember(Name="Price", EmitDefaultValue=false)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
 
         /// <summary>
         /// Manufacturer&#39;s suggested retail price
         /// </summary>
         /// <value>Manufacturer&#39;s suggested retail price</value>
         [DataMember(Name="MSRP", EmitDefaultValue=false)]
-        public double? MSRP { get; set; }
+        public decimal? MSRP { get; set; }
 
         /// <summary>
         /// Optional. The purchase price of the product. Useful for repricing.
         /// </summary>
         /// <value>Optional. The purchase price of the product. Useful for repricing.</value>
         [DataMember(Name="PurchasePrice", EmitDefaultValue=false)]
-        public double? PurchasePrice { get; set; }
+        public decimal? PurchasePrice { get; set; }
 
 
         /// <summary>
@@ -216,7 +225,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>Shipping cost of the product.</value>
         [DataMember(Name="ShippingCost", EmitDefaultValue=false)]
-        public double? ShippingCost { get; set; }
+        public decimal? ShippingCost { get; set; }
 
         /// <summary>
         /// A textual representation of the shippingtime.  For example, in Dutch: &#39;Op werkdagen voor 22:00 uur besteld, morgen in huis&#39;
@@ -325,6 +334,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             var sb = new StringBuilder();
             sb.Append("class MerchantProductResponse {\n");
             sb.Append("  IsActive: ").Append(IsActive).Append("\n");
+            sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Brand: ").Append(Brand).Append("\n");
@@ -390,6 +400,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.IsActive == input.IsActive ||
                     (this.IsActive != null &&
                     this.IsActive.Equals(input.IsActive))
+                ) && 
+                (
+                    this.MerchantProductNo == input.MerchantProductNo ||
+                    (this.MerchantProductNo != null &&
+                    this.MerchantProductNo.Equals(input.MerchantProductNo))
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -539,6 +554,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 int hashCode = 41;
                 if (this.IsActive != null)
                     hashCode = hashCode * 59 + this.IsActive.GetHashCode();
+                if (this.MerchantProductNo != null)
+                    hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)

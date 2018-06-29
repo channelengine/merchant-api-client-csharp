@@ -116,7 +116,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="merchantComment">Optional. Comment of merchant on the return..</param>
         /// <param name="refundInclVat">Refund amount incl. VAT.</param>
         /// <param name="refundExclVat">Refund amount excl. VAT.</param>
-        public MerchantReturnRequest(string merchantOrderNo = default(string), string merchantReturnNo = default(string), List<MerchantReturnLineRequest> lines = default(List<MerchantReturnLineRequest>), int? id = default(int?), ReasonEnum? reason = default(ReasonEnum?), string customerComment = default(string), string merchantComment = default(string), double? refundInclVat = default(double?), double? refundExclVat = default(double?))
+        public MerchantReturnRequest(string merchantOrderNo = default(string), string merchantReturnNo = default(string), List<MerchantReturnLineRequest> lines = default(List<MerchantReturnLineRequest>), int? id = default(int?), ReasonEnum? reason = default(ReasonEnum?), string customerComment = default(string), string merchantComment = default(string), decimal? refundInclVat = default(decimal?), decimal? refundExclVat = default(decimal?))
         {
             // to ensure "merchantOrderNo" is required (not null)
             if (merchantOrderNo == null)
@@ -200,14 +200,14 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>Refund amount incl. VAT</value>
         [DataMember(Name="RefundInclVat", EmitDefaultValue=false)]
-        public double? RefundInclVat { get; set; }
+        public decimal? RefundInclVat { get; set; }
 
         /// <summary>
         /// Refund amount excl. VAT
         /// </summary>
         /// <value>Refund amount excl. VAT</value>
         [DataMember(Name="RefundExclVat", EmitDefaultValue=false)]
-        public double? RefundExclVat { get; set; }
+        public decimal? RefundExclVat { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

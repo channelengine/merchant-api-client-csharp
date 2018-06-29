@@ -149,13 +149,17 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <param name="statuses">Order status(es) to filter on.</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant.</param>
+        /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive..</param>
+        /// <param name="toDate">Filter on the order date, until this date. This date is exclusive..</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.).</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true..</param>
         /// <param name="page">The page to filter on. Starts at 1..</param>
-        public OrderFilter(List<StatusesEnum> statuses = default(List<StatusesEnum>), List<string> merchantOrderNos = default(List<string>), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentTypeEnum? fulfillmentType = default(FulfillmentTypeEnum?), int? page = default(int?))
+        public OrderFilter(List<StatusesEnum> statuses = default(List<StatusesEnum>), List<string> merchantOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentTypeEnum? fulfillmentType = default(FulfillmentTypeEnum?), int? page = default(int?))
         {
             this.Statuses = statuses;
             this.MerchantOrderNos = merchantOrderNos;
+            this.FromDate = fromDate;
+            this.ToDate = toDate;
             this.ExcludeMarketplaceFulfilledOrdersAndLines = excludeMarketplaceFulfilledOrdersAndLines;
             this.FulfillmentType = fulfillmentType;
             this.Page = page;
@@ -168,6 +172,20 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <value>Filter on unique order reference used by the merchant</value>
         [DataMember(Name="MerchantOrderNos", EmitDefaultValue=false)]
         public List<string> MerchantOrderNos { get; set; }
+
+        /// <summary>
+        /// Filter on the order date, starting from this date. This date is inclusive.
+        /// </summary>
+        /// <value>Filter on the order date, starting from this date. This date is inclusive.</value>
+        [DataMember(Name="FromDate", EmitDefaultValue=false)]
+        public DateTime? FromDate { get; set; }
+
+        /// <summary>
+        /// Filter on the order date, until this date. This date is exclusive.
+        /// </summary>
+        /// <value>Filter on the order date, until this date. This date is exclusive.</value>
+        [DataMember(Name="ToDate", EmitDefaultValue=false)]
+        public DateTime? ToDate { get; set; }
 
         /// <summary>
         /// Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.)
@@ -194,6 +212,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("class OrderFilter {\n");
             sb.Append("  Statuses: ").Append(Statuses).Append("\n");
             sb.Append("  MerchantOrderNos: ").Append(MerchantOrderNos).Append("\n");
+            sb.Append("  FromDate: ").Append(FromDate).Append("\n");
+            sb.Append("  ToDate: ").Append(ToDate).Append("\n");
             sb.Append("  ExcludeMarketplaceFulfilledOrdersAndLines: ").Append(ExcludeMarketplaceFulfilledOrdersAndLines).Append("\n");
             sb.Append("  FulfillmentType: ").Append(FulfillmentType).Append("\n");
             sb.Append("  Page: ").Append(Page).Append("\n");
@@ -242,6 +262,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.MerchantOrderNos.SequenceEqual(input.MerchantOrderNos)
                 ) && 
                 (
+                    this.FromDate == input.FromDate ||
+                    (this.FromDate != null &&
+                    this.FromDate.Equals(input.FromDate))
+                ) && 
+                (
+                    this.ToDate == input.ToDate ||
+                    (this.ToDate != null &&
+                    this.ToDate.Equals(input.ToDate))
+                ) && 
+                (
                     this.ExcludeMarketplaceFulfilledOrdersAndLines == input.ExcludeMarketplaceFulfilledOrdersAndLines ||
                     (this.ExcludeMarketplaceFulfilledOrdersAndLines != null &&
                     this.ExcludeMarketplaceFulfilledOrdersAndLines.Equals(input.ExcludeMarketplaceFulfilledOrdersAndLines))
@@ -271,6 +301,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.Statuses.GetHashCode();
                 if (this.MerchantOrderNos != null)
                     hashCode = hashCode * 59 + this.MerchantOrderNos.GetHashCode();
+                if (this.FromDate != null)
+                    hashCode = hashCode * 59 + this.FromDate.GetHashCode();
+                if (this.ToDate != null)
+                    hashCode = hashCode * 59 + this.ToDate.GetHashCode();
                 if (this.ExcludeMarketplaceFulfilledOrdersAndLines != null)
                     hashCode = hashCode * 59 + this.ExcludeMarketplaceFulfilledOrdersAndLines.GetHashCode();
                 if (this.FulfillmentType != null)

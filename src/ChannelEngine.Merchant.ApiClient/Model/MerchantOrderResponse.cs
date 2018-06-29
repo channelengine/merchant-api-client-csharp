@@ -181,7 +181,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="billingAddress">The billing or invoice address (required).</param>
         /// <param name="shippingAddress">The shipping address (required).</param>
         /// <param name="extraData">Extra data on the order.</param>
-        public MerchantOrderResponse(int? id = default(int?), string channelName = default(string), ChannelOrderSupportEnum? channelOrderSupport = default(ChannelOrderSupportEnum?), string channelOrderNo = default(string), StatusEnum? status = default(StatusEnum?), double? subTotalInclVat = default(double?), double? subTotalVat = default(double?), double? shippingCostsVat = default(double?), double? totalInclVat = default(double?), double? totalVat = default(double?), double? originalSubTotalInclVat = default(double?), double? originalSubTotalVat = default(double?), double? originalShippingCostsInclVat = default(double?), double? originalShippingCostsVat = default(double?), double? originalTotalInclVat = default(double?), double? originalTotalVat = default(double?), List<MerchantOrderLineResponse> lines = default(List<MerchantOrderLineResponse>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), double? shippingCostsInclVat = default(double?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Address billingAddress = default(Address), Address shippingAddress = default(Address), Dictionary<string, string> extraData = default(Dictionary<string, string>))
+        public MerchantOrderResponse(int? id = default(int?), string channelName = default(string), ChannelOrderSupportEnum? channelOrderSupport = default(ChannelOrderSupportEnum?), string channelOrderNo = default(string), StatusEnum? status = default(StatusEnum?), decimal? subTotalInclVat = default(decimal?), decimal? subTotalVat = default(decimal?), decimal? shippingCostsVat = default(decimal?), decimal? totalInclVat = default(decimal?), decimal? totalVat = default(decimal?), decimal? originalSubTotalInclVat = default(decimal?), decimal? originalSubTotalVat = default(decimal?), decimal? originalShippingCostsInclVat = default(decimal?), decimal? originalShippingCostsVat = default(decimal?), decimal? originalTotalInclVat = default(decimal?), decimal? originalTotalVat = default(decimal?), List<MerchantOrderLineResponse> lines = default(List<MerchantOrderLineResponse>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Address billingAddress = default(Address), Address shippingAddress = default(Address), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "email" is required (not null)
             if (email == null)
@@ -298,77 +298,77 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>The total value of the order lines including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="SubTotalInclVat", EmitDefaultValue=false)]
-        public double? SubTotalInclVat { get; set; }
+        public decimal? SubTotalInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the order lines  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).
         /// </summary>
         /// <value>The total amount of VAT charged over the order lines  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="SubTotalVat", EmitDefaultValue=false)]
-        public double? SubTotalVat { get; set; }
+        public decimal? SubTotalVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the shipping fee  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).
         /// </summary>
         /// <value>The total amount of VAT charged over the shipping fee  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="ShippingCostsVat", EmitDefaultValue=false)]
-        public double? ShippingCostsVat { get; set; }
+        public decimal? ShippingCostsVat { get; set; }
 
         /// <summary>
         /// The total value of the order including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).
         /// </summary>
         /// <value>The total value of the order including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="TotalInclVat", EmitDefaultValue=false)]
-        public double? TotalInclVat { get; set; }
+        public decimal? TotalInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the total value of te order  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).
         /// </summary>
         /// <value>The total amount of VAT charged over the total value of te order  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="TotalVat", EmitDefaultValue=false)]
-        public double? TotalVat { get; set; }
+        public decimal? TotalVat { get; set; }
 
         /// <summary>
         /// The total value of the order lines including VAT  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total value of the order lines including VAT  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalSubTotalInclVat", EmitDefaultValue=false)]
-        public double? OriginalSubTotalInclVat { get; set; }
+        public decimal? OriginalSubTotalInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the order lines  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total amount of VAT charged over the order lines  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalSubTotalVat", EmitDefaultValue=false)]
-        public double? OriginalSubTotalVat { get; set; }
+        public decimal? OriginalSubTotalVat { get; set; }
 
         /// <summary>
         /// The shipping fee including VAT  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The shipping fee including VAT  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalShippingCostsInclVat", EmitDefaultValue=false)]
-        public double? OriginalShippingCostsInclVat { get; set; }
+        public decimal? OriginalShippingCostsInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the shipping fee  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total amount of VAT charged over the shipping fee  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalShippingCostsVat", EmitDefaultValue=false)]
-        public double? OriginalShippingCostsVat { get; set; }
+        public decimal? OriginalShippingCostsVat { get; set; }
 
         /// <summary>
         /// The total value of the order including VAT  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total value of the order including VAT  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalTotalInclVat", EmitDefaultValue=false)]
-        public double? OriginalTotalInclVat { get; set; }
+        public decimal? OriginalTotalInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the total value of te order  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total amount of VAT charged over the total value of te order  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalTotalVat", EmitDefaultValue=false)]
-        public double? OriginalTotalVat { get; set; }
+        public decimal? OriginalTotalVat { get; set; }
 
         /// <summary>
         /// Gets or Sets Lines
@@ -416,7 +416,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>The shipping fee including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="ShippingCostsInclVat", EmitDefaultValue=false)]
-        public double? ShippingCostsInclVat { get; set; }
+        public decimal? ShippingCostsInclVat { get; set; }
 
         /// <summary>
         /// The currency code for the amounts of the order

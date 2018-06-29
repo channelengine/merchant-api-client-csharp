@@ -54,11 +54,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
-        CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
+        CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
 
         /// <summary>
         /// Get Orders By Filter
@@ -69,11 +71,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
-        ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
+        ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
         /// <summary>
         /// Get New Orders
         /// </summary>
@@ -171,11 +175,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
+        System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
 
         /// <summary>
         /// Get Orders By Filter
@@ -186,11 +192,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null);
         /// <summary>
         /// Get New Orders
         /// </summary>
@@ -531,13 +539,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
-        public CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
+        public CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {
-             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = OrderGetByFilterWithHttpInfo(filterStatuses, filterMerchantOrderNos, filterExcludeMarketplaceFulfilledOrdersAndLines, filterFulfillmentType, filterPage);
+             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = OrderGetByFilterWithHttpInfo(filterStatuses, filterMerchantOrderNos, filterFromDate, filterToDate, filterExcludeMarketplaceFulfilledOrdersAndLines, filterFulfillmentType, filterPage);
              return localVarResponse.Data;
         }
 
@@ -547,11 +557,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
-        public ApiResponse< CollectionOfMerchantOrderResponse > OrderGetByFilterWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
+        public ApiResponse< CollectionOfMerchantOrderResponse > OrderGetByFilterWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {
 
             var localVarPath = "/v2/orders";
@@ -578,6 +590,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             if (filterStatuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.statuses", filterStatuses)); // query parameter
             if (filterMerchantOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.merchantOrderNos", filterMerchantOrderNos)); // query parameter
+            if (filterFromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.fromDate", filterFromDate)); // query parameter
+            if (filterToDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.toDate", filterToDate)); // query parameter
             if (filterExcludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.excludeMarketplaceFulfilledOrdersAndLines", filterExcludeMarketplaceFulfilledOrdersAndLines)); // query parameter
             if (filterFulfillmentType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.fulfillmentType", filterFulfillmentType)); // query parameter
             if (filterPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter
@@ -612,13 +626,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
+        public async System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {
-             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = await OrderGetByFilterAsyncWithHttpInfo(filterStatuses, filterMerchantOrderNos, filterExcludeMarketplaceFulfilledOrdersAndLines, filterFulfillmentType, filterPage);
+             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = await OrderGetByFilterAsyncWithHttpInfo(filterStatuses, filterMerchantOrderNos, filterFromDate, filterToDate, filterExcludeMarketplaceFulfilledOrdersAndLines, filterFulfillmentType, filterPage);
              return localVarResponse.Data;
 
         }
@@ -629,11 +645,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterStatuses">Order status(es) to filter on (optional)</param>
         /// <param name="filterMerchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="filterFromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="filterToDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="filterExcludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="filterFulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
         /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> filterStatuses = null, List<string> filterMerchantOrderNos = null, DateTime? filterFromDate = null, DateTime? filterToDate = null, bool? filterExcludeMarketplaceFulfilledOrdersAndLines = null, string filterFulfillmentType = null, int? filterPage = null)
         {
 
             var localVarPath = "/v2/orders";
@@ -660,6 +678,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             if (filterStatuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.statuses", filterStatuses)); // query parameter
             if (filterMerchantOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.merchantOrderNos", filterMerchantOrderNos)); // query parameter
+            if (filterFromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.fromDate", filterFromDate)); // query parameter
+            if (filterToDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.toDate", filterToDate)); // query parameter
             if (filterExcludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.excludeMarketplaceFulfilledOrdersAndLines", filterExcludeMarketplaceFulfilledOrdersAndLines)); // query parameter
             if (filterFulfillmentType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.fulfillmentType", filterFulfillmentType)); // query parameter
             if (filterPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter

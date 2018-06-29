@@ -187,7 +187,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="feeFixed">A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="feeRate">A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="condition">The condition of the product, this can be used to indicate that a product is a second-hand product.</param>
-        public MerchantOrderLineResponse(StatusEnum? status = default(StatusEnum?), bool? isFulfillmentByMarketplace = default(bool?), string merchantProductNo = default(string), double? unitVat = default(double?), double? lineTotalInclVat = default(double?), double? lineVat = default(double?), double? originalUnitPriceInclVat = default(double?), double? originalUnitVat = default(double?), double? originalLineTotalInclVat = default(double?), double? originalLineVat = default(double?), string channelProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), double? unitPriceInclVat = default(double?), double? feeFixed = default(double?), double? feeRate = default(double?), ConditionEnum? condition = default(ConditionEnum?))
+        public MerchantOrderLineResponse(StatusEnum? status = default(StatusEnum?), bool? isFulfillmentByMarketplace = default(bool?), string merchantProductNo = default(string), decimal? unitVat = default(decimal?), decimal? lineTotalInclVat = default(decimal?), decimal? lineVat = default(decimal?), decimal? originalUnitPriceInclVat = default(decimal?), decimal? originalUnitVat = default(decimal?), decimal? originalLineTotalInclVat = default(decimal?), decimal? originalLineVat = default(decimal?), string channelProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), decimal? unitPriceInclVat = default(decimal?), decimal? feeFixed = default(decimal?), decimal? feeRate = default(decimal?), ConditionEnum? condition = default(ConditionEnum?))
         {
             // to ensure "channelProductNo" is required (not null)
             if (channelProductNo == null)
@@ -260,49 +260,49 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>The total amount of VAT charged over the value of a single unit of the ordered product  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="UnitVat", EmitDefaultValue=false)]
-        public double? UnitVat { get; set; }
+        public decimal? UnitVat { get; set; }
 
         /// <summary>
         /// The total value of the order line (quantity * unit price) including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).
         /// </summary>
         /// <value>The total value of the order line (quantity * unit price) including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="LineTotalInclVat", EmitDefaultValue=false)]
-        public double? LineTotalInclVat { get; set; }
+        public decimal? LineTotalInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).
         /// </summary>
         /// <value>The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="LineVat", EmitDefaultValue=false)]
-        public double? LineVat { get; set; }
+        public decimal? LineVat { get; set; }
 
         /// <summary>
         /// The value of a single unit of the ordered product including VAT  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The value of a single unit of the ordered product including VAT  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalUnitPriceInclVat", EmitDefaultValue=false)]
-        public double? OriginalUnitPriceInclVat { get; set; }
+        public decimal? OriginalUnitPriceInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the value of a single unit of the ordered product  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total amount of VAT charged over the value of a single unit of the ordered product  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalUnitVat", EmitDefaultValue=false)]
-        public double? OriginalUnitVat { get; set; }
+        public decimal? OriginalUnitVat { get; set; }
 
         /// <summary>
         /// The total value of the order line (quantity * unit price) including VAT  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total value of the order line (quantity * unit price) including VAT  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalLineTotalInclVat", EmitDefaultValue=false)]
-        public double? OriginalLineTotalInclVat { get; set; }
+        public decimal? OriginalLineTotalInclVat { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the currency in which the order was paid for, see CurrencyCode).
         /// </summary>
         /// <value>The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the currency in which the order was paid for, see CurrencyCode).</value>
         [DataMember(Name="OriginalLineVat", EmitDefaultValue=false)]
-        public double? OriginalLineVat { get; set; }
+        public decimal? OriginalLineVat { get; set; }
 
         /// <summary>
         /// The unique order reference used by the channel
@@ -330,21 +330,21 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <value>The value of a single unit of the ordered product including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).</value>
         [DataMember(Name="UnitPriceInclVat", EmitDefaultValue=false)]
-        public double? UnitPriceInclVat { get; set; }
+        public decimal? UnitPriceInclVat { get; set; }
 
         /// <summary>
         /// A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
         /// </summary>
         /// <value>A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.</value>
         [DataMember(Name="FeeFixed", EmitDefaultValue=false)]
-        public double? FeeFixed { get; set; }
+        public decimal? FeeFixed { get; set; }
 
         /// <summary>
         /// A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
         /// </summary>
         /// <value>A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.</value>
         [DataMember(Name="FeeRate", EmitDefaultValue=false)]
-        public double? FeeRate { get; set; }
+        public decimal? FeeRate { get; set; }
 
 
         /// <summary>

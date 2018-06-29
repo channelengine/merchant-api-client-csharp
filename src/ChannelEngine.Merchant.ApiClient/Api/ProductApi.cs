@@ -67,6 +67,29 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <returns>ApiResponse of ApiResponse</returns>
         ApiResponse<ApiResponse> ProductDeleteWithHttpInfo (string merchantProductNo);
         /// <summary>
+        /// Get Products
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all products
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>CollectionOfMerchantProductResponse</returns>
+        CollectionOfMerchantProductResponse ProductGetByFilter (string filterSearch = null, int? filterPage = null);
+
+        /// <summary>
+        /// Get Products
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all products
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>ApiResponse of CollectionOfMerchantProductResponse</returns>
+        ApiResponse<CollectionOfMerchantProductResponse> ProductGetByFilterWithHttpInfo (string filterSearch = null, int? filterPage = null);
+        /// <summary>
         /// Get Product
         /// </summary>
         /// <remarks>
@@ -131,6 +154,29 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="merchantProductNo"></param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ProductDeleteAsyncWithHttpInfo (string merchantProductNo);
+        /// <summary>
+        /// Get Products
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all products
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>Task of CollectionOfMerchantProductResponse</returns>
+        System.Threading.Tasks.Task<CollectionOfMerchantProductResponse> ProductGetByFilterAsync (string filterSearch = null, int? filterPage = null);
+
+        /// <summary>
+        /// Get Products
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all products
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>Task of ApiResponse (CollectionOfMerchantProductResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantProductResponse>> ProductGetByFilterAsyncWithHttpInfo (string filterSearch = null, int? filterPage = null);
         /// <summary>
         /// Get Product
         /// </summary>
@@ -560,6 +606,151 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             return new ApiResponse<ApiResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
+        }
+
+        /// <summary>
+        /// Get Products Retrieve all products
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>CollectionOfMerchantProductResponse</returns>
+        public CollectionOfMerchantProductResponse ProductGetByFilter (string filterSearch = null, int? filterPage = null)
+        {
+             ApiResponse<CollectionOfMerchantProductResponse> localVarResponse = ProductGetByFilterWithHttpInfo(filterSearch, filterPage);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Products Retrieve all products
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>ApiResponse of CollectionOfMerchantProductResponse</returns>
+        public ApiResponse< CollectionOfMerchantProductResponse > ProductGetByFilterWithHttpInfo (string filterSearch = null, int? filterPage = null)
+        {
+
+            var localVarPath = "/v2/products";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (filterSearch != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.search", filterSearch)); // query parameter
+            if (filterPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProductGetByFilter", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CollectionOfMerchantProductResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CollectionOfMerchantProductResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantProductResponse)));
+        }
+
+        /// <summary>
+        /// Get Products Retrieve all products
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>Task of CollectionOfMerchantProductResponse</returns>
+        public async System.Threading.Tasks.Task<CollectionOfMerchantProductResponse> ProductGetByFilterAsync (string filterSearch = null, int? filterPage = null)
+        {
+             ApiResponse<CollectionOfMerchantProductResponse> localVarResponse = await ProductGetByFilterAsyncWithHttpInfo(filterSearch, filterPage);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Products Retrieve all products
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="filterSearch">Search products by Name, MerchantProductNo, Ean or Brand (optional)</param>
+        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <returns>Task of ApiResponse (CollectionOfMerchantProductResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantProductResponse>> ProductGetByFilterAsyncWithHttpInfo (string filterSearch = null, int? filterPage = null)
+        {
+
+            var localVarPath = "/v2/products";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (filterSearch != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.search", filterSearch)); // query parameter
+            if (filterPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ProductGetByFilter", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CollectionOfMerchantProductResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CollectionOfMerchantProductResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantProductResponse)));
         }
 
         /// <summary>
