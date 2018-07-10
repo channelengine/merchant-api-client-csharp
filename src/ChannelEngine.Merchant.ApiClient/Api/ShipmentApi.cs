@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using ChannelEngine.Merchant.ApiClient.Client;
 using ChannelEngine.Merchant.ApiClient.Model;
 
@@ -238,7 +238,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ShipmentApi->ShipmentCreate");
 
-            var localVarPath = "/v2/shipments";
+            var localVarPath = "./v2/shipments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -292,7 +292,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -321,7 +321,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ShipmentApi->ShipmentCreate");
 
-            var localVarPath = "/v2/shipments";
+            var localVarPath = "./v2/shipments";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -375,7 +375,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -408,7 +408,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ShipmentApi->ShipmentUpdate");
 
-            var localVarPath = "/v2/shipments/{merchantShipmentNo}";
+            var localVarPath = "./v2/shipments/{merchantShipmentNo}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -465,7 +465,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -499,7 +499,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ShipmentApi->ShipmentUpdate");
 
-            var localVarPath = "/v2/shipments/{merchantShipmentNo}";
+            var localVarPath = "./v2/shipments/{merchantShipmentNo}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -556,7 +556,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 

@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using ChannelEngine.Merchant.ApiClient.Client;
 using ChannelEngine.Merchant.ApiClient.Model;
 
@@ -276,7 +276,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnDeclareForMerchant");
 
-            var localVarPath = "/v2/returns/merchant";
+            var localVarPath = "./v2/returns/merchant";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -330,7 +330,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -359,7 +359,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnDeclareForMerchant");
 
-            var localVarPath = "/v2/returns/merchant";
+            var localVarPath = "./v2/returns/merchant";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -413,7 +413,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -441,7 +441,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (createdSince == null)
                 throw new ApiException(400, "Missing required parameter 'createdSince' when calling ReturnApi->ReturnGetDeclaredByChannel");
 
-            var localVarPath = "/v2/returns/merchant";
+            var localVarPath = "./v2/returns/merchant";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -485,7 +485,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantReturnResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantReturnResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantReturnResponse)));
         }
 
@@ -514,7 +514,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (createdSince == null)
                 throw new ApiException(400, "Missing required parameter 'createdSince' when calling ReturnApi->ReturnGetDeclaredByChannel");
 
-            var localVarPath = "/v2/returns/merchant";
+            var localVarPath = "./v2/returns/merchant";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -558,7 +558,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantReturnResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantReturnResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantReturnResponse)));
         }
 
@@ -586,7 +586,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnUpdateForMerchant");
 
-            var localVarPath = "/v2/returns";
+            var localVarPath = "./v2/returns";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -642,7 +642,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -671,7 +671,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling ReturnApi->ReturnUpdateForMerchant");
 
-            var localVarPath = "/v2/returns";
+            var localVarPath = "./v2/returns";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -727,7 +727,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
