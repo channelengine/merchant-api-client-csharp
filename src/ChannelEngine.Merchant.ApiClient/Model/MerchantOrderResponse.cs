@@ -12,12 +12,14 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDateConverter;
 
 namespace ChannelEngine.Merchant.ApiClient.Model
@@ -26,7 +28,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     /// MerchantOrderResponse
     /// </summary>
     [DataContract]
-    public partial class MerchantOrderResponse :  IEquatable<MerchantOrderResponse>
+    public partial class MerchantOrderResponse :  IEquatable<MerchantOrderResponse>, IValidatableObject
     {
         /// <summary>
         /// The type of orders the channel support.
@@ -739,6 +741,94 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 return hashCode;
             }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            // Phone (string) maxLength
+            if(this.Phone != null && this.Phone.Length > 20)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, length must be less than 20.", new [] { "Phone" });
+            }
+
+            // Phone (string) minLength
+            if(this.Phone != null && this.Phone.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Phone, length must be greater than 0.", new [] { "Phone" });
+            }
+
+            // Email (string) maxLength
+            if(this.Email != null && this.Email.Length > 250)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 250.", new [] { "Email" });
+            }
+
+            // Email (string) minLength
+            if(this.Email != null && this.Email.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be greater than 0.", new [] { "Email" });
+            }
+
+            // CompanyRegistrationNo (string) maxLength
+            if(this.CompanyRegistrationNo != null && this.CompanyRegistrationNo.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyRegistrationNo, length must be less than 50.", new [] { "CompanyRegistrationNo" });
+            }
+
+            // CompanyRegistrationNo (string) minLength
+            if(this.CompanyRegistrationNo != null && this.CompanyRegistrationNo.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyRegistrationNo, length must be greater than 0.", new [] { "CompanyRegistrationNo" });
+            }
+
+            // VatNo (string) maxLength
+            if(this.VatNo != null && this.VatNo.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatNo, length must be less than 50.", new [] { "VatNo" });
+            }
+
+            // VatNo (string) minLength
+            if(this.VatNo != null && this.VatNo.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VatNo, length must be greater than 0.", new [] { "VatNo" });
+            }
+
+            // PaymentMethod (string) maxLength
+            if(this.PaymentMethod != null && this.PaymentMethod.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentMethod, length must be less than 50.", new [] { "PaymentMethod" });
+            }
+
+            // PaymentMethod (string) minLength
+            if(this.PaymentMethod != null && this.PaymentMethod.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PaymentMethod, length must be greater than 0.", new [] { "PaymentMethod" });
+            }
+
+            // CurrencyCode (string) maxLength
+            if(this.CurrencyCode != null && this.CurrencyCode.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrencyCode, length must be less than 3.", new [] { "CurrencyCode" });
+            }
+
+            // ChannelCustomerNo (string) maxLength
+            if(this.ChannelCustomerNo != null && this.ChannelCustomerNo.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChannelCustomerNo, length must be less than 50.", new [] { "ChannelCustomerNo" });
+            }
+
+            // ChannelCustomerNo (string) minLength
+            if(this.ChannelCustomerNo != null && this.ChannelCustomerNo.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChannelCustomerNo, length must be greater than 0.", new [] { "ChannelCustomerNo" });
+            }
+
+            yield break;
         }
     }
 

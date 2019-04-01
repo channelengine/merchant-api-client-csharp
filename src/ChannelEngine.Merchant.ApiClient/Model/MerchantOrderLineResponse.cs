@@ -12,12 +12,14 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDateConverter;
 
 namespace ChannelEngine.Merchant.ApiClient.Model
@@ -26,7 +28,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     /// MerchantOrderLineResponse
     /// </summary>
     [DataContract]
-    public partial class MerchantOrderLineResponse :  IEquatable<MerchantOrderLineResponse>
+    public partial class MerchantOrderLineResponse :  IEquatable<MerchantOrderLineResponse>, IValidatableObject
     {
         /// <summary>
         /// The status of the order
@@ -545,6 +547,28 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.Condition.GetHashCode();
                 return hashCode;
             }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            // ChannelProductNo (string) maxLength
+            if(this.ChannelProductNo != null && this.ChannelProductNo.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChannelProductNo, length must be less than 50.", new [] { "ChannelProductNo" });
+            }
+
+            // ChannelProductNo (string) minLength
+            if(this.ChannelProductNo != null && this.ChannelProductNo.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ChannelProductNo, length must be greater than 0.", new [] { "ChannelProductNo" });
+            }
+
+            yield break;
         }
     }
 

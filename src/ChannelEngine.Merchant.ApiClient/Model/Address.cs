@@ -12,12 +12,14 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDateConverter;
 
 namespace ChannelEngine.Merchant.ApiClient.Model
@@ -26,7 +28,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     /// Address
     /// </summary>
     [DataContract]
-    public partial class Address :  IEquatable<Address>
+    public partial class Address :  IEquatable<Address>, IValidatableObject
     {
         /// <summary>
         /// Optional. The customer&#39;s gender
@@ -321,6 +323,136 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.Original.GetHashCode();
                 return hashCode;
             }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            // CompanyName (string) maxLength
+            if(this.CompanyName != null && this.CompanyName.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyName, length must be less than 50.", new [] { "CompanyName" });
+            }
+
+            // CompanyName (string) minLength
+            if(this.CompanyName != null && this.CompanyName.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyName, length must be greater than 0.", new [] { "CompanyName" });
+            }
+
+            // FirstName (string) maxLength
+            if(this.FirstName != null && this.FirstName.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be less than 50.", new [] { "FirstName" });
+            }
+
+            // FirstName (string) minLength
+            if(this.FirstName != null && this.FirstName.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FirstName, length must be greater than 0.", new [] { "FirstName" });
+            }
+
+            // LastName (string) maxLength
+            if(this.LastName != null && this.LastName.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be less than 50.", new [] { "LastName" });
+            }
+
+            // LastName (string) minLength
+            if(this.LastName != null && this.LastName.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be greater than 0.", new [] { "LastName" });
+            }
+
+            // StreetName (string) maxLength
+            if(this.StreetName != null && this.StreetName.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StreetName, length must be less than 50.", new [] { "StreetName" });
+            }
+
+            // StreetName (string) minLength
+            if(this.StreetName != null && this.StreetName.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StreetName, length must be greater than 0.", new [] { "StreetName" });
+            }
+
+            // HouseNr (string) maxLength
+            if(this.HouseNr != null && this.HouseNr.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HouseNr, length must be less than 50.", new [] { "HouseNr" });
+            }
+
+            // HouseNr (string) minLength
+            if(this.HouseNr != null && this.HouseNr.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HouseNr, length must be greater than 0.", new [] { "HouseNr" });
+            }
+
+            // HouseNrAddition (string) maxLength
+            if(this.HouseNrAddition != null && this.HouseNrAddition.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HouseNrAddition, length must be less than 50.", new [] { "HouseNrAddition" });
+            }
+
+            // HouseNrAddition (string) minLength
+            if(this.HouseNrAddition != null && this.HouseNrAddition.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HouseNrAddition, length must be greater than 0.", new [] { "HouseNrAddition" });
+            }
+
+            // City (string) maxLength
+            if(this.City != null && this.City.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for City, length must be less than 50.", new [] { "City" });
+            }
+
+            // City (string) minLength
+            if(this.City != null && this.City.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for City, length must be greater than 0.", new [] { "City" });
+            }
+
+            // Region (string) maxLength
+            if(this.Region != null && this.Region.Length > 50)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Region, length must be less than 50.", new [] { "Region" });
+            }
+
+            // Region (string) minLength
+            if(this.Region != null && this.Region.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Region, length must be greater than 0.", new [] { "Region" });
+            }
+
+            // CountryIso (string) maxLength
+            if(this.CountryIso != null && this.CountryIso.Length > 2)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CountryIso, length must be less than 2.", new [] { "CountryIso" });
+            }
+
+            // CountryIso (string) minLength
+            if(this.CountryIso != null && this.CountryIso.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CountryIso, length must be greater than 0.", new [] { "CountryIso" });
+            }
+
+            // Original (string) maxLength
+            if(this.Original != null && this.Original.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Original, length must be less than 256.", new [] { "Original" });
+            }
+
+            // Original (string) minLength
+            if(this.Original != null && this.Original.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Original, length must be greater than 0.", new [] { "Original" });
+            }
+
+            yield break;
         }
     }
 

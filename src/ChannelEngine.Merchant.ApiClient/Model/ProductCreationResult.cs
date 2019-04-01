@@ -12,12 +12,14 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDateConverter;
 
 namespace ChannelEngine.Merchant.ApiClient.Model
@@ -26,7 +28,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     /// ProductCreationResult
     /// </summary>
     [DataContract]
-    public partial class ProductCreationResult :  IEquatable<ProductCreationResult>
+    public partial class ProductCreationResult :  IEquatable<ProductCreationResult>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCreationResult" /> class.
@@ -135,6 +137,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.ProductMessages.GetHashCode();
                 return hashCode;
             }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
         }
     }
 

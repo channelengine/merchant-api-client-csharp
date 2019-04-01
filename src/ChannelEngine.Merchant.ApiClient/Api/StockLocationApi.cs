@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp.Portable;
+using RestSharp;
 using ChannelEngine.Merchant.ApiClient.Client;
 using ChannelEngine.Merchant.ApiClient.Model;
 
@@ -183,7 +183,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public ApiResponse< CollectionOfMerchantStockLocationResponse > StockLocationIndexWithHttpInfo ()
         {
 
-            var localVarPath = "./v2/stocklocations";
+            var localVarPath = "/v2/stocklocations";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -227,7 +227,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantStockLocationResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CollectionOfMerchantStockLocationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantStockLocationResponse)));
         }
 
@@ -251,7 +251,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantStockLocationResponse>> StockLocationIndexAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "./v2/stocklocations";
+            var localVarPath = "/v2/stocklocations";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -295,7 +295,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantStockLocationResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CollectionOfMerchantStockLocationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantStockLocationResponse)));
         }
 

@@ -29,7 +29,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.7.0";
+        public const string Version = "2.7.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -57,7 +57,11 @@ namespace ChannelEngine.Merchant.ApiClient.Client
                     string.Format("Error calling {0}: {1}", methodName, response.Content),
                     response.Content);
             }
-            
+            if (status == 0)
+            {
+                return new ApiException(status,
+                    string.Format("Error calling {0}: {1}", methodName, response.ErrorMessage), response.ErrorMessage);
+            }
             return null;
         };
 
@@ -110,7 +114,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/2.7.0/csharp";
+            UserAgent = "Swagger-Codegen/2.7.1/csharp";
             BasePath = "https://localhost/api";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -183,7 +187,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/2.7.0/csharp"
+            string userAgent = "Swagger-Codegen/2.7.1/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -244,8 +248,9 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// </summary>
         public virtual int Timeout
         {
-            get { return (int)ApiClient.RestClient.Timeout.GetValueOrDefault(TimeSpan.FromSeconds(0)).TotalMilliseconds; }
-            set { ApiClient.RestClient.Timeout = TimeSpan.FromMilliseconds(value); }
+            
+            get { return ApiClient.RestClient.Timeout; }
+            set { ApiClient.RestClient.Timeout = value; }
         }
 
         /// <summary>
@@ -414,9 +419,10 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         public static String ToDebugReport()
         {
             String report = "C# SDK (ChannelEngine.Merchant.ApiClient) Debug Report:\n";
-            report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
+            report += "    OS: " + System.Environment.OSVersion + "\n";
+            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.0.0\n";
-            report += "    SDK Package Version: 2.7.0\n";
+            report += "    SDK Package Version: 2.7.1\n";
 
             return report;
         }
