@@ -85,10 +85,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             NOTCOLLECTED = 8,
             
             /// <summary>
+            /// Enum WRONGSIZE for value: WRONG_SIZE
+            /// </summary>
+            [EnumMember(Value = "WRONG_SIZE")]
+            WRONGSIZE = 9,
+            
+            /// <summary>
             /// Enum OTHER for value: OTHER
             /// </summary>
             [EnumMember(Value = "OTHER")]
-            OTHER = 9
+            OTHER = 10
         }
 
         /// <summary>

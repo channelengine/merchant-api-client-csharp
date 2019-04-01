@@ -29,7 +29,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.6.7";
+        public const string Version = "2.7.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -110,8 +110,8 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/2.6.7/csharp";
-            BasePath = "https://demo.channelengine.net/api";
+            UserAgent = "Swagger-Codegen/2.7.0/csharp";
+            BasePath = "https://localhost/api";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -127,7 +127,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             IDictionary<string, string> defaultHeader,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://demo.channelengine.net/api") : this()
+            string basePath = "https://localhost/api") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -183,7 +183,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/2.6.7/csharp"
+            string userAgent = "Swagger-Codegen/2.7.0/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -416,7 +416,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             String report = "C# SDK (ChannelEngine.Merchant.ApiClient) Debug Report:\n";
             report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: 2.0.0\n";
-            report += "    SDK Package Version: 2.6.7\n";
+            report += "    SDK Package Version: 2.7.0\n";
 
             return report;
         }

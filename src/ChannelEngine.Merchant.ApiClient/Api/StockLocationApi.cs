@@ -21,68 +21,64 @@ namespace ChannelEngine.Merchant.ApiClient.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ICancellationApi : IApiAccessor
+    public interface IStockLocationApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Cancellation
+        /// Get the stock locations (or virtual warehouses)
         /// </summary>
         /// <remarks>
-        /// Mark (part of) an order as cancelled.
+        /// Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>ApiResponse</returns>
-        ApiResponse CancellationCreate (MerchantCancellationRequest cancellation);
+        /// <returns>CollectionOfMerchantStockLocationResponse</returns>
+        CollectionOfMerchantStockLocationResponse StockLocationIndex ();
 
         /// <summary>
-        /// Create Cancellation
+        /// Get the stock locations (or virtual warehouses)
         /// </summary>
         /// <remarks>
-        /// Mark (part of) an order as cancelled.
+        /// Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>ApiResponse of ApiResponse</returns>
-        ApiResponse<ApiResponse> CancellationCreateWithHttpInfo (MerchantCancellationRequest cancellation);
+        /// <returns>ApiResponse of CollectionOfMerchantStockLocationResponse</returns>
+        ApiResponse<CollectionOfMerchantStockLocationResponse> StockLocationIndexWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Create Cancellation
+        /// Get the stock locations (or virtual warehouses)
         /// </summary>
         /// <remarks>
-        /// Mark (part of) an order as cancelled.
+        /// Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse> CancellationCreateAsync (MerchantCancellationRequest cancellation);
+        /// <returns>Task of CollectionOfMerchantStockLocationResponse</returns>
+        System.Threading.Tasks.Task<CollectionOfMerchantStockLocationResponse> StockLocationIndexAsync ();
 
         /// <summary>
-        /// Create Cancellation
+        /// Get the stock locations (or virtual warehouses)
         /// </summary>
         /// <remarks>
-        /// Mark (part of) an order as cancelled.
+        /// Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>Task of ApiResponse (ApiResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiResponse>> CancellationCreateAsyncWithHttpInfo (MerchantCancellationRequest cancellation);
+        /// <returns>Task of ApiResponse (CollectionOfMerchantStockLocationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantStockLocationResponse>> StockLocationIndexAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class CancellationApi : ICancellationApi
+    public partial class StockLocationApi : IStockLocationApi
     {
         private ChannelEngine.Merchant.ApiClient.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CancellationApi"/> class.
+        /// Initializes a new instance of the <see cref="StockLocationApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public CancellationApi(String basePath)
+        public StockLocationApi(String basePath)
         {
             this.Configuration = new ChannelEngine.Merchant.ApiClient.Client.Configuration { BasePath = basePath };
 
@@ -90,12 +86,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CancellationApi"/> class
+        /// Initializes a new instance of the <see cref="StockLocationApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public CancellationApi(ChannelEngine.Merchant.ApiClient.Client.Configuration configuration = null)
+        public StockLocationApi(ChannelEngine.Merchant.ApiClient.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = ChannelEngine.Merchant.ApiClient.Client.Configuration.Default;
@@ -169,30 +165,25 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         }
 
         /// <summary>
-        /// Create Cancellation Mark (part of) an order as cancelled.
+        /// Get the stock locations (or virtual warehouses) Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>ApiResponse</returns>
-        public ApiResponse CancellationCreate (MerchantCancellationRequest cancellation)
+        /// <returns>CollectionOfMerchantStockLocationResponse</returns>
+        public CollectionOfMerchantStockLocationResponse StockLocationIndex ()
         {
-             ApiResponse<ApiResponse> localVarResponse = CancellationCreateWithHttpInfo(cancellation);
+             ApiResponse<CollectionOfMerchantStockLocationResponse> localVarResponse = StockLocationIndexWithHttpInfo();
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create Cancellation Mark (part of) an order as cancelled.
+        /// Get the stock locations (or virtual warehouses) Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>ApiResponse of ApiResponse</returns>
-        public ApiResponse< ApiResponse > CancellationCreateWithHttpInfo (MerchantCancellationRequest cancellation)
+        /// <returns>ApiResponse of CollectionOfMerchantStockLocationResponse</returns>
+        public ApiResponse< CollectionOfMerchantStockLocationResponse > StockLocationIndexWithHttpInfo ()
         {
-            // verify the required parameter 'cancellation' is set
-            if (cancellation == null)
-                throw new ApiException(400, "Missing required parameter 'cancellation' when calling CancellationApi->CancellationCreate");
 
-            var localVarPath = "./v2/cancellations";
+            var localVarPath = "./v2/stocklocations";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -202,10 +193,6 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -219,14 +206,6 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cancellation != null && cancellation.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cancellation); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cancellation; // byte array
-            }
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
@@ -236,48 +215,43 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CancellationCreate", localVarResponse);
+                Exception exception = ExceptionFactory("StockLocationIndex", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiResponse>(localVarStatusCode,
+            return new ApiResponse<CollectionOfMerchantStockLocationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
+                (CollectionOfMerchantStockLocationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantStockLocationResponse)));
         }
 
         /// <summary>
-        /// Create Cancellation Mark (part of) an order as cancelled.
+        /// Get the stock locations (or virtual warehouses) Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse> CancellationCreateAsync (MerchantCancellationRequest cancellation)
+        /// <returns>Task of CollectionOfMerchantStockLocationResponse</returns>
+        public async System.Threading.Tasks.Task<CollectionOfMerchantStockLocationResponse> StockLocationIndexAsync ()
         {
-             ApiResponse<ApiResponse> localVarResponse = await CancellationCreateAsyncWithHttpInfo(cancellation);
+             ApiResponse<CollectionOfMerchantStockLocationResponse> localVarResponse = await StockLocationIndexAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create Cancellation Mark (part of) an order as cancelled.
+        /// Get the stock locations (or virtual warehouses) Get the different stock locations (or virtual warehouses) that are in use.  This may include stock locations for &#39;fulfillment by ... (Amazon/bol/CDiscount)&#39; (FBA/LVB/FBC) solutions.  You can use the id&#39;s to get to stock of products in specific stock location, e.g. the FBA stock for the products.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellation"></param>
-        /// <returns>Task of ApiResponse (ApiResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiResponse>> CancellationCreateAsyncWithHttpInfo (MerchantCancellationRequest cancellation)
+        /// <returns>Task of ApiResponse (CollectionOfMerchantStockLocationResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantStockLocationResponse>> StockLocationIndexAsyncWithHttpInfo ()
         {
-            // verify the required parameter 'cancellation' is set
-            if (cancellation == null)
-                throw new ApiException(400, "Missing required parameter 'cancellation' when calling CancellationApi->CancellationCreate");
 
-            var localVarPath = "./v2/cancellations";
+            var localVarPath = "./v2/stocklocations";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -287,10 +261,6 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
-                "application/json-patch+json", 
-                "application/json", 
-                "text/json", 
-                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
@@ -304,14 +274,6 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cancellation != null && cancellation.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cancellation); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = cancellation; // byte array
-            }
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
@@ -321,20 +283,20 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CancellationCreate", localVarResponse);
+                Exception exception = ExceptionFactory("StockLocationIndex", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiResponse>(localVarStatusCode,
+            return new ApiResponse<CollectionOfMerchantStockLocationResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
-                (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
+                (CollectionOfMerchantStockLocationResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantStockLocationResponse)));
         }
 
     }

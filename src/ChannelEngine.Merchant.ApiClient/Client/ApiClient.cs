@@ -53,13 +53,13 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         public ApiClient()
         {
             Configuration = ChannelEngine.Merchant.ApiClient.Client.Configuration.Default;
-            RestClient = new RestClient("https://demo.channelengine.net/api");
+            RestClient = new RestClient("https://localhost/api");
             RestClient.IgnoreResponseStatusCode = true;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://demo.channelengine.net/api).
+        /// with default base path (https://localhost/api).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -75,7 +75,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://demo.channelengine.net/api")
+        public ApiClient(String basePath = "https://localhost/api")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");

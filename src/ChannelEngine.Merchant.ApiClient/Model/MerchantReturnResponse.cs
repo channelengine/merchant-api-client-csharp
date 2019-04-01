@@ -85,10 +85,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             NOTCOLLECTED = 8,
             
             /// <summary>
+            /// Enum WRONGSIZE for value: WRONG_SIZE
+            /// </summary>
+            [EnumMember(Value = "WRONG_SIZE")]
+            WRONGSIZE = 9,
+            
+            /// <summary>
             /// Enum OTHER for value: OTHER
             /// </summary>
             [EnumMember(Value = "OTHER")]
-            OTHER = 9
+            OTHER = 10
         }
 
         /// <summary>
@@ -102,16 +108,20 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <param name="merchantOrderNo">The unique order reference used by the Merchant.</param>
         /// <param name="lines">lines.</param>
+        /// <param name="createdAt">The date at which the return was created in ChannelEngine.</param>
+        /// <param name="updatedAt">The date at which the return was last modified in ChannelEngine.</param>
         /// <param name="id">The unique return reference used by ChannelEngine.</param>
         /// <param name="reason">The reason code of the return.</param>
         /// <param name="customerComment">Optional. Comment of customer on the (reason of) the return.</param>
         /// <param name="merchantComment">Optional. Comment of merchant on the return..</param>
         /// <param name="refundInclVat">Refund amount incl. VAT.</param>
         /// <param name="refundExclVat">Refund amount excl. VAT.</param>
-        public MerchantReturnResponse(string merchantOrderNo = default(string), List<MerchantReturnLineResponse> lines = default(List<MerchantReturnLineResponse>), int? id = default(int?), ReasonEnum? reason = default(ReasonEnum?), string customerComment = default(string), string merchantComment = default(string), decimal? refundInclVat = default(decimal?), decimal? refundExclVat = default(decimal?))
+        public MerchantReturnResponse(string merchantOrderNo = default(string), List<MerchantReturnLineResponse> lines = default(List<MerchantReturnLineResponse>), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), int? id = default(int?), ReasonEnum? reason = default(ReasonEnum?), string customerComment = default(string), string merchantComment = default(string), decimal? refundInclVat = default(decimal?), decimal? refundExclVat = default(decimal?))
         {
             this.MerchantOrderNo = merchantOrderNo;
             this.Lines = lines;
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
             this.Id = id;
             this.Reason = reason;
             this.CustomerComment = customerComment;
@@ -132,6 +142,20 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         [DataMember(Name="Lines", EmitDefaultValue=false)]
         public List<MerchantReturnLineResponse> Lines { get; set; }
+
+        /// <summary>
+        /// The date at which the return was created in ChannelEngine
+        /// </summary>
+        /// <value>The date at which the return was created in ChannelEngine</value>
+        [DataMember(Name="CreatedAt", EmitDefaultValue=false)]
+        public DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The date at which the return was last modified in ChannelEngine
+        /// </summary>
+        /// <value>The date at which the return was last modified in ChannelEngine</value>
+        [DataMember(Name="UpdatedAt", EmitDefaultValue=false)]
+        public DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         /// The unique return reference used by ChannelEngine
@@ -179,6 +203,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("class MerchantReturnResponse {\n");
             sb.Append("  MerchantOrderNo: ").Append(MerchantOrderNo).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  CustomerComment: ").Append(CustomerComment).Append("\n");
@@ -230,6 +256,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.Lines.SequenceEqual(input.Lines)
                 ) && 
                 (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
@@ -274,6 +310,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.MerchantOrderNo.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
+                if (this.CreatedAt != null)
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Reason != null)

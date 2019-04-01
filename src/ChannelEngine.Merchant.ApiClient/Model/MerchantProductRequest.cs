@@ -68,7 +68,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="parentMerchantProductNo">If this product is a different version of another  product (for example, all fields are the same except  size), then this field should contain  the &#39;MerchantProductNo&#39; of the parent. The parent  should already exist (or be present between the products  in the content of the API call, it does not matter whether   the parent is behind the child in the list)..</param>
         /// <param name="parentMerchantProductNo2">If this product is a different version of another  product (for example, all fields are the same except  color) and itself is a parent with child products (e.g. of sizes),   then this field should contain the &#39;MerchantProductNo&#39; of the grandparent. The grandparent  should already exist (or be present between the products  in the content of the API call, it does not matter whether   the grandparent is behind the child in the list).  When you set this field, the ParentMerchantProductNo should be left empty.    Use this field in case of three level product hierarchy,   e.g. model - color - size.   This is required for channels like Otto..</param>
         /// <param name="name">The name of the product.</param>
-        /// <param name="description">A description of the product.</param>
+        /// <param name="description">A description of the product. Can contain these HTML tags:  div, span, pre, p, br, hr, hgroup, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, strong, em, b, i, u, img, a, abbr, address, blockquote, area, audio, video, caption, table, tbody, td, tfoot, th, thead, tr.</param>
         /// <param name="brand">The brand of the product.</param>
         /// <param name="size">Optional. The size of the product (variant). E.g. fashion size (S-XL, 46-56, etc), width of the watch, etc...</param>
         /// <param name="color">Optional. The color of the product (variant)..</param>
@@ -157,9 +157,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// A description of the product
+        /// A description of the product. Can contain these HTML tags:  div, span, pre, p, br, hr, hgroup, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, strong, em, b, i, u, img, a, abbr, address, blockquote, area, audio, video, caption, table, tbody, td, tfoot, th, thead, tr
         /// </summary>
-        /// <value>A description of the product</value>
+        /// <value>A description of the product. Can contain these HTML tags:  div, span, pre, p, br, hr, hgroup, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, strong, em, b, i, u, img, a, abbr, address, blockquote, area, audio, video, caption, table, tbody, td, tfoot, th, thead, tr</value>
         [DataMember(Name="Description", EmitDefaultValue=false)]
         public string Description { get; set; }
 

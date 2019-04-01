@@ -25,6 +25,29 @@ namespace ChannelEngine.Merchant.ApiClient.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get stock for products
+        /// </summary>
+        /// <remarks>
+        /// Get stock of products at stock location(s)
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>CollectionOfMerchantOfferGetStockResponse</returns>
+        CollectionOfMerchantOfferGetStockResponse OfferGetStock (List<string> skus, List<int?> stockLocationIds);
+
+        /// <summary>
+        /// Get stock for products
+        /// </summary>
+        /// <remarks>
+        /// Get stock of products at stock location(s)
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>ApiResponse of CollectionOfMerchantOfferGetStockResponse</returns>
+        ApiResponse<CollectionOfMerchantOfferGetStockResponse> OfferGetStockWithHttpInfo (List<string> skus, List<int?> stockLocationIds);
+        /// <summary>
         /// Update stock or price.
         /// </summary>
         /// <remarks>
@@ -47,6 +70,29 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         ApiResponse<SingleOfCollectionsDictionary2Generic> OfferStockPriceUpdateWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Get stock for products
+        /// </summary>
+        /// <remarks>
+        /// Get stock of products at stock location(s)
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>Task of CollectionOfMerchantOfferGetStockResponse</returns>
+        System.Threading.Tasks.Task<CollectionOfMerchantOfferGetStockResponse> OfferGetStockAsync (List<string> skus, List<int?> stockLocationIds);
+
+        /// <summary>
+        /// Get stock for products
+        /// </summary>
+        /// <remarks>
+        /// Get stock of products at stock location(s)
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>Task of ApiResponse (CollectionOfMerchantOfferGetStockResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOfferGetStockResponse>> OfferGetStockAsyncWithHttpInfo (List<string> skus, List<int?> stockLocationIds);
         /// <summary>
         /// Update stock or price.
         /// </summary>
@@ -169,6 +215,165 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         }
 
         /// <summary>
+        /// Get stock for products Get stock of products at stock location(s)
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>CollectionOfMerchantOfferGetStockResponse</returns>
+        public CollectionOfMerchantOfferGetStockResponse OfferGetStock (List<string> skus, List<int?> stockLocationIds)
+        {
+             ApiResponse<CollectionOfMerchantOfferGetStockResponse> localVarResponse = OfferGetStockWithHttpInfo(skus, stockLocationIds);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get stock for products Get stock of products at stock location(s)
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>ApiResponse of CollectionOfMerchantOfferGetStockResponse</returns>
+        public ApiResponse< CollectionOfMerchantOfferGetStockResponse > OfferGetStockWithHttpInfo (List<string> skus, List<int?> stockLocationIds)
+        {
+            // verify the required parameter 'skus' is set
+            if (skus == null)
+                throw new ApiException(400, "Missing required parameter 'skus' when calling OfferApi->OfferGetStock");
+            // verify the required parameter 'stockLocationIds' is set
+            if (stockLocationIds == null)
+                throw new ApiException(400, "Missing required parameter 'stockLocationIds' when calling OfferApi->OfferGetStock");
+
+            var localVarPath = "./v2/offer/stock";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (skus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "skus", skus)); // query parameter
+            if (stockLocationIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "stockLocationIds", stockLocationIds)); // query parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("OfferGetStock", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CollectionOfMerchantOfferGetStockResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CollectionOfMerchantOfferGetStockResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantOfferGetStockResponse)));
+        }
+
+        /// <summary>
+        /// Get stock for products Get stock of products at stock location(s)
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>Task of CollectionOfMerchantOfferGetStockResponse</returns>
+        public async System.Threading.Tasks.Task<CollectionOfMerchantOfferGetStockResponse> OfferGetStockAsync (List<string> skus, List<int?> stockLocationIds)
+        {
+             ApiResponse<CollectionOfMerchantOfferGetStockResponse> localVarResponse = await OfferGetStockAsyncWithHttpInfo(skus, stockLocationIds);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get stock for products Get stock of products at stock location(s)
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="skus">List of your products&#39; sku&#39;s</param>
+        /// <param name="stockLocationIds">The ChannelEngine id of the stock location(s)</param>
+        /// <returns>Task of ApiResponse (CollectionOfMerchantOfferGetStockResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOfferGetStockResponse>> OfferGetStockAsyncWithHttpInfo (List<string> skus, List<int?> stockLocationIds)
+        {
+            // verify the required parameter 'skus' is set
+            if (skus == null)
+                throw new ApiException(400, "Missing required parameter 'skus' when calling OfferApi->OfferGetStock");
+            // verify the required parameter 'stockLocationIds' is set
+            if (stockLocationIds == null)
+                throw new ApiException(400, "Missing required parameter 'stockLocationIds' when calling OfferApi->OfferGetStock");
+
+            var localVarPath = "./v2/offer/stock";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (skus != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "skus", skus)); // query parameter
+            if (stockLocationIds != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "stockLocationIds", stockLocationIds)); // query parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("OfferGetStock", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CollectionOfMerchantOfferGetStockResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
+                (CollectionOfMerchantOfferGetStockResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantOfferGetStockResponse)));
+        }
+
+        /// <summary>
         /// Update stock or price. 
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
@@ -202,16 +407,16 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/xml", 
-                "text/xml", 
-                "application/x-www-form-urlencoded"
+                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };
@@ -287,16 +492,16 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             // to determine the Content-Type header
             String[] localVarHttpContentTypes = new String[] {
+                "application/json-patch+json", 
                 "application/json", 
                 "text/json", 
-                "application/xml", 
-                "text/xml", 
-                "application/x-www-form-urlencoded"
+                "application/_*+json"
             };
             String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
                 "application/json",
                 "text/json"
             };

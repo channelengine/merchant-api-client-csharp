@@ -41,7 +41,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="lines">lines (required).</param>
         /// <param name="trackTraceNo">The unique shipping reference used by the Shipping carrier (track&amp;amp;trace number).</param>
         /// <param name="trackTraceUrl">A link to a page of the carrier where the customer can track the shipping of her package..</param>
-        /// <param name="method">Shipment method (carrier).</param>
+        /// <param name="method">Shipment method: the carrier used for shipping the package. E.g. DHL, postNL.</param>
         public MerchantShipmentRequest(string merchantShipmentNo = default(string), string merchantOrderNo = default(string), List<MerchantShipmentLineRequest> lines = default(List<MerchantShipmentLineRequest>), string trackTraceNo = default(string), string trackTraceUrl = default(string), string method = default(string))
         {
             // to ensure "merchantShipmentNo" is required (not null)
@@ -111,9 +111,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string TrackTraceUrl { get; set; }
 
         /// <summary>
-        /// Shipment method (carrier)
+        /// Shipment method: the carrier used for shipping the package. E.g. DHL, postNL
         /// </summary>
-        /// <value>Shipment method (carrier)</value>
+        /// <value>Shipment method: the carrier used for shipping the package. E.g. DHL, postNL</value>
         [DataMember(Name="Method", EmitDefaultValue=false)]
         public string Method { get; set; }
 

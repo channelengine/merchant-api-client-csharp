@@ -55,46 +55,40 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             INBACKORDER = 3,
             
             /// <summary>
-            /// Enum CANCELED for value: CANCELED
-            /// </summary>
-            [EnumMember(Value = "CANCELED")]
-            CANCELED = 4,
-            
-            /// <summary>
             /// Enum MANCO for value: MANCO
             /// </summary>
             [EnumMember(Value = "MANCO")]
-            MANCO = 5,
+            MANCO = 4,
             
             /// <summary>
             /// Enum INCOMBI for value: IN_COMBI
             /// </summary>
             [EnumMember(Value = "IN_COMBI")]
-            INCOMBI = 6,
+            INCOMBI = 5,
             
             /// <summary>
             /// Enum CLOSED for value: CLOSED
             /// </summary>
             [EnumMember(Value = "CLOSED")]
-            CLOSED = 7,
+            CLOSED = 6,
             
             /// <summary>
             /// Enum NEW for value: NEW
             /// </summary>
             [EnumMember(Value = "NEW")]
-            NEW = 8,
+            NEW = 7,
             
             /// <summary>
             /// Enum RETURNED for value: RETURNED
             /// </summary>
             [EnumMember(Value = "RETURNED")]
-            RETURNED = 9,
+            RETURNED = 8,
             
             /// <summary>
             /// Enum REQUIRESCORRECTION for value: REQUIRES_CORRECTION
             /// </summary>
             [EnumMember(Value = "REQUIRES_CORRECTION")]
-            REQUIRESCORRECTION = 10
+            REQUIRESCORRECTION = 9
         }
 
         /// <summary>
@@ -151,7 +145,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             /// Enum UNKNOWN for value: UNKNOWN
             /// </summary>
             [EnumMember(Value = "UNKNOWN")]
-            UNKNOWN = 7
+            UNKNOWN = 7,
+            
+            /// <summary>
+            /// Enum USEDVERYGOOD for value: USED_VERY_GOOD
+            /// </summary>
+            [EnumMember(Value = "USED_VERY_GOOD")]
+            USEDVERYGOOD = 8
         }
 
         /// <summary>
@@ -171,6 +171,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="status">The status of the order.</param>
         /// <param name="isFulfillmentByMarketplace">Is the order fulfilled by the marketplace (amazon: FBA, bol: LVB, etc.)?.</param>
         /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku).</param>
+        /// <param name="gtin">Either the GTIN (EAN, ISBN, UPC etc) provided by the channel, or the the GTIN belonging to the MerchantProductNo in ChannelEngine.</param>
         /// <param name="unitVat">The total amount of VAT charged over the value of a single unit of the ordered product  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
         /// <param name="lineTotalInclVat">The total value of the order line (quantity * unit price) including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
         /// <param name="lineVat">The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
@@ -180,12 +181,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="originalLineVat">The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the currency in which the order was paid for, see CurrencyCode)..</param>
         /// <param name="channelProductNo">The unique order reference used by the channel (required).</param>
         /// <param name="quantity">The number of items of the product (required).</param>
-        /// <param name="cancellationRequestedQuantity">The number of items for which cancellation was requested by the customer.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation.  Use this field to check whether it is still possible to cancel the order. If this is the case, submit a cancellation to ChannelEngine (required).</param>
+        /// <param name="cancellationRequestedQuantity">The number of items for which cancellation was requested by the customer.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation.  Use this field to check whether it is still possible to cancel the order. If this is the case, submit a cancellation to ChannelEngine.</param>
         /// <param name="unitPriceInclVat">The value of a single unit of the ordered product including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="feeFixed">A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="feeRate">A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable..</param>
         /// <param name="condition">The condition of the product, this can be used to indicate that a product is a second-hand product.</param>
-        public MerchantOrderLineResponse(StatusEnum? status = default(StatusEnum?), bool? isFulfillmentByMarketplace = default(bool?), string merchantProductNo = default(string), decimal? unitVat = default(decimal?), decimal? lineTotalInclVat = default(decimal?), decimal? lineVat = default(decimal?), decimal? originalUnitPriceInclVat = default(decimal?), decimal? originalUnitVat = default(decimal?), decimal? originalLineTotalInclVat = default(decimal?), decimal? originalLineVat = default(decimal?), string channelProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), decimal? unitPriceInclVat = default(decimal?), decimal? feeFixed = default(decimal?), decimal? feeRate = default(decimal?), ConditionEnum? condition = default(ConditionEnum?))
+        public MerchantOrderLineResponse(StatusEnum? status = default(StatusEnum?), bool? isFulfillmentByMarketplace = default(bool?), string merchantProductNo = default(string), string gtin = default(string), decimal? unitVat = default(decimal?), decimal? lineTotalInclVat = default(decimal?), decimal? lineVat = default(decimal?), decimal? originalUnitPriceInclVat = default(decimal?), decimal? originalUnitVat = default(decimal?), decimal? originalLineTotalInclVat = default(decimal?), decimal? originalLineVat = default(decimal?), string channelProductNo = default(string), int? quantity = default(int?), int? cancellationRequestedQuantity = default(int?), decimal? unitPriceInclVat = default(decimal?), decimal? feeFixed = default(decimal?), decimal? feeRate = default(decimal?), ConditionEnum? condition = default(ConditionEnum?))
         {
             // to ensure "channelProductNo" is required (not null)
             if (channelProductNo == null)
@@ -205,15 +206,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             {
                 this.Quantity = quantity;
             }
-            // to ensure "cancellationRequestedQuantity" is required (not null)
-            if (cancellationRequestedQuantity == null)
-            {
-                throw new InvalidDataException("cancellationRequestedQuantity is a required property for MerchantOrderLineResponse and cannot be null");
-            }
-            else
-            {
-                this.CancellationRequestedQuantity = cancellationRequestedQuantity;
-            }
             // to ensure "unitPriceInclVat" is required (not null)
             if (unitPriceInclVat == null)
             {
@@ -226,6 +218,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.Status = status;
             this.IsFulfillmentByMarketplace = isFulfillmentByMarketplace;
             this.MerchantProductNo = merchantProductNo;
+            this.Gtin = gtin;
             this.UnitVat = unitVat;
             this.LineTotalInclVat = lineTotalInclVat;
             this.LineVat = lineVat;
@@ -233,6 +226,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.OriginalUnitVat = originalUnitVat;
             this.OriginalLineTotalInclVat = originalLineTotalInclVat;
             this.OriginalLineVat = originalLineVat;
+            this.CancellationRequestedQuantity = cancellationRequestedQuantity;
             this.FeeFixed = feeFixed;
             this.FeeRate = feeRate;
             this.Condition = condition;
@@ -252,6 +246,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <value>The unique product reference used by the Merchant (sku)</value>
         [DataMember(Name="MerchantProductNo", EmitDefaultValue=false)]
         public string MerchantProductNo { get; set; }
+
+        /// <summary>
+        /// Either the GTIN (EAN, ISBN, UPC etc) provided by the channel, or the the GTIN belonging to the MerchantProductNo in ChannelEngine
+        /// </summary>
+        /// <value>Either the GTIN (EAN, ISBN, UPC etc) provided by the channel, or the the GTIN belonging to the MerchantProductNo in ChannelEngine</value>
+        [DataMember(Name="Gtin", EmitDefaultValue=false)]
+        public string Gtin { get; set; }
 
         /// <summary>
         /// The total amount of VAT charged over the value of a single unit of the ordered product  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering).
@@ -356,6 +357,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  IsFulfillmentByMarketplace: ").Append(IsFulfillmentByMarketplace).Append("\n");
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
+            sb.Append("  Gtin: ").Append(Gtin).Append("\n");
             sb.Append("  UnitVat: ").Append(UnitVat).Append("\n");
             sb.Append("  LineTotalInclVat: ").Append(LineTotalInclVat).Append("\n");
             sb.Append("  LineVat: ").Append(LineVat).Append("\n");
@@ -418,6 +420,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.MerchantProductNo == input.MerchantProductNo ||
                     (this.MerchantProductNo != null &&
                     this.MerchantProductNo.Equals(input.MerchantProductNo))
+                ) && 
+                (
+                    this.Gtin == input.Gtin ||
+                    (this.Gtin != null &&
+                    this.Gtin.Equals(input.Gtin))
                 ) && 
                 (
                     this.UnitVat == input.UnitVat ||
@@ -506,6 +513,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.IsFulfillmentByMarketplace.GetHashCode();
                 if (this.MerchantProductNo != null)
                     hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
+                if (this.Gtin != null)
+                    hashCode = hashCode * 59 + this.Gtin.GetHashCode();
                 if (this.UnitVat != null)
                     hashCode = hashCode * 59 + this.UnitVat.GetHashCode();
                 if (this.LineTotalInclVat != null)

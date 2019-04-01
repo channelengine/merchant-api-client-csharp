@@ -23,13 +23,13 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// CollectionOfMerchantOrderResponse
+    /// CollectionOfMerchantOfferGetStockResponse
     /// </summary>
     [DataContract]
-    public partial class CollectionOfMerchantOrderResponse :  IEquatable<CollectionOfMerchantOrderResponse>
+    public partial class CollectionOfMerchantOfferGetStockResponse :  IEquatable<CollectionOfMerchantOfferGetStockResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CollectionOfMerchantOrderResponse" /> class.
+        /// Initializes a new instance of the <see cref="CollectionOfMerchantOfferGetStockResponse" /> class.
         /// </summary>
         /// <param name="content">content.</param>
         /// <param name="count">The number of items in the current response.</param>
@@ -40,7 +40,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="success">success.</param>
         /// <param name="message">message.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public CollectionOfMerchantOrderResponse(List<MerchantOrderResponse> content = default(List<MerchantOrderResponse>), int? count = default(int?), int? totalCount = default(int?), int? itemsPerPage = default(int?), int? statusCode = default(int?), int? logId = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
+        public CollectionOfMerchantOfferGetStockResponse(List<MerchantOfferGetStockResponse> content = default(List<MerchantOfferGetStockResponse>), int? count = default(int?), int? totalCount = default(int?), int? itemsPerPage = default(int?), int? statusCode = default(int?), int? logId = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
         {
             this.Content = content;
             this.Count = count;
@@ -57,7 +57,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// Gets or Sets Content
         /// </summary>
         [DataMember(Name="Content", EmitDefaultValue=false)]
-        public List<MerchantOrderResponse> Content { get; set; }
+        public List<MerchantOfferGetStockResponse> Content { get; set; }
 
         /// <summary>
         /// The number of items in the current response
@@ -117,7 +117,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CollectionOfMerchantOrderResponse {\n");
+            sb.Append("class CollectionOfMerchantOfferGetStockResponse {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
@@ -147,15 +147,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CollectionOfMerchantOrderResponse);
+            return this.Equals(input as CollectionOfMerchantOfferGetStockResponse);
         }
 
         /// <summary>
-        /// Returns true if CollectionOfMerchantOrderResponse instances are equal
+        /// Returns true if CollectionOfMerchantOfferGetStockResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of CollectionOfMerchantOrderResponse to be compared</param>
+        /// <param name="input">Instance of CollectionOfMerchantOfferGetStockResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CollectionOfMerchantOrderResponse input)
+        public bool Equals(CollectionOfMerchantOfferGetStockResponse input)
         {
             if (input == null)
                 return false;

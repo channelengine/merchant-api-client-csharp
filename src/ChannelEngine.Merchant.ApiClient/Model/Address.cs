@@ -68,9 +68,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="companyName">Optional. Company addressed too..</param>
         /// <param name="firstName">The first name of the customer.</param>
         /// <param name="lastName">The last name of the customer (includes the surname prefix [tussenvoegsel] like &#39;de&#39;, &#39;van&#39;, &#39;du&#39;).</param>
-        /// <param name="streetName">The name of the street (without house number information).</param>
-        /// <param name="houseNr">The house number.</param>
-        /// <param name="houseNrAddition">Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c.</param>
+        /// <param name="streetName">The name of the street (without house number information)  This field might be empty if address validation is disabled in ChannelEngine.</param>
+        /// <param name="houseNr">The house number  This field might be empty if address validation is disabled in ChannelEngine.</param>
+        /// <param name="houseNrAddition">Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c  This field might be empty if address validation is disabled in ChannelEngine.</param>
         /// <param name="zipCode">The zip or postal code.</param>
         /// <param name="city">The name of the city.</param>
         /// <param name="region">Optional. State/province/region.</param>
@@ -115,23 +115,23 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string LastName { get; set; }
 
         /// <summary>
-        /// The name of the street (without house number information)
+        /// The name of the street (without house number information)  This field might be empty if address validation is disabled in ChannelEngine
         /// </summary>
-        /// <value>The name of the street (without house number information)</value>
+        /// <value>The name of the street (without house number information)  This field might be empty if address validation is disabled in ChannelEngine</value>
         [DataMember(Name="StreetName", EmitDefaultValue=false)]
         public string StreetName { get; set; }
 
         /// <summary>
-        /// The house number
+        /// The house number  This field might be empty if address validation is disabled in ChannelEngine
         /// </summary>
-        /// <value>The house number</value>
+        /// <value>The house number  This field might be empty if address validation is disabled in ChannelEngine</value>
         [DataMember(Name="HouseNr", EmitDefaultValue=false)]
         public string HouseNr { get; set; }
 
         /// <summary>
-        /// Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c
+        /// Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c  This field might be empty if address validation is disabled in ChannelEngine
         /// </summary>
-        /// <value>Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c</value>
+        /// <value>Optional. Addition to the house number  If the address is: Groenhazengracht 2c, the address will be:  StreetName: Groenhazengracht  HouseNo: 2  HouseNrAddition: c  This field might be empty if address validation is disabled in ChannelEngine</value>
         [DataMember(Name="HouseNrAddition", EmitDefaultValue=false)]
         public string HouseNrAddition { get; set; }
 

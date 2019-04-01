@@ -33,13 +33,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         /// <param name="content">content.</param>
         /// <param name="statusCode">statusCode.</param>
+        /// <param name="logId">logId.</param>
         /// <param name="success">success.</param>
         /// <param name="message">message.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public SingleOfMerchantProductResponse(MerchantProductResponse content = default(MerchantProductResponse), int? statusCode = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
+        public SingleOfMerchantProductResponse(MerchantProductResponse content = default(MerchantProductResponse), int? statusCode = default(int?), int? logId = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
         {
             this.Content = content;
             this.StatusCode = statusCode;
+            this.LogId = logId;
             this.Success = success;
             this.Message = message;
             this.ValidationErrors = validationErrors;
@@ -56,6 +58,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// </summary>
         [DataMember(Name="StatusCode", EmitDefaultValue=false)]
         public int? StatusCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LogId
+        /// </summary>
+        [DataMember(Name="LogId", EmitDefaultValue=false)]
+        public int? LogId { get; set; }
 
         /// <summary>
         /// Gets or Sets Success
@@ -85,6 +93,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("class SingleOfMerchantProductResponse {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            sb.Append("  LogId: ").Append(LogId).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  ValidationErrors: ").Append(ValidationErrors).Append("\n");
@@ -133,6 +142,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.StatusCode.Equals(input.StatusCode))
                 ) && 
                 (
+                    this.LogId == input.LogId ||
+                    (this.LogId != null &&
+                    this.LogId.Equals(input.LogId))
+                ) && 
+                (
                     this.Success == input.Success ||
                     (this.Success != null &&
                     this.Success.Equals(input.Success))
@@ -162,6 +176,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.Content.GetHashCode();
                 if (this.StatusCode != null)
                     hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
+                if (this.LogId != null)
+                    hashCode = hashCode * 59 + this.LogId.GetHashCode();
                 if (this.Success != null)
                     hashCode = hashCode * 59 + this.Success.GetHashCode();
                 if (this.Message != null)

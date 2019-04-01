@@ -94,46 +94,40 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             INBACKORDER = 3,
             
             /// <summary>
-            /// Enum CANCELED for value: CANCELED
-            /// </summary>
-            [EnumMember(Value = "CANCELED")]
-            CANCELED = 4,
-            
-            /// <summary>
             /// Enum MANCO for value: MANCO
             /// </summary>
             [EnumMember(Value = "MANCO")]
-            MANCO = 5,
+            MANCO = 4,
             
             /// <summary>
             /// Enum INCOMBI for value: IN_COMBI
             /// </summary>
             [EnumMember(Value = "IN_COMBI")]
-            INCOMBI = 6,
+            INCOMBI = 5,
             
             /// <summary>
             /// Enum CLOSED for value: CLOSED
             /// </summary>
             [EnumMember(Value = "CLOSED")]
-            CLOSED = 7,
+            CLOSED = 6,
             
             /// <summary>
             /// Enum NEW for value: NEW
             /// </summary>
             [EnumMember(Value = "NEW")]
-            NEW = 8,
+            NEW = 7,
             
             /// <summary>
             /// Enum RETURNED for value: RETURNED
             /// </summary>
             [EnumMember(Value = "RETURNED")]
-            RETURNED = 9,
+            RETURNED = 8,
             
             /// <summary>
             /// Enum REQUIRESCORRECTION for value: REQUIRES_CORRECTION
             /// </summary>
             [EnumMember(Value = "REQUIRES_CORRECTION")]
-            REQUIRESCORRECTION = 10
+            REQUIRESCORRECTION = 9
         }
 
         /// <summary>

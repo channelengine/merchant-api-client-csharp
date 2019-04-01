@@ -67,7 +67,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="isActive">Is the product active for the Merchant?.</param>
         /// <param name="merchantProductNo">A unique identifier of the product. (sku).</param>
         /// <param name="name">The name of the product.</param>
-        /// <param name="description">A description of the product.</param>
+        /// <param name="description">A description of the product. Can contain these HTML tags:  div, span, pre, p, br, hr, hgroup, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, strong, em, b, i, u, img, a, abbr, address, blockquote, area, audio, video, caption, table, tbody, td, tfoot, th, thead, tr.</param>
         /// <param name="brand">The brand of the product.</param>
         /// <param name="size">Optional. The size of the product (variant). E.g. fashion size (S-XL, 46-56, etc), width of the watch, etc...</param>
         /// <param name="color">Optional. The color of the product (variant)..</param>
@@ -148,9 +148,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// A description of the product
+        /// A description of the product. Can contain these HTML tags:  div, span, pre, p, br, hr, hgroup, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, strong, em, b, i, u, img, a, abbr, address, blockquote, area, audio, video, caption, table, tbody, td, tfoot, th, thead, tr
         /// </summary>
-        /// <value>A description of the product</value>
+        /// <value>A description of the product. Can contain these HTML tags:  div, span, pre, p, br, hr, hgroup, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, strong, em, b, i, u, img, a, abbr, address, blockquote, area, audio, video, caption, table, tbody, td, tfoot, th, thead, tr</value>
         [DataMember(Name="Description", EmitDefaultValue=false)]
         public string Description { get; set; }
 

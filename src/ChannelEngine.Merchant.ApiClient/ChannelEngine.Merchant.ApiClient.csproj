@@ -12,7 +12,7 @@ OpenAPI spec version: 2.0.0
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8972E692-7728-4693-9CE5-8F15A6ACA99B}</ProjectGuid>
+    <ProjectGuid>{CB8C6A0A-B8A6-465E-A988-DD7026F94573}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ChannelEngine.Merchant.ApiClient</RootNamespace>
