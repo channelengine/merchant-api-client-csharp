@@ -73,12 +73,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Retrieve all products
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantProductResponse</returns>
-        CollectionOfMerchantProductResponse ProductGetByFilter (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null);
+        CollectionOfMerchantProductResponse ProductGetByFilter (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null);
 
         /// <summary>
         /// Get Products
@@ -87,12 +87,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Retrieve all products
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantProductResponse</returns>
-        ApiResponse<CollectionOfMerchantProductResponse> ProductGetByFilterWithHttpInfo (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null);
+        ApiResponse<CollectionOfMerchantProductResponse> ProductGetByFilterWithHttpInfo (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null);
         /// <summary>
         /// Get Product
         /// </summary>
@@ -165,12 +165,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Retrieve all products
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantProductResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfMerchantProductResponse> ProductGetByFilterAsync (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null);
+        System.Threading.Tasks.Task<CollectionOfMerchantProductResponse> ProductGetByFilterAsync (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null);
 
         /// <summary>
         /// Get Products
@@ -179,12 +179,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Retrieve all products
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantProductResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantProductResponse>> ProductGetByFilterAsyncWithHttpInfo (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantProductResponse>> ProductGetByFilterAsyncWithHttpInfo (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null);
         /// <summary>
         /// Get Product
         /// </summary>
@@ -626,14 +626,14 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Products Retrieve all products
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantProductResponse</returns>
-        public CollectionOfMerchantProductResponse ProductGetByFilter (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null)
+        public CollectionOfMerchantProductResponse ProductGetByFilter (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null)
         {
-             ApiResponse<CollectionOfMerchantProductResponse> localVarResponse = ProductGetByFilterWithHttpInfo(filterSearch, filterEanList, filterMerchantProductNoList, filterPage);
+             ApiResponse<CollectionOfMerchantProductResponse> localVarResponse = ProductGetByFilterWithHttpInfo(search, eanList, merchantProductNoList, page);
              return localVarResponse.Data;
         }
 
@@ -641,12 +641,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Products Retrieve all products
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantProductResponse</returns>
-        public ApiResponse< CollectionOfMerchantProductResponse > ProductGetByFilterWithHttpInfo (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null)
+        public ApiResponse< CollectionOfMerchantProductResponse > ProductGetByFilterWithHttpInfo (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null)
         {
 
             var localVarPath = "/v2/products";
@@ -672,10 +672,10 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (filterSearch != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.search", filterSearch)); // query parameter
-            if (filterEanList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.eanList", filterEanList)); // query parameter
-            if (filterMerchantProductNoList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.merchantProductNoList", filterMerchantProductNoList)); // query parameter
-            if (filterPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (eanList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "eanList", eanList)); // query parameter
+            if (merchantProductNoList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "merchantProductNoList", merchantProductNoList)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
@@ -705,14 +705,14 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Products Retrieve all products
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantProductResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfMerchantProductResponse> ProductGetByFilterAsync (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null)
+        public async System.Threading.Tasks.Task<CollectionOfMerchantProductResponse> ProductGetByFilterAsync (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null)
         {
-             ApiResponse<CollectionOfMerchantProductResponse> localVarResponse = await ProductGetByFilterAsyncWithHttpInfo(filterSearch, filterEanList, filterMerchantProductNoList, filterPage);
+             ApiResponse<CollectionOfMerchantProductResponse> localVarResponse = await ProductGetByFilterAsyncWithHttpInfo(search, eanList, merchantProductNoList, page);
              return localVarResponse.Data;
 
         }
@@ -721,12 +721,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Products Retrieve all products
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="filterSearch">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
-        /// <param name="filterEanList">Search products by submitting a list of EAN&#39;s (optional)</param>
-        /// <param name="filterMerchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
-        /// <param name="filterPage">The page to filter on. Starts at 1. (optional)</param>
+        /// <param name="search">Search product(s) by Name, MerchantProductNo, Ean or Brand      This search is applied to the result after applying the other filters. (optional)</param>
+        /// <param name="eanList">Search products by submitting a list of EAN&#39;s (optional)</param>
+        /// <param name="merchantProductNoList">Search products by submitting a list of MerchantProductNo&#39;s (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantProductResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantProductResponse>> ProductGetByFilterAsyncWithHttpInfo (string filterSearch = null, List<string> filterEanList = null, List<string> filterMerchantProductNoList = null, int? filterPage = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantProductResponse>> ProductGetByFilterAsyncWithHttpInfo (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null)
         {
 
             var localVarPath = "/v2/products";
@@ -752,10 +752,10 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (filterSearch != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.search", filterSearch)); // query parameter
-            if (filterEanList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.eanList", filterEanList)); // query parameter
-            if (filterMerchantProductNoList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "filter.merchantProductNoList", filterMerchantProductNoList)); // query parameter
-            if (filterPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter.page", filterPage)); // query parameter
+            if (search != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "search", search)); // query parameter
+            if (eanList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "eanList", eanList)); // query parameter
+            if (merchantProductNoList != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "merchantProductNoList", merchantProductNoList)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
