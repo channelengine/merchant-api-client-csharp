@@ -167,7 +167,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="email">The customer&#39;s email (required).</param>
         /// <param name="companyRegistrationNo">Optional. A company&#39;s chamber of commerce number.</param>
         /// <param name="vatNo">Optional. A company&#39;s VAT number.</param>
-        /// <param name="paymentMethod">The payment method used on the order (required).</param>
+        /// <param name="paymentMethod">The payment method used on the order.</param>
         /// <param name="shippingCostsInclVat">The shipping fee including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="currencyCode">The currency code for the amounts of the order (required).</param>
         /// <param name="orderDate">The date the order was done (required).</param>
@@ -185,15 +185,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             else
             {
                 this.Email = email;
-            }
-            // to ensure "paymentMethod" is required (not null)
-            if (paymentMethod == null)
-            {
-                throw new InvalidDataException("paymentMethod is a required property for MerchantOrderResponse and cannot be null");
-            }
-            else
-            {
-                this.PaymentMethod = paymentMethod;
             }
             // to ensure "shippingCostsInclVat" is required (not null)
             if (shippingCostsInclVat == null)
@@ -260,6 +251,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.Phone = phone;
             this.CompanyRegistrationNo = companyRegistrationNo;
             this.VatNo = vatNo;
+            this.PaymentMethod = paymentMethod;
             this.ChannelCustomerNo = channelCustomerNo;
             this.ExtraData = extraData;
         }
