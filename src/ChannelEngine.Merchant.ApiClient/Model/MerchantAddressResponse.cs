@@ -25,10 +25,10 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Address
+    /// MerchantAddressResponse
     /// </summary>
     [DataContract]
-    public partial class Address :  IEquatable<Address>, IValidatableObject
+    public partial class MerchantAddressResponse :  IEquatable<MerchantAddressResponse>, IValidatableObject
     {
         /// <summary>
         /// Optional. The customer&#39;s gender
@@ -64,8 +64,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         [DataMember(Name="Gender", EmitDefaultValue=false)]
         public GenderEnum? Gender { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Address" /> class.
+        /// Initializes a new instance of the <see cref="MerchantAddressResponse" /> class.
         /// </summary>
+        /// <param name="line1">The first address line, use this field if address validation is disabled in ChannelEngine..</param>
+        /// <param name="line2">The second address line, use this field if address validation is disabled in ChannelEngine..</param>
+        /// <param name="line3">The third address line, use this field if address validation is disabled in ChannelEngine..</param>
         /// <param name="gender">Optional. The customer&#39;s gender.</param>
         /// <param name="companyName">Optional. Company addressed too..</param>
         /// <param name="firstName">The first name of the customer.</param>
@@ -78,8 +81,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="region">Optional. State/province/region.</param>
         /// <param name="countryIso">For example: NL, BE, FR.</param>
         /// <param name="original">Optional. The address as a single string: use in case the address lines are entered  as single lines and later parsed into street, house number and house number addition..</param>
-        public Address(GenderEnum? gender = default(GenderEnum?), string companyName = default(string), string firstName = default(string), string lastName = default(string), string streetName = default(string), string houseNr = default(string), string houseNrAddition = default(string), string zipCode = default(string), string city = default(string), string region = default(string), string countryIso = default(string), string original = default(string))
+        public MerchantAddressResponse(string line1 = default(string), string line2 = default(string), string line3 = default(string), GenderEnum? gender = default(GenderEnum?), string companyName = default(string), string firstName = default(string), string lastName = default(string), string streetName = default(string), string houseNr = default(string), string houseNrAddition = default(string), string zipCode = default(string), string city = default(string), string region = default(string), string countryIso = default(string), string original = default(string))
         {
+            this.Line1 = line1;
+            this.Line2 = line2;
+            this.Line3 = line3;
             this.Gender = gender;
             this.CompanyName = companyName;
             this.FirstName = firstName;
@@ -94,6 +100,27 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.Original = original;
         }
         
+        /// <summary>
+        /// The first address line, use this field if address validation is disabled in ChannelEngine.
+        /// </summary>
+        /// <value>The first address line, use this field if address validation is disabled in ChannelEngine.</value>
+        [DataMember(Name="Line1", EmitDefaultValue=false)]
+        public string Line1 { get; set; }
+
+        /// <summary>
+        /// The second address line, use this field if address validation is disabled in ChannelEngine.
+        /// </summary>
+        /// <value>The second address line, use this field if address validation is disabled in ChannelEngine.</value>
+        [DataMember(Name="Line2", EmitDefaultValue=false)]
+        public string Line2 { get; set; }
+
+        /// <summary>
+        /// The third address line, use this field if address validation is disabled in ChannelEngine.
+        /// </summary>
+        /// <value>The third address line, use this field if address validation is disabled in ChannelEngine.</value>
+        [DataMember(Name="Line3", EmitDefaultValue=false)]
+        public string Line3 { get; set; }
+
 
         /// <summary>
         /// Optional. Company addressed too.
@@ -179,7 +206,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Address {\n");
+            sb.Append("class MerchantAddressResponse {\n");
+            sb.Append("  Line1: ").Append(Line1).Append("\n");
+            sb.Append("  Line2: ").Append(Line2).Append("\n");
+            sb.Append("  Line3: ").Append(Line3).Append("\n");
             sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
@@ -212,20 +242,35 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Address);
+            return this.Equals(input as MerchantAddressResponse);
         }
 
         /// <summary>
-        /// Returns true if Address instances are equal
+        /// Returns true if MerchantAddressResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of Address to be compared</param>
+        /// <param name="input">Instance of MerchantAddressResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Address input)
+        public bool Equals(MerchantAddressResponse input)
         {
             if (input == null)
                 return false;
 
             return 
+                (
+                    this.Line1 == input.Line1 ||
+                    (this.Line1 != null &&
+                    this.Line1.Equals(input.Line1))
+                ) && 
+                (
+                    this.Line2 == input.Line2 ||
+                    (this.Line2 != null &&
+                    this.Line2.Equals(input.Line2))
+                ) && 
+                (
+                    this.Line3 == input.Line3 ||
+                    (this.Line3 != null &&
+                    this.Line3.Equals(input.Line3))
+                ) && 
                 (
                     this.Gender == input.Gender ||
                     (this.Gender != null &&
@@ -297,6 +342,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Line1 != null)
+                    hashCode = hashCode * 59 + this.Line1.GetHashCode();
+                if (this.Line2 != null)
+                    hashCode = hashCode * 59 + this.Line2.GetHashCode();
+                if (this.Line3 != null)
+                    hashCode = hashCode * 59 + this.Line3.GetHashCode();
                 if (this.Gender != null)
                     hashCode = hashCode * 59 + this.Gender.GetHashCode();
                 if (this.CompanyName != null)

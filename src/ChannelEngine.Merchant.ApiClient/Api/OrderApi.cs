@@ -33,7 +33,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>ApiResponse</returns>
-        ApiResponse OrderAcknowledge (OrderAcknowledgement model);
+        ApiResponse OrderAcknowledge (MerchantOrderAcknowledgementRequest model);
 
         /// <summary>
         /// Acknowledge Order
@@ -44,7 +44,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>ApiResponse of ApiResponse</returns>
-        ApiResponse<ApiResponse> OrderAcknowledgeWithHttpInfo (OrderAcknowledgement model);
+        ApiResponse<ApiResponse> OrderAcknowledgeWithHttpInfo (MerchantOrderAcknowledgementRequest model);
         /// <summary>
         /// Get Orders By Filter
         /// </summary>
@@ -54,13 +54,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
-        CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null);
+        CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null);
 
         /// <summary>
         /// Get Orders By Filter
@@ -71,13 +73,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
-        ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null);
+        ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null);
         /// <summary>
         /// Get New Orders
         /// </summary>
@@ -154,7 +158,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse> OrderAcknowledgeAsync (OrderAcknowledgement model);
+        System.Threading.Tasks.Task<ApiResponse> OrderAcknowledgeAsync (MerchantOrderAcknowledgementRequest model);
 
         /// <summary>
         /// Acknowledge Order
@@ -165,7 +169,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiResponse>> OrderAcknowledgeAsyncWithHttpInfo (OrderAcknowledgement model);
+        System.Threading.Tasks.Task<ApiResponse<ApiResponse>> OrderAcknowledgeAsyncWithHttpInfo (MerchantOrderAcknowledgementRequest model);
         /// <summary>
         /// Get Orders By Filter
         /// </summary>
@@ -175,13 +179,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null);
+        System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null);
 
         /// <summary>
         /// Get Orders By Filter
@@ -192,13 +198,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null);
         /// <summary>
         /// Get New Orders
         /// </summary>
@@ -370,7 +378,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>ApiResponse</returns>
-        public ApiResponse OrderAcknowledge (OrderAcknowledgement model)
+        public ApiResponse OrderAcknowledge (MerchantOrderAcknowledgementRequest model)
         {
              ApiResponse<ApiResponse> localVarResponse = OrderAcknowledgeWithHttpInfo(model);
              return localVarResponse.Data;
@@ -382,7 +390,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>ApiResponse of ApiResponse</returns>
-        public ApiResponse< ApiResponse > OrderAcknowledgeWithHttpInfo (OrderAcknowledgement model)
+        public ApiResponse< ApiResponse > OrderAcknowledgeWithHttpInfo (MerchantOrderAcknowledgementRequest model)
         {
             // verify the required parameter 'model' is set
             if (model == null)
@@ -454,7 +462,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse> OrderAcknowledgeAsync (OrderAcknowledgement model)
+        public async System.Threading.Tasks.Task<ApiResponse> OrderAcknowledgeAsync (MerchantOrderAcknowledgementRequest model)
         {
              ApiResponse<ApiResponse> localVarResponse = await OrderAcknowledgeAsyncWithHttpInfo(model);
              return localVarResponse.Data;
@@ -467,7 +475,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="model">Relations between the id&#39;s returned by ChannelEngine and the references which the merchant uses</param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiResponse>> OrderAcknowledgeAsyncWithHttpInfo (OrderAcknowledgement model)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiResponse>> OrderAcknowledgeAsyncWithHttpInfo (MerchantOrderAcknowledgementRequest model)
         {
             // verify the required parameter 'model' is set
             if (model == null)
@@ -539,15 +547,17 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
-        public CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null)
+        public CollectionOfMerchantOrderResponse OrderGetByFilter (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null)
         {
-             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = OrderGetByFilterWithHttpInfo(statuses, merchantOrderNos, fromDate, toDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, page);
+             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = OrderGetByFilterWithHttpInfo(statuses, merchantOrderNos, channelOrderNos, fromDate, toDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, onlyWithCancellationRequests, page);
              return localVarResponse.Data;
         }
 
@@ -557,13 +567,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
-        public ApiResponse< CollectionOfMerchantOrderResponse > OrderGetByFilterWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null)
+        public ApiResponse< CollectionOfMerchantOrderResponse > OrderGetByFilterWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null)
         {
 
             var localVarPath = "/v2/orders";
@@ -591,10 +603,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             if (statuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "statuses", statuses)); // query parameter
             if (merchantOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "merchantOrderNos", merchantOrderNos)); // query parameter
+            if (channelOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "channelOrderNos", channelOrderNos)); // query parameter
             if (fromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromDate", fromDate)); // query parameter
             if (toDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toDate", toDate)); // query parameter
             if (excludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeMarketplaceFulfilledOrdersAndLines", excludeMarketplaceFulfilledOrdersAndLines)); // query parameter
             if (fulfillmentType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fulfillmentType", fulfillmentType)); // query parameter
+            if (onlyWithCancellationRequests != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "onlyWithCancellationRequests", onlyWithCancellationRequests)); // query parameter
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required
@@ -627,15 +641,17 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null)
+        public async System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null)
         {
-             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = await OrderGetByFilterAsyncWithHttpInfo(statuses, merchantOrderNos, fromDate, toDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, page);
+             ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = await OrderGetByFilterAsyncWithHttpInfo(statuses, merchantOrderNos, channelOrderNos, fromDate, toDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, onlyWithCancellationRequests, page);
              return localVarResponse.Data;
 
         }
@@ -646,13 +662,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statuses">Order status(es) to filter on (optional)</param>
         /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="channelOrderNos">Filter on unique order reference used by the channel (optional)</param>
         /// <param name="fromDate">Filter on the order date, starting from this date. This date is inclusive. (optional)</param>
         /// <param name="toDate">Filter on the order date, until this date. This date is exclusive. (optional)</param>
         /// <param name="excludeMarketplaceFulfilledOrdersAndLines">Exclude order (lines) fulfilled by the marketplace (amazon:FBA, bol:LVB, etc.) (optional)</param>
         /// <param name="fulfillmentType">Filter orders on fulfillment type. This will include all orders lines, even if they are partially fulfilled by the marketplace.  To exclude orders and lines that are fulfilled by the marketplace from the response, set ExcludeMarketplaceFulfilledOrdersAndLines to true. (optional)</param>
+        /// <param name="onlyWithCancellationRequests">Filter on orders containing cancellation requests.  Some channels allow a customer to cancel an order until it has been shipped.  When an order has already been acknowledged in ChannelEngine, it can only be cancelled by creating a cancellation. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, int? page = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null)
         {
 
             var localVarPath = "/v2/orders";
@@ -680,10 +698,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
 
             if (statuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "statuses", statuses)); // query parameter
             if (merchantOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "merchantOrderNos", merchantOrderNos)); // query parameter
+            if (channelOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "channelOrderNos", channelOrderNos)); // query parameter
             if (fromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromDate", fromDate)); // query parameter
             if (toDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toDate", toDate)); // query parameter
             if (excludeMarketplaceFulfilledOrdersAndLines != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeMarketplaceFulfilledOrdersAndLines", excludeMarketplaceFulfilledOrdersAndLines)); // query parameter
             if (fulfillmentType != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fulfillmentType", fulfillmentType)); // query parameter
+            if (onlyWithCancellationRequests != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "onlyWithCancellationRequests", onlyWithCancellationRequests)); // query parameter
             if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required

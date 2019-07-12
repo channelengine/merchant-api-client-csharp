@@ -25,13 +25,13 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// SingleOfCollectionsDictionary2Generic
+    /// SingleOfDictionary2
     /// </summary>
     [DataContract]
-    public partial class SingleOfCollectionsDictionary2Generic :  IEquatable<SingleOfCollectionsDictionary2Generic>, IValidatableObject
+    public partial class SingleOfDictionary2 :  IEquatable<SingleOfDictionary2>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SingleOfCollectionsDictionary2Generic" /> class.
+        /// Initializes a new instance of the <see cref="SingleOfDictionary2" /> class.
         /// </summary>
         /// <param name="content">content.</param>
         /// <param name="statusCode">statusCode.</param>
@@ -39,7 +39,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="success">success.</param>
         /// <param name="message">message.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public SingleOfCollectionsDictionary2Generic(Dictionary<string, List<string>> content = default(Dictionary<string, List<string>>), int? statusCode = default(int?), int? logId = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
+        public SingleOfDictionary2(Dictionary<string, List<string>> content = default(Dictionary<string, List<string>>), int? statusCode = default(int?), int? logId = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
         {
             this.Content = content;
             this.StatusCode = statusCode;
@@ -92,7 +92,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SingleOfCollectionsDictionary2Generic {\n");
+            sb.Append("class SingleOfDictionary2 {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  LogId: ").Append(LogId).Append("\n");
@@ -119,15 +119,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SingleOfCollectionsDictionary2Generic);
+            return this.Equals(input as SingleOfDictionary2);
         }
 
         /// <summary>
-        /// Returns true if SingleOfCollectionsDictionary2Generic instances are equal
+        /// Returns true if SingleOfDictionary2 instances are equal
         /// </summary>
-        /// <param name="input">Instance of SingleOfCollectionsDictionary2Generic to be compared</param>
+        /// <param name="input">Instance of SingleOfDictionary2 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SingleOfCollectionsDictionary2Generic input)
+        public bool Equals(SingleOfDictionary2 input)
         {
             if (input == null)
                 return false;

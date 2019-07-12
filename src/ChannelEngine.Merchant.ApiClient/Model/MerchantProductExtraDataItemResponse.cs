@@ -25,10 +25,10 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// ExtraDataItem
+    /// MerchantProductExtraDataItemResponse
     /// </summary>
     [DataContract]
-    public partial class ExtraDataItem :  IEquatable<ExtraDataItem>, IValidatableObject
+    public partial class MerchantProductExtraDataItemResponse :  IEquatable<MerchantProductExtraDataItemResponse>, IValidatableObject
     {
         /// <summary>
         /// Type of the extra data field
@@ -70,13 +70,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         [DataMember(Name="Type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExtraDataItem" /> class.
+        /// Initializes a new instance of the <see cref="MerchantProductExtraDataItemResponse" /> class.
         /// </summary>
         /// <param name="key">Name of the extra data field.</param>
         /// <param name="value">Value of the extra data field.</param>
         /// <param name="type">Type of the extra data field.</param>
         /// <param name="isPublic">Add this field to the export of the product feed to the channel.</param>
-        public ExtraDataItem(string key = default(string), string value = default(string), TypeEnum? type = default(TypeEnum?), bool? isPublic = default(bool?))
+        public MerchantProductExtraDataItemResponse(string key = default(string), string value = default(string), TypeEnum? type = default(TypeEnum?), bool? isPublic = default(bool?))
         {
             this.Key = key;
             this.Value = value;
@@ -113,7 +113,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ExtraDataItem {\n");
+            sb.Append("class MerchantProductExtraDataItemResponse {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
@@ -138,15 +138,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ExtraDataItem);
+            return this.Equals(input as MerchantProductExtraDataItemResponse);
         }
 
         /// <summary>
-        /// Returns true if ExtraDataItem instances are equal
+        /// Returns true if MerchantProductExtraDataItemResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ExtraDataItem to be compared</param>
+        /// <param name="input">Instance of MerchantProductExtraDataItemResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ExtraDataItem input)
+        public bool Equals(MerchantProductExtraDataItemResponse input)
         {
             if (input == null)
                 return false;

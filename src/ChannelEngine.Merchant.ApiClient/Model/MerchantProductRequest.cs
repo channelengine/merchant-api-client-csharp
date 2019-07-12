@@ -69,6 +69,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="merchantProductNo">A unique identifier of the product. (sku).</param>
         /// <param name="parentMerchantProductNo">If this product is a different version of another  product (for example, all fields are the same except  size), then this field should contain  the &#39;MerchantProductNo&#39; of the parent. The parent  should already exist (or be present between the products  in the content of the API call, it does not matter whether   the parent is behind the child in the list)..</param>
         /// <param name="parentMerchantProductNo2">If this product is a different version of another  product (for example, all fields are the same except  color) and itself is a parent with child products (e.g. of sizes),   then this field should contain the &#39;MerchantProductNo&#39; of the grandparent. The grandparent  should already exist (or be present between the products  in the content of the API call, it does not matter whether   the grandparent is behind the child in the list).  When you set this field, the ParentMerchantProductNo should be left empty.    Use this field in case of three level product hierarchy,   e.g. model - color - size.   This is required for channels like Otto..</param>
+        /// <param name="extraData">An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products..</param>
         /// <param name="name">The name of the product.</param>
         /// <param name="description">A description of the product. Can contain these HTML tags:  div, span, pre, p, br, hr, hgroup, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, strong, em, b, i, u, img, a, abbr, address, blockquote, area, audio, video, caption, table, tbody, td, tfoot, th, thead, tr.</param>
         /// <param name="brand">The brand of the product.</param>
@@ -95,12 +96,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="extraImageUrl8">Url to an additional image of product (8).</param>
         /// <param name="extraImageUrl9">Url to an additional image of product (9).</param>
         /// <param name="categoryTrail">The category to which this product belongs.  Please supply this field in the following format:  &#39;maincategory &amp;gt; category &amp;gt; subcategory&#39;  For example:  &#39;vehicles &amp;gt; bikes &amp;gt; mountainbike&#39;.</param>
-        /// <param name="extraData">An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products..</param>
-        public MerchantProductRequest(string merchantProductNo = default(string), string parentMerchantProductNo = default(string), string parentMerchantProductNo2 = default(string), string name = default(string), string description = default(string), string brand = default(string), string size = default(string), string color = default(string), string ean = default(string), string manufacturerProductNumber = default(string), int? stock = default(int?), decimal? price = default(decimal?), decimal? mSRP = default(decimal?), decimal? purchasePrice = default(decimal?), VatRateTypeEnum? vatRateType = default(VatRateTypeEnum?), decimal? shippingCost = default(decimal?), string shippingTime = default(string), string url = default(string), string imageUrl = default(string), string extraImageUrl1 = default(string), string extraImageUrl2 = default(string), string extraImageUrl3 = default(string), string extraImageUrl4 = default(string), string extraImageUrl5 = default(string), string extraImageUrl6 = default(string), string extraImageUrl7 = default(string), string extraImageUrl8 = default(string), string extraImageUrl9 = default(string), string categoryTrail = default(string), List<ExtraDataItem> extraData = default(List<ExtraDataItem>))
+        public MerchantProductRequest(string merchantProductNo = default(string), string parentMerchantProductNo = default(string), string parentMerchantProductNo2 = default(string), List<MerchantProductExtraDataItemRequest> extraData = default(List<MerchantProductExtraDataItemRequest>), string name = default(string), string description = default(string), string brand = default(string), string size = default(string), string color = default(string), string ean = default(string), string manufacturerProductNumber = default(string), int? stock = default(int?), decimal? price = default(decimal?), decimal? mSRP = default(decimal?), decimal? purchasePrice = default(decimal?), VatRateTypeEnum? vatRateType = default(VatRateTypeEnum?), decimal? shippingCost = default(decimal?), string shippingTime = default(string), string url = default(string), string imageUrl = default(string), string extraImageUrl1 = default(string), string extraImageUrl2 = default(string), string extraImageUrl3 = default(string), string extraImageUrl4 = default(string), string extraImageUrl5 = default(string), string extraImageUrl6 = default(string), string extraImageUrl7 = default(string), string extraImageUrl8 = default(string), string extraImageUrl9 = default(string), string categoryTrail = default(string))
         {
             this.MerchantProductNo = merchantProductNo;
             this.ParentMerchantProductNo = parentMerchantProductNo;
             this.ParentMerchantProductNo2 = parentMerchantProductNo2;
+            this.ExtraData = extraData;
             this.Name = name;
             this.Description = description;
             this.Brand = brand;
@@ -127,7 +128,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.ExtraImageUrl8 = extraImageUrl8;
             this.ExtraImageUrl9 = extraImageUrl9;
             this.CategoryTrail = categoryTrail;
-            this.ExtraData = extraData;
         }
         
         /// <summary>
@@ -150,6 +150,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <value>If this product is a different version of another  product (for example, all fields are the same except  color) and itself is a parent with child products (e.g. of sizes),   then this field should contain the &#39;MerchantProductNo&#39; of the grandparent. The grandparent  should already exist (or be present between the products  in the content of the API call, it does not matter whether   the grandparent is behind the child in the list).  When you set this field, the ParentMerchantProductNo should be left empty.    Use this field in case of three level product hierarchy,   e.g. model - color - size.   This is required for channels like Otto.</value>
         [DataMember(Name="ParentMerchantProductNo2", EmitDefaultValue=false)]
         public string ParentMerchantProductNo2 { get; set; }
+
+        /// <summary>
+        /// An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products.
+        /// </summary>
+        /// <value>An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products.</value>
+        [DataMember(Name="ExtraData", EmitDefaultValue=false)]
+        public List<MerchantProductExtraDataItemRequest> ExtraData { get; set; }
 
         /// <summary>
         /// The name of the product
@@ -328,13 +335,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string CategoryTrail { get; set; }
 
         /// <summary>
-        /// An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products.
-        /// </summary>
-        /// <value>An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products.</value>
-        [DataMember(Name="ExtraData", EmitDefaultValue=false)]
-        public List<ExtraDataItem> ExtraData { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -345,6 +345,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
             sb.Append("  ParentMerchantProductNo: ").Append(ParentMerchantProductNo).Append("\n");
             sb.Append("  ParentMerchantProductNo2: ").Append(ParentMerchantProductNo2).Append("\n");
+            sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Brand: ").Append(Brand).Append("\n");
@@ -371,7 +372,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  ExtraImageUrl8: ").Append(ExtraImageUrl8).Append("\n");
             sb.Append("  ExtraImageUrl9: ").Append(ExtraImageUrl9).Append("\n");
             sb.Append("  CategoryTrail: ").Append(CategoryTrail).Append("\n");
-            sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -420,6 +420,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.ParentMerchantProductNo2 == input.ParentMerchantProductNo2 ||
                     (this.ParentMerchantProductNo2 != null &&
                     this.ParentMerchantProductNo2.Equals(input.ParentMerchantProductNo2))
+                ) && 
+                (
+                    this.ExtraData == input.ExtraData ||
+                    this.ExtraData != null &&
+                    this.ExtraData.SequenceEqual(input.ExtraData)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -550,11 +555,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.CategoryTrail == input.CategoryTrail ||
                     (this.CategoryTrail != null &&
                     this.CategoryTrail.Equals(input.CategoryTrail))
-                ) && 
-                (
-                    this.ExtraData == input.ExtraData ||
-                    this.ExtraData != null &&
-                    this.ExtraData.SequenceEqual(input.ExtraData)
                 );
         }
 
@@ -573,6 +573,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.ParentMerchantProductNo.GetHashCode();
                 if (this.ParentMerchantProductNo2 != null)
                     hashCode = hashCode * 59 + this.ParentMerchantProductNo2.GetHashCode();
+                if (this.ExtraData != null)
+                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
@@ -625,8 +627,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.ExtraImageUrl9.GetHashCode();
                 if (this.CategoryTrail != null)
                     hashCode = hashCode * 59 + this.CategoryTrail.GetHashCode();
-                if (this.ExtraData != null)
-                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 return hashCode;
             }
         }

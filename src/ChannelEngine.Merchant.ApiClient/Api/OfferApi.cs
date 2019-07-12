@@ -55,8 +55,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>SingleOfCollectionsDictionary2Generic</returns>
-        SingleOfCollectionsDictionary2Generic OfferStockPriceUpdate (List<MerchantStockPriceUpdateRequest> updates);
+        /// <returns>SingleOfDictionary2</returns>
+        SingleOfDictionary2 OfferStockPriceUpdate (List<MerchantStockPriceUpdateRequest> updates);
 
         /// <summary>
         /// Update stock or price.
@@ -66,8 +66,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>ApiResponse of SingleOfCollectionsDictionary2Generic</returns>
-        ApiResponse<SingleOfCollectionsDictionary2Generic> OfferStockPriceUpdateWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates);
+        /// <returns>ApiResponse of SingleOfDictionary2</returns>
+        ApiResponse<SingleOfDictionary2> OfferStockPriceUpdateWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -101,8 +101,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>Task of SingleOfCollectionsDictionary2Generic</returns>
-        System.Threading.Tasks.Task<SingleOfCollectionsDictionary2Generic> OfferStockPriceUpdateAsync (List<MerchantStockPriceUpdateRequest> updates);
+        /// <returns>Task of SingleOfDictionary2</returns>
+        System.Threading.Tasks.Task<SingleOfDictionary2> OfferStockPriceUpdateAsync (List<MerchantStockPriceUpdateRequest> updates);
 
         /// <summary>
         /// Update stock or price.
@@ -112,8 +112,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>Task of ApiResponse (SingleOfCollectionsDictionary2Generic)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SingleOfCollectionsDictionary2Generic>> OfferStockPriceUpdateAsyncWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates);
+        /// <returns>Task of ApiResponse (SingleOfDictionary2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SingleOfDictionary2>> OfferStockPriceUpdateAsyncWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates);
         #endregion Asynchronous Operations
     }
 
@@ -378,10 +378,10 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>SingleOfCollectionsDictionary2Generic</returns>
-        public SingleOfCollectionsDictionary2Generic OfferStockPriceUpdate (List<MerchantStockPriceUpdateRequest> updates)
+        /// <returns>SingleOfDictionary2</returns>
+        public SingleOfDictionary2 OfferStockPriceUpdate (List<MerchantStockPriceUpdateRequest> updates)
         {
-             ApiResponse<SingleOfCollectionsDictionary2Generic> localVarResponse = OfferStockPriceUpdateWithHttpInfo(updates);
+             ApiResponse<SingleOfDictionary2> localVarResponse = OfferStockPriceUpdateWithHttpInfo(updates);
              return localVarResponse.Data;
         }
 
@@ -390,8 +390,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>ApiResponse of SingleOfCollectionsDictionary2Generic</returns>
-        public ApiResponse< SingleOfCollectionsDictionary2Generic > OfferStockPriceUpdateWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates)
+        /// <returns>ApiResponse of SingleOfDictionary2</returns>
+        public ApiResponse< SingleOfDictionary2 > OfferStockPriceUpdateWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates)
         {
             // verify the required parameter 'updates' is set
             if (updates == null)
@@ -452,9 +452,9 @@ namespace ChannelEngine.Merchant.ApiClient.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SingleOfCollectionsDictionary2Generic>(localVarStatusCode,
+            return new ApiResponse<SingleOfDictionary2>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SingleOfCollectionsDictionary2Generic) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleOfCollectionsDictionary2Generic)));
+                (SingleOfDictionary2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleOfDictionary2)));
         }
 
         /// <summary>
@@ -462,10 +462,10 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>Task of SingleOfCollectionsDictionary2Generic</returns>
-        public async System.Threading.Tasks.Task<SingleOfCollectionsDictionary2Generic> OfferStockPriceUpdateAsync (List<MerchantStockPriceUpdateRequest> updates)
+        /// <returns>Task of SingleOfDictionary2</returns>
+        public async System.Threading.Tasks.Task<SingleOfDictionary2> OfferStockPriceUpdateAsync (List<MerchantStockPriceUpdateRequest> updates)
         {
-             ApiResponse<SingleOfCollectionsDictionary2Generic> localVarResponse = await OfferStockPriceUpdateAsyncWithHttpInfo(updates);
+             ApiResponse<SingleOfDictionary2> localVarResponse = await OfferStockPriceUpdateAsyncWithHttpInfo(updates);
              return localVarResponse.Data;
 
         }
@@ -475,8 +475,8 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updates">References to the products that should be updated, and the new values  for the stock or price fields. It is possible to supply only one of the two fields  or both.</param>
-        /// <returns>Task of ApiResponse (SingleOfCollectionsDictionary2Generic)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SingleOfCollectionsDictionary2Generic>> OfferStockPriceUpdateAsyncWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates)
+        /// <returns>Task of ApiResponse (SingleOfDictionary2)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<SingleOfDictionary2>> OfferStockPriceUpdateAsyncWithHttpInfo (List<MerchantStockPriceUpdateRequest> updates)
         {
             // verify the required parameter 'updates' is set
             if (updates == null)
@@ -537,9 +537,9 @@ namespace ChannelEngine.Merchant.ApiClient.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<SingleOfCollectionsDictionary2Generic>(localVarStatusCode,
+            return new ApiResponse<SingleOfDictionary2>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (SingleOfCollectionsDictionary2Generic) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleOfCollectionsDictionary2Generic)));
+                (SingleOfDictionary2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SingleOfDictionary2)));
         }
 
     }

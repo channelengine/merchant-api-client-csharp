@@ -25,27 +25,27 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// OrderAcknowledgement
+    /// MerchantOrderAcknowledgementRequest
     /// </summary>
     [DataContract]
-    public partial class OrderAcknowledgement :  IEquatable<OrderAcknowledgement>, IValidatableObject
+    public partial class MerchantOrderAcknowledgementRequest :  IEquatable<MerchantOrderAcknowledgementRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OrderAcknowledgement" /> class.
+        /// Initializes a new instance of the <see cref="MerchantOrderAcknowledgementRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected OrderAcknowledgement() { }
+        protected MerchantOrderAcknowledgementRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="OrderAcknowledgement" /> class.
+        /// Initializes a new instance of the <see cref="MerchantOrderAcknowledgementRequest" /> class.
         /// </summary>
         /// <param name="merchantOrderNo">Your own order reference, this will be used in consecutive order processing API calls (required).</param>
         /// <param name="orderId">The ChannelEngine order ID of the order you would like to acknowledge (required).</param>
-        public OrderAcknowledgement(string merchantOrderNo = default(string), int? orderId = default(int?))
+        public MerchantOrderAcknowledgementRequest(string merchantOrderNo = default(string), int? orderId = default(int?))
         {
             // to ensure "merchantOrderNo" is required (not null)
             if (merchantOrderNo == null)
             {
-                throw new InvalidDataException("merchantOrderNo is a required property for OrderAcknowledgement and cannot be null");
+                throw new InvalidDataException("merchantOrderNo is a required property for MerchantOrderAcknowledgementRequest and cannot be null");
             }
             else
             {
@@ -54,7 +54,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             // to ensure "orderId" is required (not null)
             if (orderId == null)
             {
-                throw new InvalidDataException("orderId is a required property for OrderAcknowledgement and cannot be null");
+                throw new InvalidDataException("orderId is a required property for MerchantOrderAcknowledgementRequest and cannot be null");
             }
             else
             {
@@ -83,7 +83,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OrderAcknowledgement {\n");
+            sb.Append("class MerchantOrderAcknowledgementRequest {\n");
             sb.Append("  MerchantOrderNo: ").Append(MerchantOrderNo).Append("\n");
             sb.Append("  OrderId: ").Append(OrderId).Append("\n");
             sb.Append("}\n");
@@ -106,15 +106,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OrderAcknowledgement);
+            return this.Equals(input as MerchantOrderAcknowledgementRequest);
         }
 
         /// <summary>
-        /// Returns true if OrderAcknowledgement instances are equal
+        /// Returns true if MerchantOrderAcknowledgementRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of OrderAcknowledgement to be compared</param>
+        /// <param name="input">Instance of MerchantOrderAcknowledgementRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OrderAcknowledgement input)
+        public bool Equals(MerchantOrderAcknowledgementRequest input)
         {
             if (input == null)
                 return false;

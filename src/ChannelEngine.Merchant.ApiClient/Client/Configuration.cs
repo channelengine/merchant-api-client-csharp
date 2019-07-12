@@ -29,7 +29,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.7.3";
+        public const string Version = "2.8.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/2.7.3/csharp";
+            UserAgent = "Swagger-Codegen/2.8.1/csharp";
             BasePath = "https://localhost/api";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +187,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/2.7.3/csharp"
+            string userAgent = "Swagger-Codegen/2.8.1/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -422,7 +422,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.0.0\n";
-            report += "    SDK Package Version: 2.7.3\n";
+            report += "    SDK Package Version: 2.8.1\n";
 
             return report;
         }

@@ -46,6 +46,27 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <returns>ApiResponse of ApiResponse</returns>
         ApiResponse<ApiResponse> ReturnDeclareForMerchantWithHttpInfo (MerchantReturnRequest model);
         /// <summary>
+        /// Get Return
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>CollectionOfMerchantReturnResponse</returns>
+        CollectionOfMerchantReturnResponse ReturnGetByMerchantOrderNo (string merchantOrderNo);
+
+        /// <summary>
+        /// Get Return
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>ApiResponse of CollectionOfMerchantReturnResponse</returns>
+        ApiResponse<CollectionOfMerchantReturnResponse> ReturnGetByMerchantOrderNoWithHttpInfo (string merchantOrderNo);
+        /// <summary>
         /// Get Returns
         /// </summary>
         /// <remarks>
@@ -129,6 +150,27 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="model"></param>
         /// <returns>Task of ApiResponse (ApiResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiResponse>> ReturnDeclareForMerchantAsyncWithHttpInfo (MerchantReturnRequest model);
+        /// <summary>
+        /// Get Return
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>Task of CollectionOfMerchantReturnResponse</returns>
+        System.Threading.Tasks.Task<CollectionOfMerchantReturnResponse> ReturnGetByMerchantOrderNoAsync (string merchantOrderNo);
+
+        /// <summary>
+        /// Get Return
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </remarks>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>Task of ApiResponse (CollectionOfMerchantReturnResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantReturnResponse>> ReturnGetByMerchantOrderNoAsyncWithHttpInfo (string merchantOrderNo);
         /// <summary>
         /// Get Returns
         /// </summary>
@@ -457,6 +499,153 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             return new ApiResponse<ApiResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
+        }
+
+        /// <summary>
+        /// Get Return Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>CollectionOfMerchantReturnResponse</returns>
+        public CollectionOfMerchantReturnResponse ReturnGetByMerchantOrderNo (string merchantOrderNo)
+        {
+             ApiResponse<CollectionOfMerchantReturnResponse> localVarResponse = ReturnGetByMerchantOrderNoWithHttpInfo(merchantOrderNo);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Return Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>ApiResponse of CollectionOfMerchantReturnResponse</returns>
+        public ApiResponse< CollectionOfMerchantReturnResponse > ReturnGetByMerchantOrderNoWithHttpInfo (string merchantOrderNo)
+        {
+            // verify the required parameter 'merchantOrderNo' is set
+            if (merchantOrderNo == null)
+                throw new ApiException(400, "Missing required parameter 'merchantOrderNo' when calling ReturnApi->ReturnGetByMerchantOrderNo");
+
+            var localVarPath = "/v2/returns/merchant/{merchantOrderNo}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantOrderNo != null) localVarPathParams.Add("merchantOrderNo", this.Configuration.ApiClient.ParameterToString(merchantOrderNo)); // path parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReturnGetByMerchantOrderNo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CollectionOfMerchantReturnResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CollectionOfMerchantReturnResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantReturnResponse)));
+        }
+
+        /// <summary>
+        /// Get Return Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>Task of CollectionOfMerchantReturnResponse</returns>
+        public async System.Threading.Tasks.Task<CollectionOfMerchantReturnResponse> ReturnGetByMerchantOrderNoAsync (string merchantOrderNo)
+        {
+             ApiResponse<CollectionOfMerchantReturnResponse> localVarResponse = await ReturnGetByMerchantOrderNoAsyncWithHttpInfo(merchantOrderNo);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Return Retrieve a return based on the supplied merchant order number. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
+        /// </summary>
+        /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantOrderNo"></param>
+        /// <returns>Task of ApiResponse (CollectionOfMerchantReturnResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantReturnResponse>> ReturnGetByMerchantOrderNoAsyncWithHttpInfo (string merchantOrderNo)
+        {
+            // verify the required parameter 'merchantOrderNo' is set
+            if (merchantOrderNo == null)
+                throw new ApiException(400, "Missing required parameter 'merchantOrderNo' when calling ReturnApi->ReturnGetByMerchantOrderNo");
+
+            var localVarPath = "/v2/returns/merchant/{merchantOrderNo}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "text/plain",
+                "application/json",
+                "text/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (merchantOrderNo != null) localVarPathParams.Add("merchantOrderNo", this.Configuration.ApiClient.ParameterToString(merchantOrderNo)); // path parameter
+
+            // authentication (apikey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
+            {
+                localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "apikey", this.Configuration.GetApiKeyWithPrefix("apikey")));
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReturnGetByMerchantOrderNo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CollectionOfMerchantReturnResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CollectionOfMerchantReturnResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantReturnResponse)));
         }
 
         /// <summary>
