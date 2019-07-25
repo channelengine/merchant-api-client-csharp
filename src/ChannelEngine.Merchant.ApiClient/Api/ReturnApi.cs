@@ -73,9 +73,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantReturnResponse</returns>
-        CollectionOfMerchantReturnResponse ReturnGetDeclaredByChannel (DateTime? createdSince = null);
+        CollectionOfMerchantReturnResponse ReturnGetDeclaredByChannel (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null);
 
         /// <summary>
         /// Get Returns
@@ -84,9 +90,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantReturnResponse</returns>
-        ApiResponse<CollectionOfMerchantReturnResponse> ReturnGetDeclaredByChannelWithHttpInfo (DateTime? createdSince = null);
+        ApiResponse<CollectionOfMerchantReturnResponse> ReturnGetDeclaredByChannelWithHttpInfo (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null);
         /// <summary>
         /// Get Unhandled Returns
         /// </summary>
@@ -178,9 +190,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantReturnResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfMerchantReturnResponse> ReturnGetDeclaredByChannelAsync (DateTime? createdSince = null);
+        System.Threading.Tasks.Task<CollectionOfMerchantReturnResponse> ReturnGetDeclaredByChannelAsync (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null);
 
         /// <summary>
         /// Get Returns
@@ -189,9 +207,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </remarks>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantReturnResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantReturnResponse>> ReturnGetDeclaredByChannelAsyncWithHttpInfo (DateTime? createdSince = null);
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantReturnResponse>> ReturnGetDeclaredByChannelAsyncWithHttpInfo (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null);
         /// <summary>
         /// Get Unhandled Returns
         /// </summary>
@@ -652,11 +676,17 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Returns Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantReturnResponse</returns>
-        public CollectionOfMerchantReturnResponse ReturnGetDeclaredByChannel (DateTime? createdSince = null)
+        public CollectionOfMerchantReturnResponse ReturnGetDeclaredByChannel (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null)
         {
-             ApiResponse<CollectionOfMerchantReturnResponse> localVarResponse = ReturnGetDeclaredByChannelWithHttpInfo(createdSince);
+             ApiResponse<CollectionOfMerchantReturnResponse> localVarResponse = ReturnGetDeclaredByChannelWithHttpInfo(merchantOrderNos, createdSince, statuses, reasons, fromDate, toDate, page);
              return localVarResponse.Data;
         }
 
@@ -664,9 +694,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Returns Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantReturnResponse</returns>
-        public ApiResponse< CollectionOfMerchantReturnResponse > ReturnGetDeclaredByChannelWithHttpInfo (DateTime? createdSince = null)
+        public ApiResponse< CollectionOfMerchantReturnResponse > ReturnGetDeclaredByChannelWithHttpInfo (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null)
         {
 
             var localVarPath = "/v2/returns/merchant";
@@ -692,7 +728,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (merchantOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "merchantOrderNos", merchantOrderNos)); // query parameter
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
+            if (statuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "statuses", statuses)); // query parameter
+            if (reasons != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "reasons", reasons)); // query parameter
+            if (fromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromDate", fromDate)); // query parameter
+            if (toDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toDate", toDate)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
@@ -722,11 +764,17 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Returns Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of CollectionOfMerchantReturnResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfMerchantReturnResponse> ReturnGetDeclaredByChannelAsync (DateTime? createdSince = null)
+        public async System.Threading.Tasks.Task<CollectionOfMerchantReturnResponse> ReturnGetDeclaredByChannelAsync (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null)
         {
-             ApiResponse<CollectionOfMerchantReturnResponse> localVarResponse = await ReturnGetDeclaredByChannelAsyncWithHttpInfo(createdSince);
+             ApiResponse<CollectionOfMerchantReturnResponse> localVarResponse = await ReturnGetDeclaredByChannelAsyncWithHttpInfo(merchantOrderNos, createdSince, statuses, reasons, fromDate, toDate, page);
              return localVarResponse.Data;
 
         }
@@ -735,9 +783,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// Get Returns Get all returns created by the channel. This call is supposed  to be used by merchants. Channels should use the &#39;GET /v2/returns/channel&#39;  call.
         /// </summary>
         /// <exception cref="ChannelEngine.Merchant.ApiClient.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createdSince"> (optional)</param>
+        /// <param name="merchantOrderNos">Filter on unique order reference used by the merchant (optional)</param>
+        /// <param name="createdSince">Deprecated, please use FromDate instead. (optional)</param>
+        /// <param name="statuses">Return status(es) to filter on (optional)</param>
+        /// <param name="reasons">Return reason(s) to filter on (optional)</param>
+        /// <param name="fromDate">Filter on the creation date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toDate">Filter on the creation date, until this date. This date is exclusive. (optional)</param>
+        /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantReturnResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantReturnResponse>> ReturnGetDeclaredByChannelAsyncWithHttpInfo (DateTime? createdSince = null)
+        public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantReturnResponse>> ReturnGetDeclaredByChannelAsyncWithHttpInfo (List<string> merchantOrderNos = null, DateTime? createdSince = null, List<string> statuses = null, List<string> reasons = null, DateTime? fromDate = null, DateTime? toDate = null, int? page = null)
         {
 
             var localVarPath = "/v2/returns/merchant";
@@ -763,7 +817,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (merchantOrderNos != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "merchantOrderNos", merchantOrderNos)); // query parameter
             if (createdSince != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdSince", createdSince)); // query parameter
+            if (statuses != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "statuses", statuses)); // query parameter
+            if (reasons != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("multi", "reasons", reasons)); // query parameter
+            if (fromDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "fromDate", fromDate)); // query parameter
+            if (toDate != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "toDate", toDate)); // query parameter
+            if (page != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "page", page)); // query parameter
 
             // authentication (apikey) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("apikey")))
