@@ -23,13 +23,13 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// CollectionOfMerchantStockLocationResponse
+    /// CollectionOfMerchantNotificationResponse
     /// </summary>
     [DataContract]
-    public partial class CollectionOfMerchantStockLocationResponse :  IEquatable<CollectionOfMerchantStockLocationResponse>
+    public partial class CollectionOfMerchantNotificationResponse :  IEquatable<CollectionOfMerchantNotificationResponse>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CollectionOfMerchantStockLocationResponse" /> class.
+        /// Initializes a new instance of the <see cref="CollectionOfMerchantNotificationResponse" /> class.
         /// </summary>
         /// <param name="content">content.</param>
         /// <param name="count">The number of items in the current response.</param>
@@ -40,7 +40,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="success">success.</param>
         /// <param name="message">message.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public CollectionOfMerchantStockLocationResponse(List<MerchantStockLocationResponse> content = default(List<MerchantStockLocationResponse>), int? count = default(int?), int? totalCount = default(int?), int? itemsPerPage = default(int?), int? statusCode = default(int?), int? logId = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
+        public CollectionOfMerchantNotificationResponse(List<MerchantNotificationResponse> content = default(List<MerchantNotificationResponse>), int? count = default(int?), int? totalCount = default(int?), int? itemsPerPage = default(int?), int? statusCode = default(int?), int? logId = default(int?), bool? success = default(bool?), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
         {
             this.Content = content;
             this.Count = count;
@@ -57,7 +57,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// Gets or Sets Content
         /// </summary>
         [DataMember(Name="Content", EmitDefaultValue=false)]
-        public List<MerchantStockLocationResponse> Content { get; set; }
+        public List<MerchantNotificationResponse> Content { get; set; }
 
         /// <summary>
         /// The number of items in the current response
@@ -117,7 +117,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CollectionOfMerchantStockLocationResponse {\n");
+            sb.Append("class CollectionOfMerchantNotificationResponse {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
@@ -147,15 +147,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CollectionOfMerchantStockLocationResponse);
+            return this.Equals(input as CollectionOfMerchantNotificationResponse);
         }
 
         /// <summary>
-        /// Returns true if CollectionOfMerchantStockLocationResponse instances are equal
+        /// Returns true if CollectionOfMerchantNotificationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of CollectionOfMerchantStockLocationResponse to be compared</param>
+        /// <param name="input">Instance of CollectionOfMerchantNotificationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CollectionOfMerchantStockLocationResponse input)
+        public bool Equals(CollectionOfMerchantNotificationResponse input)
         {
             if (input == null)
                 return false;

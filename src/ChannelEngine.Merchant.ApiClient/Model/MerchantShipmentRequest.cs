@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDateConverter;
 
 namespace ChannelEngine.Merchant.ApiClient.Model
@@ -28,7 +26,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     /// MerchantShipmentRequest
     /// </summary>
     [DataContract]
-    public partial class MerchantShipmentRequest :  IEquatable<MerchantShipmentRequest>, IValidatableObject
+    public partial class MerchantShipmentRequest :  IEquatable<MerchantShipmentRequest>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantShipmentRequest" /> class.
@@ -222,52 +220,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.Method.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            // TrackTraceNo (string) maxLength
-            if(this.TrackTraceNo != null && this.TrackTraceNo.Length > 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrackTraceNo, length must be less than 50.", new [] { "TrackTraceNo" });
-            }
-
-            // TrackTraceNo (string) minLength
-            if(this.TrackTraceNo != null && this.TrackTraceNo.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrackTraceNo, length must be greater than 0.", new [] { "TrackTraceNo" });
-            }
-
-            // TrackTraceUrl (string) maxLength
-            if(this.TrackTraceUrl != null && this.TrackTraceUrl.Length > 250)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrackTraceUrl, length must be less than 250.", new [] { "TrackTraceUrl" });
-            }
-
-            // TrackTraceUrl (string) minLength
-            if(this.TrackTraceUrl != null && this.TrackTraceUrl.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TrackTraceUrl, length must be greater than 0.", new [] { "TrackTraceUrl" });
-            }
-
-            // Method (string) maxLength
-            if(this.Method != null && this.Method.Length > 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Method, length must be less than 50.", new [] { "Method" });
-            }
-
-            // Method (string) minLength
-            if(this.Method != null && this.Method.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Method, length must be greater than 0.", new [] { "Method" });
-            }
-
-            yield break;
         }
     }
 

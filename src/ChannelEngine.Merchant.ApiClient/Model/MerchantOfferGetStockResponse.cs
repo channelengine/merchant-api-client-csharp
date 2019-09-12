@@ -12,14 +12,12 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.ComponentModel.DataAnnotations;
 using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDateConverter;
 
 namespace ChannelEngine.Merchant.ApiClient.Model
@@ -28,7 +26,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
     /// MerchantOfferGetStockResponse
     /// </summary>
     [DataContract]
-    public partial class MerchantOfferGetStockResponse :  IEquatable<MerchantOfferGetStockResponse>, IValidatableObject
+    public partial class MerchantOfferGetStockResponse :  IEquatable<MerchantOfferGetStockResponse>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantOfferGetStockResponse" /> class.
@@ -36,11 +34,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="merchantProductNo">The product SKU.</param>
         /// <param name="stockLocationId">The ChannelEngine id of the stock location.</param>
         /// <param name="stock">The quantity of products in stock at the stock location.</param>
-        public MerchantOfferGetStockResponse(string merchantProductNo = default(string), int? stockLocationId = default(int?), int? stock = default(int?))
+        /// <param name="updatedAt">The timestamp of the last stock update for the stock location.</param>
+        public MerchantOfferGetStockResponse(string merchantProductNo = default(string), int? stockLocationId = default(int?), int? stock = default(int?), DateTime? updatedAt = default(DateTime?))
         {
             this.MerchantProductNo = merchantProductNo;
             this.StockLocationId = stockLocationId;
             this.Stock = stock;
+            this.UpdatedAt = updatedAt;
         }
         
         /// <summary>
@@ -65,6 +65,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public int? Stock { get; set; }
 
         /// <summary>
+        /// The timestamp of the last stock update for the stock location
+        /// </summary>
+        /// <value>The timestamp of the last stock update for the stock location</value>
+        [DataMember(Name="UpdatedAt", EmitDefaultValue=false)]
+        public DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +82,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
             sb.Append("  StockLocationId: ").Append(StockLocationId).Append("\n");
             sb.Append("  Stock: ").Append(Stock).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +131,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.Stock == input.Stock ||
                     (this.Stock != null &&
                     this.Stock.Equals(input.Stock))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
                 );
         }
 
@@ -141,18 +154,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.StockLocationId.GetHashCode();
                 if (this.Stock != null)
                     hashCode = hashCode * 59 + this.Stock.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 return hashCode;
             }
-        }
-
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
-            yield break;
         }
     }
 

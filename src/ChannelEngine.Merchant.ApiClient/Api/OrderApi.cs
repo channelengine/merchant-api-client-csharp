@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using ChannelEngine.Merchant.ApiClient.Client;
 using ChannelEngine.Merchant.ApiClient.Model;
 
@@ -396,7 +396,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling OrderApi->OrderAcknowledge");
 
-            var localVarPath = "/v2/orders/acknowledge";
+            var localVarPath = "./v2/orders/acknowledge";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -452,7 +452,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -481,7 +481,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (model == null)
                 throw new ApiException(400, "Missing required parameter 'model' when calling OrderApi->OrderAcknowledge");
 
-            var localVarPath = "/v2/orders/acknowledge";
+            var localVarPath = "./v2/orders/acknowledge";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -537,7 +537,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<ApiResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (ApiResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiResponse)));
         }
 
@@ -578,7 +578,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public ApiResponse< CollectionOfMerchantOrderResponse > OrderGetByFilterWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null)
         {
 
-            var localVarPath = "/v2/orders";
+            var localVarPath = "./v2/orders";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -631,7 +631,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantOrderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantOrderResponse)));
         }
 
@@ -673,7 +673,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterAsyncWithHttpInfo (List<string> statuses = null, List<string> merchantOrderNos = null, List<string> channelOrderNos = null, DateTime? fromDate = null, DateTime? toDate = null, bool? excludeMarketplaceFulfilledOrdersAndLines = null, string fulfillmentType = null, bool? onlyWithCancellationRequests = null, int? page = null)
         {
 
-            var localVarPath = "/v2/orders";
+            var localVarPath = "./v2/orders";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -726,7 +726,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantOrderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantOrderResponse)));
         }
 
@@ -749,7 +749,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public ApiResponse< CollectionOfMerchantOrderResponse > OrderGetNewWithHttpInfo ()
         {
 
-            var localVarPath = "/v2/orders/new";
+            var localVarPath = "./v2/orders/new";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -793,7 +793,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantOrderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantOrderResponse)));
         }
 
@@ -817,7 +817,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetNewAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/v2/orders/new";
+            var localVarPath = "./v2/orders/new";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -861,7 +861,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantOrderResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantOrderResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantOrderResponse)));
         }
 
@@ -891,7 +891,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (merchantOrderNo == null)
                 throw new ApiException(400, "Missing required parameter 'merchantOrderNo' when calling OrderApi->OrderInvoice");
 
-            var localVarPath = "/v2/orders/{merchantOrderNo}/invoice";
+            var localVarPath = "./v2/orders/{merchantOrderNo}/invoice";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -935,7 +935,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -966,7 +966,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (merchantOrderNo == null)
                 throw new ApiException(400, "Missing required parameter 'merchantOrderNo' when calling OrderApi->OrderInvoice");
 
-            var localVarPath = "/v2/orders/{merchantOrderNo}/invoice";
+            var localVarPath = "./v2/orders/{merchantOrderNo}/invoice";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1010,7 +1010,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -1040,7 +1040,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (merchantOrderNo == null)
                 throw new ApiException(400, "Missing required parameter 'merchantOrderNo' when calling OrderApi->OrderPackingSlip");
 
-            var localVarPath = "/v2/orders/{merchantOrderNo}/packingslip";
+            var localVarPath = "./v2/orders/{merchantOrderNo}/packingslip";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1084,7 +1084,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 
@@ -1115,7 +1115,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (merchantOrderNo == null)
                 throw new ApiException(400, "Missing required parameter 'merchantOrderNo' when calling OrderApi->OrderPackingSlip");
 
-            var localVarPath = "/v2/orders/{merchantOrderNo}/packingslip";
+            var localVarPath = "./v2/orders/{merchantOrderNo}/packingslip";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1159,7 +1159,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<System.IO.Stream>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (System.IO.Stream) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(System.IO.Stream)));
         }
 

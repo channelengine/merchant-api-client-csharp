@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using RestSharp;
+using RestSharp.Portable;
 using ChannelEngine.Merchant.ApiClient.Client;
 using ChannelEngine.Merchant.ApiClient.Model;
 
@@ -207,7 +207,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public ApiResponse< CollectionOfMerchantProductBundleResponse > ProductBundleGetByFilterWithHttpInfo (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null)
         {
 
-            var localVarPath = "/v2/productbundles";
+            var localVarPath = "./v2/productbundles";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -255,7 +255,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantProductBundleResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantProductBundleResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantProductBundleResponse)));
         }
 
@@ -287,7 +287,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         public async System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantProductBundleResponse>> ProductBundleGetByFilterAsyncWithHttpInfo (string search = null, List<string> eanList = null, List<string> merchantProductNoList = null, int? page = null)
         {
 
-            var localVarPath = "/v2/productbundles";
+            var localVarPath = "./v2/productbundles";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -335,7 +335,7 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             }
 
             return new ApiResponse<CollectionOfMerchantProductBundleResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                localVarResponse.Headers.ToDictionary(x => x.Key, x => x.Value.ToString()),
                 (CollectionOfMerchantProductBundleResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CollectionOfMerchantProductBundleResponse)));
         }
 

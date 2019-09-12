@@ -23,11 +23,44 @@ using SwaggerDateConverter = ChannelEngine.Merchant.ApiClient.Client.SwaggerDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantReturnResponse
+    /// MerchantSingleOrderReturnResponse
     /// </summary>
     [DataContract]
-    public partial class MerchantReturnResponse :  IEquatable<MerchantReturnResponse>
+    public partial class MerchantSingleOrderReturnResponse :  IEquatable<MerchantSingleOrderReturnResponse>
     {
+        /// <summary>
+        /// The current status of the return
+        /// </summary>
+        /// <value>The current status of the return</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            
+            /// <summary>
+            /// Enum INPROGRESS for value: IN_PROGRESS
+            /// </summary>
+            [EnumMember(Value = "IN_PROGRESS")]
+            INPROGRESS = 1,
+            
+            /// <summary>
+            /// Enum RECEIVED for value: RECEIVED
+            /// </summary>
+            [EnumMember(Value = "RECEIVED")]
+            RECEIVED = 2,
+            
+            /// <summary>
+            /// Enum CANCELLED for value: CANCELLED
+            /// </summary>
+            [EnumMember(Value = "CANCELLED")]
+            CANCELLED = 3
+        }
+
+        /// <summary>
+        /// The current status of the return
+        /// </summary>
+        /// <value>The current status of the return</value>
+        [DataMember(Name="Status", EmitDefaultValue=false)]
+        public StatusEnum? Status { get; set; }
         /// <summary>
         /// The reason code of the return
         /// </summary>
@@ -104,7 +137,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         [DataMember(Name="Reason", EmitDefaultValue=false)]
         public ReasonEnum? Reason { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantReturnResponse" /> class.
+        /// Initializes a new instance of the <see cref="MerchantSingleOrderReturnResponse" /> class.
         /// </summary>
         /// <param name="merchantOrderNo">The unique order reference used by the Merchant.</param>
         /// <param name="lines">lines.</param>
@@ -112,13 +145,14 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="updatedAt">The date at which the return was last modified in ChannelEngine.</param>
         /// <param name="merchantReturnNo">The unique return reference used by the Merchant, will be empty in case of a channel or unacknowledged return.</param>
         /// <param name="channelReturnNo">The unique return reference used by the Channel, will be empty in case of a merchant return.</param>
+        /// <param name="status">The current status of the return.</param>
         /// <param name="id">The unique return reference used by ChannelEngine.</param>
         /// <param name="reason">The reason code of the return.</param>
         /// <param name="customerComment">Optional. Comment of customer on the (reason of) the return.</param>
         /// <param name="merchantComment">Optional. Comment of merchant on the return..</param>
         /// <param name="refundInclVat">Refund amount incl. VAT.</param>
         /// <param name="refundExclVat">Refund amount excl. VAT.</param>
-        public MerchantReturnResponse(string merchantOrderNo = default(string), List<MerchantReturnLineResponse> lines = default(List<MerchantReturnLineResponse>), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), string merchantReturnNo = default(string), string channelReturnNo = default(string), int? id = default(int?), ReasonEnum? reason = default(ReasonEnum?), string customerComment = default(string), string merchantComment = default(string), decimal? refundInclVat = default(decimal?), decimal? refundExclVat = default(decimal?))
+        public MerchantSingleOrderReturnResponse(string merchantOrderNo = default(string), List<MerchantSingleOrderReturnLineResponse> lines = default(List<MerchantSingleOrderReturnLineResponse>), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), string merchantReturnNo = default(string), string channelReturnNo = default(string), StatusEnum? status = default(StatusEnum?), int? id = default(int?), ReasonEnum? reason = default(ReasonEnum?), string customerComment = default(string), string merchantComment = default(string), decimal? refundInclVat = default(decimal?), decimal? refundExclVat = default(decimal?))
         {
             this.MerchantOrderNo = merchantOrderNo;
             this.Lines = lines;
@@ -126,6 +160,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.UpdatedAt = updatedAt;
             this.MerchantReturnNo = merchantReturnNo;
             this.ChannelReturnNo = channelReturnNo;
+            this.Status = status;
             this.Id = id;
             this.Reason = reason;
             this.CustomerComment = customerComment;
@@ -145,7 +180,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// Gets or Sets Lines
         /// </summary>
         [DataMember(Name="Lines", EmitDefaultValue=false)]
-        public List<MerchantReturnLineResponse> Lines { get; set; }
+        public List<MerchantSingleOrderReturnLineResponse> Lines { get; set; }
 
         /// <summary>
         /// The date at which the return was created in ChannelEngine
@@ -174,6 +209,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <value>The unique return reference used by the Channel, will be empty in case of a merchant return</value>
         [DataMember(Name="ChannelReturnNo", EmitDefaultValue=false)]
         public string ChannelReturnNo { get; set; }
+
 
         /// <summary>
         /// The unique return reference used by ChannelEngine
@@ -218,13 +254,14 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantReturnResponse {\n");
+            sb.Append("class MerchantSingleOrderReturnResponse {\n");
             sb.Append("  MerchantOrderNo: ").Append(MerchantOrderNo).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  MerchantReturnNo: ").Append(MerchantReturnNo).Append("\n");
             sb.Append("  ChannelReturnNo: ").Append(ChannelReturnNo).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  CustomerComment: ").Append(CustomerComment).Append("\n");
@@ -251,15 +288,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantReturnResponse);
+            return this.Equals(input as MerchantSingleOrderReturnResponse);
         }
 
         /// <summary>
-        /// Returns true if MerchantReturnResponse instances are equal
+        /// Returns true if MerchantSingleOrderReturnResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantReturnResponse to be compared</param>
+        /// <param name="input">Instance of MerchantSingleOrderReturnResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantReturnResponse input)
+        public bool Equals(MerchantSingleOrderReturnResponse input)
         {
             if (input == null)
                 return false;
@@ -294,6 +331,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.ChannelReturnNo == input.ChannelReturnNo ||
                     (this.ChannelReturnNo != null &&
                     this.ChannelReturnNo.Equals(input.ChannelReturnNo))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -348,6 +390,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.MerchantReturnNo.GetHashCode();
                 if (this.ChannelReturnNo != null)
                     hashCode = hashCode * 59 + this.ChannelReturnNo.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Reason != null)
