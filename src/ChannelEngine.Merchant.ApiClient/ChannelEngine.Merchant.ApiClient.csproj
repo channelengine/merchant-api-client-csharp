@@ -14,7 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <RootNamespace>ChannelEngine.Merchant.ApiClient</RootNamespace>
-    <Version>2.8.5</Version>
+    <Version>2.8.8</Version>
   </PropertyGroup>
 
   <ItemGroup>

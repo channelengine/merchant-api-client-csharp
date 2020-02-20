@@ -145,11 +145,17 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// Initializes a new instance of the <see cref="MerchantOrderResponse" /> class.
         /// </summary>
         /// <param name="id">The unique identifier used by ChannelEngine. This identifier does  not have to be saved. It should only be used in a call to acknowledge the order..</param>
-        /// <param name="channelName">The name of the channel.</param>
+        /// <param name="channelName">The name of the channel for this specific environment/account.</param>
+        /// <param name="channelId">The unique ID of the channel for this specific environment/account.</param>
+        /// <param name="globalChannelName">The name of the channel across all of ChannelEngine.</param>
+        /// <param name="globalChannelId">The unique ID of the channel across all of ChannelEngine.</param>
         /// <param name="channelOrderSupport">The type of orders the channel support..</param>
-        /// <param name="channelOrderNo">The unique order reference used by the channel.</param>
+        /// <param name="channelOrderNo">The order reference used by the channel.   This number is not guaranteed to be unique accross all orders,  because different channels can use the same order number format..</param>
         /// <param name="status">The status of the order.</param>
         /// <param name="isBusinessOrder">Indicating whether the order is a business order.</param>
+        /// <param name="createdAt">The date the order was created in ChannelEngine.</param>
+        /// <param name="updatedAt">The date the order was last updated in ChannelEngine.</param>
+        /// <param name="merchantComment">The optional comment a merchant can add to an order.</param>
         /// <param name="billingAddress">The billing or invoice address.</param>
         /// <param name="shippingAddress">The shipping address.</param>
         /// <param name="subTotalInclVat">The total value of the order lines including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering)..</param>
@@ -171,10 +177,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="paymentMethod">The payment method used on the order.</param>
         /// <param name="shippingCostsInclVat">The shipping fee including VAT  (in the shop&#39;s base currency calculated using the exchange rate at the time of ordering). (required).</param>
         /// <param name="currencyCode">The currency code for the amounts of the order (required).</param>
-        /// <param name="orderDate">The date the order was done (required).</param>
+        /// <param name="orderDate">The date the order was created at the channel (required).</param>
         /// <param name="channelCustomerNo">The unique customer reference used by the channel.</param>
         /// <param name="extraData">Extra data on the order.</param>
-        public MerchantOrderResponse(int? id = default(int?), string channelName = default(string), ChannelOrderSupportEnum? channelOrderSupport = default(ChannelOrderSupportEnum?), string channelOrderNo = default(string), StatusEnum? status = default(StatusEnum?), bool? isBusinessOrder = default(bool?), MerchantAddressResponse billingAddress = default(MerchantAddressResponse), MerchantAddressResponse shippingAddress = default(MerchantAddressResponse), decimal? subTotalInclVat = default(decimal?), decimal? subTotalVat = default(decimal?), decimal? shippingCostsVat = default(decimal?), decimal? totalInclVat = default(decimal?), decimal? totalVat = default(decimal?), decimal? originalSubTotalInclVat = default(decimal?), decimal? originalSubTotalVat = default(decimal?), decimal? originalShippingCostsInclVat = default(decimal?), decimal? originalShippingCostsVat = default(decimal?), decimal? originalTotalInclVat = default(decimal?), decimal? originalTotalVat = default(decimal?), List<MerchantOrderLineResponse> lines = default(List<MerchantOrderLineResponse>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Dictionary<string, string> extraData = default(Dictionary<string, string>))
+        public MerchantOrderResponse(int? id = default(int?), string channelName = default(string), int? channelId = default(int?), string globalChannelName = default(string), int? globalChannelId = default(int?), ChannelOrderSupportEnum? channelOrderSupport = default(ChannelOrderSupportEnum?), string channelOrderNo = default(string), StatusEnum? status = default(StatusEnum?), bool? isBusinessOrder = default(bool?), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), string merchantComment = default(string), MerchantAddressResponse billingAddress = default(MerchantAddressResponse), MerchantAddressResponse shippingAddress = default(MerchantAddressResponse), decimal? subTotalInclVat = default(decimal?), decimal? subTotalVat = default(decimal?), decimal? shippingCostsVat = default(decimal?), decimal? totalInclVat = default(decimal?), decimal? totalVat = default(decimal?), decimal? originalSubTotalInclVat = default(decimal?), decimal? originalSubTotalVat = default(decimal?), decimal? originalShippingCostsInclVat = default(decimal?), decimal? originalShippingCostsVat = default(decimal?), decimal? originalTotalInclVat = default(decimal?), decimal? originalTotalVat = default(decimal?), List<MerchantOrderLineResponse> lines = default(List<MerchantOrderLineResponse>), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), decimal? shippingCostsInclVat = default(decimal?), string currencyCode = default(string), DateTime? orderDate = default(DateTime?), string channelCustomerNo = default(string), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "email" is required (not null)
             if (email == null)
@@ -214,10 +220,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             }
             this.Id = id;
             this.ChannelName = channelName;
+            this.ChannelId = channelId;
+            this.GlobalChannelName = globalChannelName;
+            this.GlobalChannelId = globalChannelId;
             this.ChannelOrderSupport = channelOrderSupport;
             this.ChannelOrderNo = channelOrderNo;
             this.Status = status;
             this.IsBusinessOrder = isBusinessOrder;
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
+            this.MerchantComment = merchantComment;
             this.BillingAddress = billingAddress;
             this.ShippingAddress = shippingAddress;
             this.SubTotalInclVat = subTotalInclVat;
@@ -248,17 +260,38 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public int? Id { get; set; }
 
         /// <summary>
-        /// The name of the channel
+        /// The name of the channel for this specific environment/account
         /// </summary>
-        /// <value>The name of the channel</value>
+        /// <value>The name of the channel for this specific environment/account</value>
         [DataMember(Name="ChannelName", EmitDefaultValue=false)]
         public string ChannelName { get; set; }
 
+        /// <summary>
+        /// The unique ID of the channel for this specific environment/account
+        /// </summary>
+        /// <value>The unique ID of the channel for this specific environment/account</value>
+        [DataMember(Name="ChannelId", EmitDefaultValue=false)]
+        public int? ChannelId { get; set; }
 
         /// <summary>
-        /// The unique order reference used by the channel
+        /// The name of the channel across all of ChannelEngine
         /// </summary>
-        /// <value>The unique order reference used by the channel</value>
+        /// <value>The name of the channel across all of ChannelEngine</value>
+        [DataMember(Name="GlobalChannelName", EmitDefaultValue=false)]
+        public string GlobalChannelName { get; set; }
+
+        /// <summary>
+        /// The unique ID of the channel across all of ChannelEngine
+        /// </summary>
+        /// <value>The unique ID of the channel across all of ChannelEngine</value>
+        [DataMember(Name="GlobalChannelId", EmitDefaultValue=false)]
+        public int? GlobalChannelId { get; set; }
+
+
+        /// <summary>
+        /// The order reference used by the channel.   This number is not guaranteed to be unique accross all orders,  because different channels can use the same order number format.
+        /// </summary>
+        /// <value>The order reference used by the channel.   This number is not guaranteed to be unique accross all orders,  because different channels can use the same order number format.</value>
         [DataMember(Name="ChannelOrderNo", EmitDefaultValue=false)]
         public string ChannelOrderNo { get; set; }
 
@@ -269,6 +302,27 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <value>Indicating whether the order is a business order</value>
         [DataMember(Name="IsBusinessOrder", EmitDefaultValue=false)]
         public bool? IsBusinessOrder { get; set; }
+
+        /// <summary>
+        /// The date the order was created in ChannelEngine
+        /// </summary>
+        /// <value>The date the order was created in ChannelEngine</value>
+        [DataMember(Name="CreatedAt", EmitDefaultValue=false)]
+        public DateTime? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The date the order was last updated in ChannelEngine
+        /// </summary>
+        /// <value>The date the order was last updated in ChannelEngine</value>
+        [DataMember(Name="UpdatedAt", EmitDefaultValue=false)]
+        public DateTime? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// The optional comment a merchant can add to an order
+        /// </summary>
+        /// <value>The optional comment a merchant can add to an order</value>
+        [DataMember(Name="MerchantComment", EmitDefaultValue=false)]
+        public string MerchantComment { get; set; }
 
         /// <summary>
         /// The billing or invoice address
@@ -417,9 +471,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string CurrencyCode { get; set; }
 
         /// <summary>
-        /// The date the order was done
+        /// The date the order was created at the channel
         /// </summary>
-        /// <value>The date the order was done</value>
+        /// <value>The date the order was created at the channel</value>
         [DataMember(Name="OrderDate", EmitDefaultValue=false)]
         public DateTime? OrderDate { get; set; }
 
@@ -447,10 +501,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("class MerchantOrderResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ChannelName: ").Append(ChannelName).Append("\n");
+            sb.Append("  ChannelId: ").Append(ChannelId).Append("\n");
+            sb.Append("  GlobalChannelName: ").Append(GlobalChannelName).Append("\n");
+            sb.Append("  GlobalChannelId: ").Append(GlobalChannelId).Append("\n");
             sb.Append("  ChannelOrderSupport: ").Append(ChannelOrderSupport).Append("\n");
             sb.Append("  ChannelOrderNo: ").Append(ChannelOrderNo).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  IsBusinessOrder: ").Append(IsBusinessOrder).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  MerchantComment: ").Append(MerchantComment).Append("\n");
             sb.Append("  BillingAddress: ").Append(BillingAddress).Append("\n");
             sb.Append("  ShippingAddress: ").Append(ShippingAddress).Append("\n");
             sb.Append("  SubTotalInclVat: ").Append(SubTotalInclVat).Append("\n");
@@ -520,6 +580,21 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.ChannelName.Equals(input.ChannelName))
                 ) && 
                 (
+                    this.ChannelId == input.ChannelId ||
+                    (this.ChannelId != null &&
+                    this.ChannelId.Equals(input.ChannelId))
+                ) && 
+                (
+                    this.GlobalChannelName == input.GlobalChannelName ||
+                    (this.GlobalChannelName != null &&
+                    this.GlobalChannelName.Equals(input.GlobalChannelName))
+                ) && 
+                (
+                    this.GlobalChannelId == input.GlobalChannelId ||
+                    (this.GlobalChannelId != null &&
+                    this.GlobalChannelId.Equals(input.GlobalChannelId))
+                ) && 
+                (
                     this.ChannelOrderSupport == input.ChannelOrderSupport ||
                     (this.ChannelOrderSupport != null &&
                     this.ChannelOrderSupport.Equals(input.ChannelOrderSupport))
@@ -538,6 +613,21 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.IsBusinessOrder == input.IsBusinessOrder ||
                     (this.IsBusinessOrder != null &&
                     this.IsBusinessOrder.Equals(input.IsBusinessOrder))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
+                ) && 
+                (
+                    this.MerchantComment == input.MerchantComment ||
+                    (this.MerchantComment != null &&
+                    this.MerchantComment.Equals(input.MerchantComment))
                 ) && 
                 (
                     this.BillingAddress == input.BillingAddress ||
@@ -674,6 +764,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.ChannelName != null)
                     hashCode = hashCode * 59 + this.ChannelName.GetHashCode();
+                if (this.ChannelId != null)
+                    hashCode = hashCode * 59 + this.ChannelId.GetHashCode();
+                if (this.GlobalChannelName != null)
+                    hashCode = hashCode * 59 + this.GlobalChannelName.GetHashCode();
+                if (this.GlobalChannelId != null)
+                    hashCode = hashCode * 59 + this.GlobalChannelId.GetHashCode();
                 if (this.ChannelOrderSupport != null)
                     hashCode = hashCode * 59 + this.ChannelOrderSupport.GetHashCode();
                 if (this.ChannelOrderNo != null)
@@ -682,6 +778,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.IsBusinessOrder != null)
                     hashCode = hashCode * 59 + this.IsBusinessOrder.GetHashCode();
+                if (this.CreatedAt != null)
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
+                if (this.MerchantComment != null)
+                    hashCode = hashCode * 59 + this.MerchantComment.GetHashCode();
                 if (this.BillingAddress != null)
                     hashCode = hashCode * 59 + this.BillingAddress.GetHashCode();
                 if (this.ShippingAddress != null)
