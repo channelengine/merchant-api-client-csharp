@@ -4,7 +4,5 @@
 	"packageName": "ChannelEngine.Merchant.ApiClient",
 	"gitUserId": "channelengine",
 	"gitRepoId": "merchant-api-client-csharp",
-	"targetFramework": "v5.0",
-	"netCoreProjectFile": true,
 	"packageGuid": "{CB8C6A0A-B8A6-465E-A988-DD7026F94573}"
 }
