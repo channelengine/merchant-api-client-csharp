@@ -52,6 +52,7 @@ src\ChannelEngine.Merchant.ApiClient\Model\MancoReason.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantAddressResponse.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantCancellationLineRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantCancellationRequest.cs
+src\ChannelEngine.Merchant.ApiClient\Model\MerchantChannelLabelShipmentRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantNotificationResponse.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantOfferGetStockResponse.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantOrderAcknowledgementRequest.cs
@@ -71,7 +72,10 @@ src\ChannelEngine.Merchant.ApiClient\Model\MerchantReturnLineUpdateRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantReturnRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantReturnResponse.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantReturnUpdateRequest.cs
+src\ChannelEngine.Merchant.ApiClient\Model\MerchantShipmentLabelCarrierRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantShipmentLineRequest.cs
+src\ChannelEngine.Merchant.ApiClient\Model\MerchantShipmentPackageDimensionsRequest.cs
+src\ChannelEngine.Merchant.ApiClient\Model\MerchantShipmentPackageWeightRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantShipmentRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantShipmentTrackingRequest.cs
 src\ChannelEngine.Merchant.ApiClient\Model\MerchantSingleOrderReturnLineResponse.cs
@@ -82,6 +86,8 @@ src\ChannelEngine.Merchant.ApiClient\Model\NotificationType.cs
 src\ChannelEngine.Merchant.ApiClient\Model\Operation.cs
 src\ChannelEngine.Merchant.ApiClient\Model\OrderStatusView.cs
 src\ChannelEngine.Merchant.ApiClient\Model\OrderSupport.cs
+src\ChannelEngine.Merchant.ApiClient\Model\PackageDimensionsUnit.cs
+src\ChannelEngine.Merchant.ApiClient\Model\PackageWeightUnit.cs
 src\ChannelEngine.Merchant.ApiClient\Model\ProductCreationResult.cs
 src\ChannelEngine.Merchant.ApiClient\Model\ProductMessage.cs
 src\ChannelEngine.Merchant.ApiClient\Model\ReturnReason.cs

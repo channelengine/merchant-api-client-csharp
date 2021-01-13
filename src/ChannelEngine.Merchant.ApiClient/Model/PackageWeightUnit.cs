@@ -26,36 +26,24 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Defines VatRateType
+    /// Defines PackageWeightUnit
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum VatRateType
+    public enum PackageWeightUnit
     {
         /// <summary>
-        /// Enum STANDARD for value: STANDARD
+        /// Enum GRAM for value: GRAM
         /// </summary>
-        [EnumMember(Value = "STANDARD")]
-        STANDARD = 1,
+        [EnumMember(Value = "GRAM")]
+        GRAM = 1,
 
         /// <summary>
-        /// Enum REDUCED for value: REDUCED
+        /// Enum OUNCE for value: OUNCE
         /// </summary>
-        [EnumMember(Value = "REDUCED")]
-        REDUCED = 2,
-
-        /// <summary>
-        /// Enum SUPERREDUCED for value: SUPER_REDUCED
-        /// </summary>
-        [EnumMember(Value = "SUPER_REDUCED")]
-        SUPER_REDUCED = 3,
-
-        /// <summary>
-        /// Enum EXEMPT for value: EXEMPT
-        /// </summary>
-        [EnumMember(Value = "EXEMPT")]
-        EXEMPT = 4
+        [EnumMember(Value = "OUNCE")]
+        OUNCE = 2
 
     }
 }

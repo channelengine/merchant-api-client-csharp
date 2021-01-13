@@ -26,40 +26,49 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantReturnUpdateRequest
+    /// MerchantShipmentLabelCarrierRequest
     /// </summary>
     [DataContract]
-    public partial class MerchantReturnUpdateRequest :  IEquatable<MerchantReturnUpdateRequest>, IValidatableObject
+    public partial class MerchantShipmentLabelCarrierRequest :  IEquatable<MerchantShipmentLabelCarrierRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantReturnUpdateRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantShipmentLabelCarrierRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MerchantReturnUpdateRequest() { }
+        protected MerchantShipmentLabelCarrierRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantReturnUpdateRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantShipmentLabelCarrierRequest" /> class.
         /// </summary>
-        /// <param name="returnId">The ChannelEngine return ID of the return you would like to update. (required).</param>
         /// <param name="lines">lines (required).</param>
-        public MerchantReturnUpdateRequest(int returnId = default(int), List<MerchantReturnLineUpdateRequest> lines = default(List<MerchantReturnLineUpdateRequest>))
+        /// <param name="dimensions">dimensions (required).</param>
+        /// <param name="weight">weight (required).</param>
+        public MerchantShipmentLabelCarrierRequest(List<MerchantShipmentLineRequest> lines = default(List<MerchantShipmentLineRequest>), MerchantShipmentPackageDimensionsRequest dimensions = default(MerchantShipmentPackageDimensionsRequest), MerchantShipmentPackageWeightRequest weight = default(MerchantShipmentPackageWeightRequest))
         {
-            this.ReturnId = returnId;
             // to ensure "lines" is required (not null)
-            this.Lines = lines ?? throw new ArgumentNullException("lines is a required property for MerchantReturnUpdateRequest and cannot be null");
+            this.Lines = lines ?? throw new ArgumentNullException("lines is a required property for MerchantShipmentLabelCarrierRequest and cannot be null");
+            // to ensure "dimensions" is required (not null)
+            this.Dimensions = dimensions ?? throw new ArgumentNullException("dimensions is a required property for MerchantShipmentLabelCarrierRequest and cannot be null");
+            // to ensure "weight" is required (not null)
+            this.Weight = weight ?? throw new ArgumentNullException("weight is a required property for MerchantShipmentLabelCarrierRequest and cannot be null");
         }
         
-        /// <summary>
-        /// The ChannelEngine return ID of the return you would like to update.
-        /// </summary>
-        /// <value>The ChannelEngine return ID of the return you would like to update.</value>
-        [DataMember(Name="ReturnId", EmitDefaultValue=false)]
-        public int ReturnId { get; set; }
-
         /// <summary>
         /// Gets or Sets Lines
         /// </summary>
         [DataMember(Name="Lines", EmitDefaultValue=false)]
-        public List<MerchantReturnLineUpdateRequest> Lines { get; set; }
+        public List<MerchantShipmentLineRequest> Lines { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Dimensions
+        /// </summary>
+        [DataMember(Name="Dimensions", EmitDefaultValue=false)]
+        public MerchantShipmentPackageDimensionsRequest Dimensions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Weight
+        /// </summary>
+        [DataMember(Name="Weight", EmitDefaultValue=false)]
+        public MerchantShipmentPackageWeightRequest Weight { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,9 +77,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantReturnUpdateRequest {\n");
-            sb.Append("  ReturnId: ").Append(ReturnId).Append("\n");
+            sb.Append("class MerchantShipmentLabelCarrierRequest {\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
+            sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,29 +101,35 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantReturnUpdateRequest);
+            return this.Equals(input as MerchantShipmentLabelCarrierRequest);
         }
 
         /// <summary>
-        /// Returns true if MerchantReturnUpdateRequest instances are equal
+        /// Returns true if MerchantShipmentLabelCarrierRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantReturnUpdateRequest to be compared</param>
+        /// <param name="input">Instance of MerchantShipmentLabelCarrierRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantReturnUpdateRequest input)
+        public bool Equals(MerchantShipmentLabelCarrierRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ReturnId == input.ReturnId ||
-                    this.ReturnId.Equals(input.ReturnId)
-                ) && 
-                (
                     this.Lines == input.Lines ||
                     this.Lines != null &&
                     input.Lines != null &&
                     this.Lines.SequenceEqual(input.Lines)
+                ) && 
+                (
+                    this.Dimensions == input.Dimensions ||
+                    (this.Dimensions != null &&
+                    this.Dimensions.Equals(input.Dimensions))
+                ) && 
+                (
+                    this.Weight == input.Weight ||
+                    (this.Weight != null &&
+                    this.Weight.Equals(input.Weight))
                 );
         }
 
@@ -126,9 +142,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.ReturnId.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
+                if (this.Dimensions != null)
+                    hashCode = hashCode * 59 + this.Dimensions.GetHashCode();
+                if (this.Weight != null)
+                    hashCode = hashCode * 59 + this.Weight.GetHashCode();
                 return hashCode;
             }
         }

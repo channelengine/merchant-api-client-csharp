@@ -26,33 +26,32 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantOrderLineExtraDataResponse
+    /// MerchantShipmentPackageWeightRequest
     /// </summary>
     [DataContract]
-    public partial class MerchantOrderLineExtraDataResponse :  IEquatable<MerchantOrderLineExtraDataResponse>, IValidatableObject
+    public partial class MerchantShipmentPackageWeightRequest :  IEquatable<MerchantShipmentPackageWeightRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantOrderLineExtraDataResponse" /> class.
+        /// Gets or Sets Unit
         /// </summary>
-        /// <param name="key">key.</param>
+        [DataMember(Name="Unit", EmitDefaultValue=false)]
+        public PackageWeightUnit? Unit { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MerchantShipmentPackageWeightRequest" /> class.
+        /// </summary>
         /// <param name="value">value.</param>
-        public MerchantOrderLineExtraDataResponse(string key = default(string), string value = default(string))
+        /// <param name="unit">unit.</param>
+        public MerchantShipmentPackageWeightRequest(decimal value = default(decimal), PackageWeightUnit? unit = default(PackageWeightUnit?))
         {
-            this.Key = key;
             this.Value = value;
+            this.Unit = unit;
         }
         
         /// <summary>
-        /// Gets or Sets Key
-        /// </summary>
-        [DataMember(Name="Key", EmitDefaultValue=true)]
-        public string Key { get; set; }
-
-        /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        [DataMember(Name="Value", EmitDefaultValue=true)]
-        public string Value { get; set; }
+        [DataMember(Name="Value", EmitDefaultValue=false)]
+        public decimal Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +60,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantOrderLineExtraDataResponse {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("class MerchantShipmentPackageWeightRequest {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,29 +83,27 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantOrderLineExtraDataResponse);
+            return this.Equals(input as MerchantShipmentPackageWeightRequest);
         }
 
         /// <summary>
-        /// Returns true if MerchantOrderLineExtraDataResponse instances are equal
+        /// Returns true if MerchantShipmentPackageWeightRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantOrderLineExtraDataResponse to be compared</param>
+        /// <param name="input">Instance of MerchantShipmentPackageWeightRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantOrderLineExtraDataResponse input)
+        public bool Equals(MerchantShipmentPackageWeightRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
+                    this.Value == input.Value ||
+                    this.Value.Equals(input.Value)
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Unit == input.Unit ||
+                    this.Unit.Equals(input.Unit)
                 );
         }
 
@@ -119,10 +116,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = hashCode * 59 + this.Unit.GetHashCode();
                 return hashCode;
             }
         }

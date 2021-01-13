@@ -26,49 +26,48 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Operation
+    /// MerchantShipmentPackageDimensionsRequest
     /// </summary>
     [DataContract]
-    public partial class Operation :  IEquatable<Operation>, IValidatableObject
+    public partial class MerchantShipmentPackageDimensionsRequest :  IEquatable<MerchantShipmentPackageDimensionsRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Operation" /> class.
+        /// Gets or Sets Unit
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="path">path.</param>
-        /// <param name="op">op.</param>
-        /// <param name="from">from.</param>
-        public Operation(Object value = default(Object), string path = default(string), string op = default(string), string from = default(string))
+        [DataMember(Name="Unit", EmitDefaultValue=false)]
+        public PackageDimensionsUnit? Unit { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MerchantShipmentPackageDimensionsRequest" /> class.
+        /// </summary>
+        /// <param name="height">height.</param>
+        /// <param name="width">width.</param>
+        /// <param name="length">length.</param>
+        /// <param name="unit">unit.</param>
+        public MerchantShipmentPackageDimensionsRequest(decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), PackageDimensionsUnit? unit = default(PackageDimensionsUnit?))
         {
-            this.Value = value;
-            this.Path = path;
-            this.Op = op;
-            this.From = from;
+            this.Height = height;
+            this.Width = width;
+            this.Length = length;
+            this.Unit = unit;
         }
         
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets Height
         /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=true)]
-        public Object Value { get; set; }
+        [DataMember(Name="Height", EmitDefaultValue=false)]
+        public decimal Height { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Gets or Sets Width
         /// </summary>
-        [DataMember(Name="path", EmitDefaultValue=true)]
-        public string Path { get; set; }
+        [DataMember(Name="Width", EmitDefaultValue=false)]
+        public decimal Width { get; set; }
 
         /// <summary>
-        /// Gets or Sets Op
+        /// Gets or Sets Length
         /// </summary>
-        [DataMember(Name="op", EmitDefaultValue=true)]
-        public string Op { get; set; }
-
-        /// <summary>
-        /// Gets or Sets From
-        /// </summary>
-        [DataMember(Name="from", EmitDefaultValue=true)]
-        public string From { get; set; }
+        [DataMember(Name="Length", EmitDefaultValue=false)]
+        public decimal Length { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,11 +76,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Operation {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("  Op: ").Append(Op).Append("\n");
-            sb.Append("  From: ").Append(From).Append("\n");
+            sb.Append("class MerchantShipmentPackageDimensionsRequest {\n");
+            sb.Append("  Height: ").Append(Height).Append("\n");
+            sb.Append("  Width: ").Append(Width).Append("\n");
+            sb.Append("  Length: ").Append(Length).Append("\n");
+            sb.Append("  Unit: ").Append(Unit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,39 +101,35 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Operation);
+            return this.Equals(input as MerchantShipmentPackageDimensionsRequest);
         }
 
         /// <summary>
-        /// Returns true if Operation instances are equal
+        /// Returns true if MerchantShipmentPackageDimensionsRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of Operation to be compared</param>
+        /// <param name="input">Instance of MerchantShipmentPackageDimensionsRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Operation input)
+        public bool Equals(MerchantShipmentPackageDimensionsRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Height == input.Height ||
+                    this.Height.Equals(input.Height)
                 ) && 
                 (
-                    this.Path == input.Path ||
-                    (this.Path != null &&
-                    this.Path.Equals(input.Path))
+                    this.Width == input.Width ||
+                    this.Width.Equals(input.Width)
                 ) && 
                 (
-                    this.Op == input.Op ||
-                    (this.Op != null &&
-                    this.Op.Equals(input.Op))
+                    this.Length == input.Length ||
+                    this.Length.Equals(input.Length)
                 ) && 
                 (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
+                    this.Unit == input.Unit ||
+                    this.Unit.Equals(input.Unit)
                 );
         }
 
@@ -147,14 +142,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
-                if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
-                if (this.Op != null)
-                    hashCode = hashCode * 59 + this.Op.GetHashCode();
-                if (this.From != null)
-                    hashCode = hashCode * 59 + this.From.GetHashCode();
+                hashCode = hashCode * 59 + this.Height.GetHashCode();
+                hashCode = hashCode * 59 + this.Width.GetHashCode();
+                hashCode = hashCode * 59 + this.Length.GetHashCode();
+                hashCode = hashCode * 59 + this.Unit.GetHashCode();
                 return hashCode;
             }
         }
