@@ -26,36 +26,30 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Defines ListedProductExportStatus
+    /// Defines ShipmentLineStatus
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum ListedProductExportStatus
+    public enum ShipmentLineStatus
     {
         /// <summary>
-        /// Enum CREATED for value: CREATED
+        /// Enum SHIPPED for value: SHIPPED
         /// </summary>
-        [EnumMember(Value = "CREATED")]
-        CREATED = 1,
+        [EnumMember(Value = "SHIPPED")]
+        SHIPPED = 1,
 
         /// <summary>
-        /// Enum UPDATED for value: UPDATED
+        /// Enum INBACKORDER for value: IN_BACKORDER
         /// </summary>
-        [EnumMember(Value = "UPDATED")]
-        UPDATED = 2,
+        [EnumMember(Value = "IN_BACKORDER")]
+        IN_BACKORDER = 2,
 
         /// <summary>
-        /// Enum DELETED for value: DELETED
+        /// Enum MANCO for value: MANCO
         /// </summary>
-        [EnumMember(Value = "DELETED")]
-        DELETED = 3,
-
-        /// <summary>
-        /// Enum CREATEFAILED for value: CREATE_FAILED
-        /// </summary>
-        [EnumMember(Value = "CREATE_FAILED")]
-        CREATE_FAILED = 4
+        [EnumMember(Value = "MANCO")]
+        MANCO = 3
 
     }
 }

@@ -26,33 +26,33 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantOrderLineExtraDataResponse
+    /// PatchMerchantProductDto
     /// </summary>
-    [DataContract(Name = "MerchantOrderLineExtraDataResponse")]
-    public partial class MerchantOrderLineExtraDataResponse : IEquatable<MerchantOrderLineExtraDataResponse>, IValidatableObject
+    [DataContract(Name = "PatchMerchantProductDto")]
+    public partial class PatchMerchantProductDto : IEquatable<PatchMerchantProductDto>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantOrderLineExtraDataResponse" /> class.
+        /// Initializes a new instance of the <see cref="PatchMerchantProductDto" /> class.
         /// </summary>
-        /// <param name="key">key.</param>
-        /// <param name="value">value.</param>
-        public MerchantOrderLineExtraDataResponse(string key = default(string), string value = default(string))
+        /// <param name="propertiesToUpdate">propertiesToUpdate.</param>
+        /// <param name="merchantProductRequestModels">merchantProductRequestModels.</param>
+        public PatchMerchantProductDto(List<string> propertiesToUpdate = default(List<string>), List<MerchantProductRequest> merchantProductRequestModels = default(List<MerchantProductRequest>))
         {
-            this.Key = key;
-            this.Value = value;
+            this.PropertiesToUpdate = propertiesToUpdate;
+            this.MerchantProductRequestModels = merchantProductRequestModels;
         }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// Gets or Sets PropertiesToUpdate
         /// </summary>
-        [DataMember(Name = "Key", EmitDefaultValue = true)]
-        public string Key { get; set; }
+        [DataMember(Name = "PropertiesToUpdate", EmitDefaultValue = true)]
+        public List<string> PropertiesToUpdate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets MerchantProductRequestModels
         /// </summary>
-        [DataMember(Name = "Value", EmitDefaultValue = true)]
-        public string Value { get; set; }
+        [DataMember(Name = "MerchantProductRequestModels", EmitDefaultValue = true)]
+        public List<MerchantProductRequest> MerchantProductRequestModels { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +61,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantOrderLineExtraDataResponse {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class PatchMerchantProductDto {\n");
+            sb.Append("  PropertiesToUpdate: ").Append(PropertiesToUpdate).Append("\n");
+            sb.Append("  MerchantProductRequestModels: ").Append(MerchantProductRequestModels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,29 +84,31 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantOrderLineExtraDataResponse);
+            return this.Equals(input as PatchMerchantProductDto);
         }
 
         /// <summary>
-        /// Returns true if MerchantOrderLineExtraDataResponse instances are equal
+        /// Returns true if PatchMerchantProductDto instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantOrderLineExtraDataResponse to be compared</param>
+        /// <param name="input">Instance of PatchMerchantProductDto to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantOrderLineExtraDataResponse input)
+        public bool Equals(PatchMerchantProductDto input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
+                    this.PropertiesToUpdate == input.PropertiesToUpdate ||
+                    this.PropertiesToUpdate != null &&
+                    input.PropertiesToUpdate != null &&
+                    this.PropertiesToUpdate.SequenceEqual(input.PropertiesToUpdate)
                 ) && 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.MerchantProductRequestModels == input.MerchantProductRequestModels ||
+                    this.MerchantProductRequestModels != null &&
+                    input.MerchantProductRequestModels != null &&
+                    this.MerchantProductRequestModels.SequenceEqual(input.MerchantProductRequestModels)
                 );
         }
 
@@ -119,10 +121,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.PropertiesToUpdate != null)
+                    hashCode = hashCode * 59 + this.PropertiesToUpdate.GetHashCode();
+                if (this.MerchantProductRequestModels != null)
+                    hashCode = hashCode * 59 + this.MerchantProductRequestModels.GetHashCode();
                 return hashCode;
             }
         }
