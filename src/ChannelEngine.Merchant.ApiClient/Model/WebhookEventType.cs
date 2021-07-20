@@ -26,42 +26,48 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Defines FulfillmentType
+    /// Defines WebhookEventType
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum FulfillmentType
+    public enum WebhookEventType
     {
         /// <summary>
-        /// Enum ALL for value: ALL
+        /// Enum ORDERSCHANGE for value: ORDERS_CHANGE
         /// </summary>
-        [EnumMember(Value = "ALL")]
-        ALL = 1,
+        [EnumMember(Value = "ORDERS_CHANGE")]
+        ORDERS_CHANGE = 1,
 
         /// <summary>
-        /// Enum ONLYMERCHANT for value: ONLY_MERCHANT
+        /// Enum PRODUCTSCHANGE for value: PRODUCTS_CHANGE
         /// </summary>
-        [EnumMember(Value = "ONLY_MERCHANT")]
-        ONLY_MERCHANT = 2,
+        [EnumMember(Value = "PRODUCTS_CHANGE")]
+        PRODUCTS_CHANGE = 2,
 
         /// <summary>
-        /// Enum ONLYCHANNEL for value: ONLY_CHANNEL
+        /// Enum RETURNSCHANGE for value: RETURNS_CHANGE
         /// </summary>
-        [EnumMember(Value = "ONLY_CHANNEL")]
-        ONLY_CHANNEL = 3,
+        [EnumMember(Value = "RETURNS_CHANGE")]
+        RETURNS_CHANGE = 3,
 
         /// <summary>
-        /// Enum MIXED for value: MIXED
+        /// Enum SHIPMENTSCHANGE for value: SHIPMENTS_CHANGE
         /// </summary>
-        [EnumMember(Value = "MIXED")]
-        MIXED = 4,
+        [EnumMember(Value = "SHIPMENTS_CHANGE")]
+        SHIPMENTS_CHANGE = 4,
 
         /// <summary>
-        /// Enum INCLUDESMERCHANT for value: INCLUDES_MERCHANT
+        /// Enum NOTIFICATIONSCHANGE for value: NOTIFICATIONS_CHANGE
         /// </summary>
-        [EnumMember(Value = "INCLUDES_MERCHANT")]
-        INCLUDES_MERCHANT = 5
+        [EnumMember(Value = "NOTIFICATIONS_CHANGE")]
+        NOTIFICATIONS_CHANGE = 5,
+
+        /// <summary>
+        /// Enum BUNDLEPRODUCTSCHANGE for value: BUNDLE_PRODUCTS_CHANGE
+        /// </summary>
+        [EnumMember(Value = "BUNDLE_PRODUCTS_CHANGE")]
+        BUNDLE_PRODUCTS_CHANGE = 6
 
     }
 }

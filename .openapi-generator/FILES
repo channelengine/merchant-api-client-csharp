@@ -13,6 +13,7 @@ src/ChannelEngine.Merchant.ApiClient/Api/ProductBundleApi.cs
 src/ChannelEngine.Merchant.ApiClient/Api/ReturnApi.cs
 src/ChannelEngine.Merchant.ApiClient/Api/ShipmentApi.cs
 src/ChannelEngine.Merchant.ApiClient/Api/StockLocationApi.cs
+src/ChannelEngine.Merchant.ApiClient/Api/WebhookApi.cs
 src/ChannelEngine.Merchant.ApiClient/ChannelEngine.Merchant.ApiClient.csproj
 src/ChannelEngine.Merchant.ApiClient/Client/ApiClient.cs
 src/ChannelEngine.Merchant.ApiClient/Client/ApiException.cs
@@ -45,6 +46,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantProductResponse.c
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantReturnResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantSingleOrderReturnResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantStockLocationResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantWebhookResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/Condition.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CreatorFilter.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ExtraDataType.cs
@@ -86,6 +88,8 @@ src/ChannelEngine.Merchant.ApiClient/Model/MerchantSingleOrderReturnLineResponse
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantSingleOrderReturnResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockLocationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockPriceUpdateRequest.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantWebhookRequest.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantWebhookResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/NotificationType.cs
 src/ChannelEngine.Merchant.ApiClient/Model/Operation.cs
 src/ChannelEngine.Merchant.ApiClient/Model/OrderStatusView.cs
@@ -102,3 +106,4 @@ src/ChannelEngine.Merchant.ApiClient/Model/SingleOfDictionaryOfStringAndListOfSt
 src/ChannelEngine.Merchant.ApiClient/Model/SingleOfMerchantProductResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/SingleOfProductCreationResult.cs
 src/ChannelEngine.Merchant.ApiClient/Model/VatRateType.cs
+src/ChannelEngine.Merchant.ApiClient/Model/WebhookEventType.cs
