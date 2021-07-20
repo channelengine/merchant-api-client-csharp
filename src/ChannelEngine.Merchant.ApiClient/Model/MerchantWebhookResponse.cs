@@ -26,49 +26,49 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Operation
+    /// MerchantWebhookResponse
     /// </summary>
-    [DataContract(Name = "Operation")]
-    public partial class Operation : IEquatable<Operation>, IValidatableObject
+    [DataContract(Name = "MerchantWebhookResponse")]
+    public partial class MerchantWebhookResponse : IEquatable<MerchantWebhookResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Operation" /> class.
+        /// Initializes a new instance of the <see cref="MerchantWebhookResponse" /> class.
         /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="path">path.</param>
-        /// <param name="op">op.</param>
-        /// <param name="from">from.</param>
-        public Operation(Object value = default(Object), string path = default(string), string op = default(string), string from = default(string))
+        /// <param name="name">name.</param>
+        /// <param name="url">url.</param>
+        /// <param name="isActive">isActive.</param>
+        /// <param name="events">events.</param>
+        public MerchantWebhookResponse(string name = default(string), string url = default(string), bool isActive = default(bool), List<WebhookEventType> events = default(List<WebhookEventType>))
         {
-            this.Value = value;
-            this.Path = path;
-            this.Op = op;
-            this.From = from;
+            this.Name = name;
+            this.Url = url;
+            this.IsActive = isActive;
+            this.Events = events;
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "value", EmitDefaultValue = true)]
-        public Object Value { get; set; }
+        [DataMember(Name = "Name", EmitDefaultValue = true)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Gets or Sets Url
         /// </summary>
-        [DataMember(Name = "path", EmitDefaultValue = true)]
-        public string Path { get; set; }
+        [DataMember(Name = "Url", EmitDefaultValue = true)]
+        public string Url { get; set; }
 
         /// <summary>
-        /// Gets or Sets Op
+        /// Gets or Sets IsActive
         /// </summary>
-        [DataMember(Name = "op", EmitDefaultValue = true)]
-        public string Op { get; set; }
+        [DataMember(Name = "IsActive", EmitDefaultValue = true)]
+        public bool IsActive { get; set; }
 
         /// <summary>
-        /// Gets or Sets From
+        /// Gets or Sets Events
         /// </summary>
-        [DataMember(Name = "from", EmitDefaultValue = true)]
-        public string From { get; set; }
+        [DataMember(Name = "Events", EmitDefaultValue = true)]
+        public List<WebhookEventType> Events { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,11 +77,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Operation {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("  Op: ").Append(Op).Append("\n");
-            sb.Append("  From: ").Append(From).Append("\n");
+            sb.Append("class MerchantWebhookResponse {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  IsActive: ").Append(IsActive).Append("\n");
+            sb.Append("  Events: ").Append(Events).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,39 +102,39 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Operation);
+            return this.Equals(input as MerchantWebhookResponse);
         }
 
         /// <summary>
-        /// Returns true if Operation instances are equal
+        /// Returns true if MerchantWebhookResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of Operation to be compared</param>
+        /// <param name="input">Instance of MerchantWebhookResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Operation input)
+        public bool Equals(MerchantWebhookResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Path == input.Path ||
-                    (this.Path != null &&
-                    this.Path.Equals(input.Path))
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.Op == input.Op ||
-                    (this.Op != null &&
-                    this.Op.Equals(input.Op))
+                    this.IsActive == input.IsActive ||
+                    this.IsActive.Equals(input.IsActive)
                 ) && 
                 (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
+                    this.Events == input.Events ||
+                    this.Events != null &&
+                    input.Events != null &&
+                    this.Events.SequenceEqual(input.Events)
                 );
         }
 
@@ -147,14 +147,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
-                if (this.Path != null)
-                    hashCode = hashCode * 59 + this.Path.GetHashCode();
-                if (this.Op != null)
-                    hashCode = hashCode * 59 + this.Op.GetHashCode();
-                if (this.From != null)
-                    hashCode = hashCode * 59 + this.From.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                hashCode = hashCode * 59 + this.IsActive.GetHashCode();
+                if (this.Events != null)
+                    hashCode = hashCode * 59 + this.Events.GetHashCode();
                 return hashCode;
             }
         }
