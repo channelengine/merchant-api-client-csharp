@@ -36,6 +36,8 @@ src/ChannelEngine.Merchant.ApiClient/Client/RetryConfiguration.cs
 src/ChannelEngine.Merchant.ApiClient/Model/AbstractOpenAPISchema.cs
 src/ChannelEngine.Merchant.ApiClient/Model/AdvanceSettingsResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ApiResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/ChannelCarrierCollectionMethodApi.cs
+src/ChannelEngine.Merchant.ApiClient/Model/ChannelCarrierRecommendationApi.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ChannelChannelResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ChannelGlobalChannelResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ChannelListedProductResponse.cs
@@ -48,6 +50,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantProductBundleResp
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantProductResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantProductWithBuyBoxPrice.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantReturnResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantShipmentLabelCarrierResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantSingleOrderReturnResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantStockLocationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantWebhookResponse.cs
@@ -85,6 +88,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/MerchantReturnResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantReturnUpdateRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantSettingsResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentLabelCarrierRequest.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentLabelCarrierResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentLineRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentPackageDimensionsRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentPackageWeightRequest.cs

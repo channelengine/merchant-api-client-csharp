@@ -12,7 +12,7 @@
     <Description>A library generated from a OpenAPI doc</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>ChannelEngine.Merchant.ApiClient</RootNamespace>
-    <Version>2.9.9</Version>
+    <Version>2.9.10</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ChannelEngine.Merchant.ApiClient.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/channelengine/merchant-api-client-csharp.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

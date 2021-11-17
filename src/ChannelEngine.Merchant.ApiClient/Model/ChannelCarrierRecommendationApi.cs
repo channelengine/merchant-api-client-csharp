@@ -26,30 +26,30 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Defines CreatorFilter
+    /// Defines ChannelCarrierRecommendationApi
     /// </summary>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum CreatorFilter
+    public enum ChannelCarrierRecommendationApi
     {
         /// <summary>
-        /// Enum ONLYFROMMERCHANT for value: ONLY_FROM_MERCHANT
+        /// Enum NEUTRAL for value: NEUTRAL
         /// </summary>
-        [EnumMember(Value = "ONLY_FROM_MERCHANT")]
-        ONLY_FROM_MERCHANT = 1,
+        [EnumMember(Value = "NEUTRAL")]
+        NEUTRAL = 1,
 
         /// <summary>
-        /// Enum ONLYFROMCHANNEL for value: ONLY_FROM_CHANNEL
+        /// Enum RECOMMENDED for value: RECOMMENDED
         /// </summary>
-        [EnumMember(Value = "ONLY_FROM_CHANNEL")]
-        ONLY_FROM_CHANNEL = 2,
+        [EnumMember(Value = "RECOMMENDED")]
+        RECOMMENDED = 2,
 
         /// <summary>
-        /// Enum MIXED for value: MIXED
+        /// Enum DISCOMMENDED for value: DISCOMMENDED
         /// </summary>
-        [EnumMember(Value = "MIXED")]
-        MIXED = 3
+        [EnumMember(Value = "DISCOMMENDED")]
+        DISCOMMENDED = 3
 
     }
 }
