@@ -26,30 +26,27 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantStockPriceUpdateRequest
+    /// MerchantOfferStockUpdateRequest
     /// </summary>
-    [DataContract(Name = "MerchantStockPriceUpdateRequest")]
-    public partial class MerchantStockPriceUpdateRequest : IEquatable<MerchantStockPriceUpdateRequest>, IValidatableObject
+    [DataContract(Name = "MerchantOfferStockUpdateRequest")]
+    public partial class MerchantOfferStockUpdateRequest : IEquatable<MerchantOfferStockUpdateRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantStockPriceUpdateRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantOfferStockUpdateRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MerchantStockPriceUpdateRequest() { }
+        protected MerchantOfferStockUpdateRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantStockPriceUpdateRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantOfferStockUpdateRequest" /> class.
         /// </summary>
         /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku). (required).</param>
-        /// <param name="stock">The stock of the product. Should not be negative..</param>
-        /// <param name="price">The price of the product. Should not be negative..</param>
-        /// <param name="stockLocationId">The stock location id of updated stok.  If not provided stock from default stock location will be updated..</param>
-        public MerchantStockPriceUpdateRequest(string merchantProductNo = default(string), int? stock = default(int?), decimal? price = default(decimal?), int? stockLocationId = default(int?))
+        /// <param name="stockLocations">Stock locations data (required).</param>
+        public MerchantOfferStockUpdateRequest(string merchantProductNo = default(string), List<MerchantStockLocationUpdateRequest> stockLocations = default(List<MerchantStockLocationUpdateRequest>))
         {
             // to ensure "merchantProductNo" is required (not null)
-            this.MerchantProductNo = merchantProductNo ?? throw new ArgumentNullException("merchantProductNo is a required property for MerchantStockPriceUpdateRequest and cannot be null");
-            this.Stock = stock;
-            this.Price = price;
-            this.StockLocationId = stockLocationId;
+            this.MerchantProductNo = merchantProductNo ?? throw new ArgumentNullException("merchantProductNo is a required property for MerchantOfferStockUpdateRequest and cannot be null");
+            // to ensure "stockLocations" is required (not null)
+            this.StockLocations = stockLocations ?? throw new ArgumentNullException("stockLocations is a required property for MerchantOfferStockUpdateRequest and cannot be null");
         }
 
         /// <summary>
@@ -60,25 +57,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string MerchantProductNo { get; set; }
 
         /// <summary>
-        /// The stock of the product. Should not be negative.
+        /// Stock locations data
         /// </summary>
-        /// <value>The stock of the product. Should not be negative.</value>
-        [DataMember(Name = "Stock", EmitDefaultValue = true)]
-        public int? Stock { get; set; }
-
-        /// <summary>
-        /// The price of the product. Should not be negative.
-        /// </summary>
-        /// <value>The price of the product. Should not be negative.</value>
-        [DataMember(Name = "Price", EmitDefaultValue = true)]
-        public decimal? Price { get; set; }
-
-        /// <summary>
-        /// The stock location id of updated stok.  If not provided stock from default stock location will be updated.
-        /// </summary>
-        /// <value>The stock location id of updated stok.  If not provided stock from default stock location will be updated.</value>
-        [DataMember(Name = "StockLocationId", EmitDefaultValue = true)]
-        public int? StockLocationId { get; set; }
+        /// <value>Stock locations data</value>
+        [DataMember(Name = "StockLocations", IsRequired = true, EmitDefaultValue = false)]
+        public List<MerchantStockLocationUpdateRequest> StockLocations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,11 +70,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantStockPriceUpdateRequest {\n");
+            sb.Append("class MerchantOfferStockUpdateRequest {\n");
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
-            sb.Append("  Stock: ").Append(Stock).Append("\n");
-            sb.Append("  Price: ").Append(Price).Append("\n");
-            sb.Append("  StockLocationId: ").Append(StockLocationId).Append("\n");
+            sb.Append("  StockLocations: ").Append(StockLocations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,15 +93,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantStockPriceUpdateRequest);
+            return this.Equals(input as MerchantOfferStockUpdateRequest);
         }
 
         /// <summary>
-        /// Returns true if MerchantStockPriceUpdateRequest instances are equal
+        /// Returns true if MerchantOfferStockUpdateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantStockPriceUpdateRequest to be compared</param>
+        /// <param name="input">Instance of MerchantOfferStockUpdateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantStockPriceUpdateRequest input)
+        public bool Equals(MerchantOfferStockUpdateRequest input)
         {
             if (input == null)
                 return false;
@@ -132,19 +113,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.MerchantProductNo.Equals(input.MerchantProductNo))
                 ) && 
                 (
-                    this.Stock == input.Stock ||
-                    (this.Stock != null &&
-                    this.Stock.Equals(input.Stock))
-                ) && 
-                (
-                    this.Price == input.Price ||
-                    (this.Price != null &&
-                    this.Price.Equals(input.Price))
-                ) && 
-                (
-                    this.StockLocationId == input.StockLocationId ||
-                    (this.StockLocationId != null &&
-                    this.StockLocationId.Equals(input.StockLocationId))
+                    this.StockLocations == input.StockLocations ||
+                    this.StockLocations != null &&
+                    input.StockLocations != null &&
+                    this.StockLocations.SequenceEqual(input.StockLocations)
                 );
         }
 
@@ -159,12 +131,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 int hashCode = 41;
                 if (this.MerchantProductNo != null)
                     hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
-                if (this.Stock != null)
-                    hashCode = hashCode * 59 + this.Stock.GetHashCode();
-                if (this.Price != null)
-                    hashCode = hashCode * 59 + this.Price.GetHashCode();
-                if (this.StockLocationId != null)
-                    hashCode = hashCode * 59 + this.StockLocationId.GetHashCode();
+                if (this.StockLocations != null)
+                    hashCode = hashCode * 59 + this.StockLocations.GetHashCode();
                 return hashCode;
             }
         }
@@ -186,18 +154,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             if(this.MerchantProductNo != null && this.MerchantProductNo.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantProductNo, length must be greater than 0.", new [] { "MerchantProductNo" });
-            }
-
-            // Stock (int?) minimum
-            if(this.Stock < (int?)0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Stock, must be a value greater than or equal to 0.", new [] { "Stock" });
-            }
-
-            // Price (decimal?) minimum
-            if(this.Price < (decimal?)0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Price, must be a value greater than or equal to 0.", new [] { "Price" });
             }
 
             yield break;
