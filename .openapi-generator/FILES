@@ -59,6 +59,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/CreatorFilter.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ExtraDataType.cs
 src/ChannelEngine.Merchant.ApiClient/Model/FulfillmentType.cs
 src/ChannelEngine.Merchant.ApiClient/Model/Gender.cs
+src/ChannelEngine.Merchant.ApiClient/Model/JsonPatchOperationOfMerchantProductRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ListedProductChannelStatus.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ListedProductExportStatus.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MancoReason.cs
@@ -68,6 +69,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/MerchantCancellationRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantChannelLabelShipmentRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantNotificationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantOfferGetStockResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantOfferStockUpdateRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantOrderAcknowledgementRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantOrderCommentUpdateRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantOrderLineExtraDataResponse.cs
@@ -97,6 +99,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentTrackingRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantSingleOrderReturnLineResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantSingleOrderReturnResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockLocationResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockLocationUpdateRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockPriceUpdateRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantWebhookRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantWebhookResponse.cs

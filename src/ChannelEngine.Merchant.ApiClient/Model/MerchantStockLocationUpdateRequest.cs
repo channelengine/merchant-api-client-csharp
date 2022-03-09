@@ -26,33 +26,35 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantShipmentPackageWeightRequest
+    /// MerchantStockLocationUpdateRequest
     /// </summary>
-    [DataContract(Name = "MerchantShipmentPackageWeightRequest")]
-    public partial class MerchantShipmentPackageWeightRequest : IEquatable<MerchantShipmentPackageWeightRequest>, IValidatableObject
+    [DataContract(Name = "MerchantStockLocationUpdateRequest")]
+    public partial class MerchantStockLocationUpdateRequest : IEquatable<MerchantStockLocationUpdateRequest>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Unit
+        /// Initializes a new instance of the <see cref="MerchantStockLocationUpdateRequest" /> class.
         /// </summary>
-        [DataMember(Name = "Unit", EmitDefaultValue = false)]
-        public PackageWeightUnit? Unit { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantShipmentPackageWeightRequest" /> class.
-        /// </summary>
-        /// <param name="value">value.</param>
-        /// <param name="unit">unit.</param>
-        public MerchantShipmentPackageWeightRequest(decimal value = default(decimal), PackageWeightUnit? unit = default(PackageWeightUnit?))
+        /// <param name="stock">The stock of the product. Should not be negative..</param>
+        /// <param name="stockLocationId">The stock location id of updated stok.  If not provided stock from default stock location will be updated..</param>
+        public MerchantStockLocationUpdateRequest(int stock = default(int), int? stockLocationId = default(int?))
         {
-            this.Value = value;
-            this.Unit = unit;
+            this.Stock = stock;
+            this.StockLocationId = stockLocationId;
         }
 
         /// <summary>
-        /// Gets or Sets Value
+        /// The stock of the product. Should not be negative.
         /// </summary>
-        [DataMember(Name = "Value", EmitDefaultValue = false)]
-        public decimal Value { get; set; }
+        /// <value>The stock of the product. Should not be negative.</value>
+        [DataMember(Name = "Stock", EmitDefaultValue = false)]
+        public int Stock { get; set; }
+
+        /// <summary>
+        /// The stock location id of updated stok.  If not provided stock from default stock location will be updated.
+        /// </summary>
+        /// <value>The stock location id of updated stok.  If not provided stock from default stock location will be updated.</value>
+        [DataMember(Name = "StockLocationId", EmitDefaultValue = true)]
+        public int? StockLocationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +63,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantShipmentPackageWeightRequest {\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
-            sb.Append("  Unit: ").Append(Unit).Append("\n");
+            sb.Append("class MerchantStockLocationUpdateRequest {\n");
+            sb.Append("  Stock: ").Append(Stock).Append("\n");
+            sb.Append("  StockLocationId: ").Append(StockLocationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,27 +86,28 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantShipmentPackageWeightRequest);
+            return this.Equals(input as MerchantStockLocationUpdateRequest);
         }
 
         /// <summary>
-        /// Returns true if MerchantShipmentPackageWeightRequest instances are equal
+        /// Returns true if MerchantStockLocationUpdateRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantShipmentPackageWeightRequest to be compared</param>
+        /// <param name="input">Instance of MerchantStockLocationUpdateRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantShipmentPackageWeightRequest input)
+        public bool Equals(MerchantStockLocationUpdateRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Value == input.Value ||
-                    this.Value.Equals(input.Value)
+                    this.Stock == input.Stock ||
+                    this.Stock.Equals(input.Stock)
                 ) && 
                 (
-                    this.Unit == input.Unit ||
-                    this.Unit.Equals(input.Unit)
+                    this.StockLocationId == input.StockLocationId ||
+                    (this.StockLocationId != null &&
+                    this.StockLocationId.Equals(input.StockLocationId))
                 );
         }
 
@@ -117,8 +120,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Value.GetHashCode();
-                hashCode = hashCode * 59 + this.Unit.GetHashCode();
+                hashCode = hashCode * 59 + this.Stock.GetHashCode();
+                if (this.StockLocationId != null)
+                    hashCode = hashCode * 59 + this.StockLocationId.GetHashCode();
                 return hashCode;
             }
         }
@@ -130,6 +134,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Stock (int) minimum
+            if(this.Stock < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Stock, must be a value greater than or equal to 0.", new [] { "Stock" });
+            }
+
             yield break;
         }
     }
