@@ -26,23 +26,29 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// SingleOfMerchantProductResponse
+    /// CollectionOfMerchantShipmentResponse
     /// </summary>
-    [DataContract(Name = "SingleOfMerchantProductResponse")]
-    public partial class SingleOfMerchantProductResponse : IEquatable<SingleOfMerchantProductResponse>, IValidatableObject
+    [DataContract(Name = "CollectionOfMerchantShipmentResponse")]
+    public partial class CollectionOfMerchantShipmentResponse : IEquatable<CollectionOfMerchantShipmentResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SingleOfMerchantProductResponse" /> class.
+        /// Initializes a new instance of the <see cref="CollectionOfMerchantShipmentResponse" /> class.
         /// </summary>
         /// <param name="content">content.</param>
+        /// <param name="count">count.</param>
+        /// <param name="totalCount">totalCount.</param>
+        /// <param name="itemsPerPage">itemsPerPage.</param>
         /// <param name="statusCode">statusCode.</param>
         /// <param name="logId">logId.</param>
         /// <param name="success">success.</param>
         /// <param name="message">message.</param>
         /// <param name="validationErrors">validationErrors.</param>
-        public SingleOfMerchantProductResponse(MerchantProductResponse content = default(MerchantProductResponse), int statusCode = default(int), int? logId = default(int?), bool success = default(bool), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
+        public CollectionOfMerchantShipmentResponse(List<MerchantShipmentResponse> content = default(List<MerchantShipmentResponse>), int count = default(int), int totalCount = default(int), int itemsPerPage = default(int), int statusCode = default(int), int? logId = default(int?), bool success = default(bool), string message = default(string), Dictionary<string, List<string>> validationErrors = default(Dictionary<string, List<string>>))
         {
             this.Content = content;
+            this.Count = count;
+            this.TotalCount = totalCount;
+            this.ItemsPerPage = itemsPerPage;
             this.StatusCode = statusCode;
             this.LogId = logId;
             this.Success = success;
@@ -53,8 +59,26 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Gets or Sets Content
         /// </summary>
-        [DataMember(Name = "Content", EmitDefaultValue = false)]
-        public MerchantProductResponse Content { get; set; }
+        [DataMember(Name = "Content", EmitDefaultValue = true)]
+        public List<MerchantShipmentResponse> Content { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Count
+        /// </summary>
+        [DataMember(Name = "Count", EmitDefaultValue = false)]
+        public int Count { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TotalCount
+        /// </summary>
+        [DataMember(Name = "TotalCount", EmitDefaultValue = false)]
+        public int TotalCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemsPerPage
+        /// </summary>
+        [DataMember(Name = "ItemsPerPage", EmitDefaultValue = false)]
+        public int ItemsPerPage { get; set; }
 
         /// <summary>
         /// Gets or Sets StatusCode
@@ -93,8 +117,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SingleOfMerchantProductResponse {\n");
+            sb.Append("class CollectionOfMerchantShipmentResponse {\n");
             sb.Append("  Content: ").Append(Content).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            sb.Append("  ItemsPerPage: ").Append(ItemsPerPage).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  LogId: ").Append(LogId).Append("\n");
             sb.Append("  Success: ").Append(Success).Append("\n");
@@ -120,15 +147,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SingleOfMerchantProductResponse);
+            return this.Equals(input as CollectionOfMerchantShipmentResponse);
         }
 
         /// <summary>
-        /// Returns true if SingleOfMerchantProductResponse instances are equal
+        /// Returns true if CollectionOfMerchantShipmentResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of SingleOfMerchantProductResponse to be compared</param>
+        /// <param name="input">Instance of CollectionOfMerchantShipmentResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SingleOfMerchantProductResponse input)
+        public bool Equals(CollectionOfMerchantShipmentResponse input)
         {
             if (input == null)
                 return false;
@@ -136,8 +163,21 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             return 
                 (
                     this.Content == input.Content ||
-                    (this.Content != null &&
-                    this.Content.Equals(input.Content))
+                    this.Content != null &&
+                    input.Content != null &&
+                    this.Content.SequenceEqual(input.Content)
+                ) && 
+                (
+                    this.Count == input.Count ||
+                    this.Count.Equals(input.Count)
+                ) && 
+                (
+                    this.TotalCount == input.TotalCount ||
+                    this.TotalCount.Equals(input.TotalCount)
+                ) && 
+                (
+                    this.ItemsPerPage == input.ItemsPerPage ||
+                    this.ItemsPerPage.Equals(input.ItemsPerPage)
                 ) && 
                 (
                     this.StatusCode == input.StatusCode ||
@@ -176,6 +216,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 int hashCode = 41;
                 if (this.Content != null)
                     hashCode = hashCode * 59 + this.Content.GetHashCode();
+                hashCode = hashCode * 59 + this.Count.GetHashCode();
+                hashCode = hashCode * 59 + this.TotalCount.GetHashCode();
+                hashCode = hashCode * 59 + this.ItemsPerPage.GetHashCode();
                 hashCode = hashCode * 59 + this.StatusCode.GetHashCode();
                 if (this.LogId != null)
                     hashCode = hashCode * 59 + this.LogId.GetHashCode();

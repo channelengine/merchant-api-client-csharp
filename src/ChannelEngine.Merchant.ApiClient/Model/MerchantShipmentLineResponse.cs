@@ -26,10 +26,10 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantReturnLineResponse
+    /// MerchantShipmentLineResponse
     /// </summary>
-    [DataContract(Name = "MerchantReturnLineResponse")]
-    public partial class MerchantReturnLineResponse : IEquatable<MerchantReturnLineResponse>, IValidatableObject
+    [DataContract(Name = "MerchantShipmentLineResponse")]
+    public partial class MerchantShipmentLineResponse : IEquatable<MerchantShipmentLineResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -38,31 +38,43 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         [DataMember(Name = "ShipmentStatus", EmitDefaultValue = false)]
         public ShipmentLineStatus? ShipmentStatus { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantReturnLineResponse" /> class.
+        /// Initializes a new instance of the <see cref="MerchantShipmentLineResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MerchantReturnLineResponse() { }
+        protected MerchantShipmentLineResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantReturnLineResponse" /> class.
+        /// Initializes a new instance of the <see cref="MerchantShipmentLineResponse" /> class.
         /// </summary>
-        /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku)..</param>
+        /// <param name="merchantProductNo">The unique product reference used by the Merchant. (required).</param>
+        /// <param name="channelProductNo">The unique product reference used by the Channel..</param>
         /// <param name="orderLine">orderLine.</param>
         /// <param name="shipmentStatus">shipmentStatus.</param>
-        /// <param name="quantity">Number of items of the product in this return. (required).</param>
-        public MerchantReturnLineResponse(string merchantProductNo = default(string), MerchantOrderLineResponse orderLine = default(MerchantOrderLineResponse), ShipmentLineStatus? shipmentStatus = default(ShipmentLineStatus?), int quantity = default(int))
+        /// <param name="extraData">Extra data on the shipment line. Each item must have an unqiue key.</param>
+        /// <param name="quantity">Number of items of the product in the shipment. (required).</param>
+        public MerchantShipmentLineResponse(string merchantProductNo = default(string), string channelProductNo = default(string), MerchantOrderLineResponse orderLine = default(MerchantOrderLineResponse), ShipmentLineStatus? shipmentStatus = default(ShipmentLineStatus?), Dictionary<string, string> extraData = default(Dictionary<string, string>), int quantity = default(int))
         {
+            // to ensure "merchantProductNo" is required (not null)
+            this.MerchantProductNo = merchantProductNo ?? throw new ArgumentNullException("merchantProductNo is a required property for MerchantShipmentLineResponse and cannot be null");
             this.Quantity = quantity;
-            this.MerchantProductNo = merchantProductNo;
+            this.ChannelProductNo = channelProductNo;
             this.OrderLine = orderLine;
             this.ShipmentStatus = shipmentStatus;
+            this.ExtraData = extraData;
         }
 
         /// <summary>
-        /// The unique product reference used by the Merchant (sku).
+        /// The unique product reference used by the Merchant.
         /// </summary>
-        /// <value>The unique product reference used by the Merchant (sku).</value>
-        [DataMember(Name = "MerchantProductNo", EmitDefaultValue = true)]
+        /// <value>The unique product reference used by the Merchant.</value>
+        [DataMember(Name = "MerchantProductNo", IsRequired = true, EmitDefaultValue = false)]
         public string MerchantProductNo { get; set; }
+
+        /// <summary>
+        /// The unique product reference used by the Channel.
+        /// </summary>
+        /// <value>The unique product reference used by the Channel.</value>
+        [DataMember(Name = "ChannelProductNo", EmitDefaultValue = true)]
+        public string ChannelProductNo { get; set; }
 
         /// <summary>
         /// Gets or Sets OrderLine
@@ -71,9 +83,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public MerchantOrderLineResponse OrderLine { get; set; }
 
         /// <summary>
-        /// Number of items of the product in this return.
+        /// Extra data on the shipment line. Each item must have an unqiue key
         /// </summary>
-        /// <value>Number of items of the product in this return.</value>
+        /// <value>Extra data on the shipment line. Each item must have an unqiue key</value>
+        [DataMember(Name = "ExtraData", EmitDefaultValue = true)]
+        public Dictionary<string, string> ExtraData { get; set; }
+
+        /// <summary>
+        /// Number of items of the product in the shipment.
+        /// </summary>
+        /// <value>Number of items of the product in the shipment.</value>
         [DataMember(Name = "Quantity", IsRequired = true, EmitDefaultValue = false)]
         public int Quantity { get; set; }
 
@@ -84,10 +103,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantReturnLineResponse {\n");
+            sb.Append("class MerchantShipmentLineResponse {\n");
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
+            sb.Append("  ChannelProductNo: ").Append(ChannelProductNo).Append("\n");
             sb.Append("  OrderLine: ").Append(OrderLine).Append("\n");
             sb.Append("  ShipmentStatus: ").Append(ShipmentStatus).Append("\n");
+            sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,15 +130,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantReturnLineResponse);
+            return this.Equals(input as MerchantShipmentLineResponse);
         }
 
         /// <summary>
-        /// Returns true if MerchantReturnLineResponse instances are equal
+        /// Returns true if MerchantShipmentLineResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantReturnLineResponse to be compared</param>
+        /// <param name="input">Instance of MerchantShipmentLineResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantReturnLineResponse input)
+        public bool Equals(MerchantShipmentLineResponse input)
         {
             if (input == null)
                 return false;
@@ -129,6 +150,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.MerchantProductNo.Equals(input.MerchantProductNo))
                 ) && 
                 (
+                    this.ChannelProductNo == input.ChannelProductNo ||
+                    (this.ChannelProductNo != null &&
+                    this.ChannelProductNo.Equals(input.ChannelProductNo))
+                ) && 
+                (
                     this.OrderLine == input.OrderLine ||
                     (this.OrderLine != null &&
                     this.OrderLine.Equals(input.OrderLine))
@@ -136,6 +162,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 (
                     this.ShipmentStatus == input.ShipmentStatus ||
                     this.ShipmentStatus.Equals(input.ShipmentStatus)
+                ) && 
+                (
+                    this.ExtraData == input.ExtraData ||
+                    this.ExtraData != null &&
+                    input.ExtraData != null &&
+                    this.ExtraData.SequenceEqual(input.ExtraData)
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
@@ -154,9 +186,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 int hashCode = 41;
                 if (this.MerchantProductNo != null)
                     hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
+                if (this.ChannelProductNo != null)
+                    hashCode = hashCode * 59 + this.ChannelProductNo.GetHashCode();
                 if (this.OrderLine != null)
                     hashCode = hashCode * 59 + this.OrderLine.GetHashCode();
                 hashCode = hashCode * 59 + this.ShipmentStatus.GetHashCode();
+                if (this.ExtraData != null)
+                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 return hashCode;
             }

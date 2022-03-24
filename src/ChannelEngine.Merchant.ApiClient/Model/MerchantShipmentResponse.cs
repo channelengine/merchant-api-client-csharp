@@ -26,22 +26,24 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantShipmentRequest
+    /// MerchantShipmentResponse
     /// </summary>
-    [DataContract(Name = "MerchantShipmentRequest")]
-    public partial class MerchantShipmentRequest : IEquatable<MerchantShipmentRequest>, IValidatableObject
+    [DataContract(Name = "MerchantShipmentResponse")]
+    public partial class MerchantShipmentResponse : IEquatable<MerchantShipmentResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantShipmentRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantShipmentResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MerchantShipmentRequest() { }
+        protected MerchantShipmentResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantShipmentRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantShipmentResponse" /> class.
         /// </summary>
         /// <param name="merchantShipmentNo">The unique shipment reference used by the Merchant. (required).</param>
-        /// <param name="merchantOrderNo">The unique order reference used by the Merchant. (required).</param>
-        /// <param name="lines">lines (required).</param>
+        /// <param name="merchantOrderNo">The unique order reference used by the Merchant..</param>
+        /// <param name="lines">lines.</param>
+        /// <param name="createdAt">The date at which the shipment was created in ChannelEngine..</param>
+        /// <param name="updatedAt">The date at which the shipment was last modified in ChannelEngine..</param>
         /// <param name="extraData">Extra data on the order. Each item must have an unqiue key.</param>
         /// <param name="trackTraceNo">The unique shipping reference used by the Shipping carrier (track&amp;trace number)..</param>
         /// <param name="trackTraceUrl">A link to a page of the carrier where the customer can track the shipping of her package..</param>
@@ -49,14 +51,14 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="method">Shipment method: the carrier used for shipping the package. E.g. DHL, postNL..</param>
         /// <param name="shippedFromCountryCode">The code of the country from where the package is being shipped..</param>
         /// <param name="shipmentDate">The date at which the shipment was originally created in the source system (if available)..</param>
-        public MerchantShipmentRequest(string merchantShipmentNo = default(string), string merchantOrderNo = default(string), List<MerchantShipmentLineRequest> lines = default(List<MerchantShipmentLineRequest>), Dictionary<string, string> extraData = default(Dictionary<string, string>), string trackTraceNo = default(string), string trackTraceUrl = default(string), string returnTrackTraceNo = default(string), string method = default(string), string shippedFromCountryCode = default(string), DateTime? shipmentDate = default(DateTime?))
+        public MerchantShipmentResponse(string merchantShipmentNo = default(string), string merchantOrderNo = default(string), List<MerchantShipmentLineResponse> lines = default(List<MerchantShipmentLineResponse>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), Dictionary<string, string> extraData = default(Dictionary<string, string>), string trackTraceNo = default(string), string trackTraceUrl = default(string), string returnTrackTraceNo = default(string), string method = default(string), string shippedFromCountryCode = default(string), DateTime? shipmentDate = default(DateTime?))
         {
             // to ensure "merchantShipmentNo" is required (not null)
-            this.MerchantShipmentNo = merchantShipmentNo ?? throw new ArgumentNullException("merchantShipmentNo is a required property for MerchantShipmentRequest and cannot be null");
-            // to ensure "merchantOrderNo" is required (not null)
-            this.MerchantOrderNo = merchantOrderNo ?? throw new ArgumentNullException("merchantOrderNo is a required property for MerchantShipmentRequest and cannot be null");
-            // to ensure "lines" is required (not null)
-            this.Lines = lines ?? throw new ArgumentNullException("lines is a required property for MerchantShipmentRequest and cannot be null");
+            this.MerchantShipmentNo = merchantShipmentNo ?? throw new ArgumentNullException("merchantShipmentNo is a required property for MerchantShipmentResponse and cannot be null");
+            this.MerchantOrderNo = merchantOrderNo;
+            this.Lines = lines;
+            this.CreatedAt = createdAt;
+            this.UpdatedAt = updatedAt;
             this.ExtraData = extraData;
             this.TrackTraceNo = trackTraceNo;
             this.TrackTraceUrl = trackTraceUrl;
@@ -77,14 +79,28 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// The unique order reference used by the Merchant.
         /// </summary>
         /// <value>The unique order reference used by the Merchant.</value>
-        [DataMember(Name = "MerchantOrderNo", IsRequired = true, EmitDefaultValue = false)]
+        [DataMember(Name = "MerchantOrderNo", EmitDefaultValue = true)]
         public string MerchantOrderNo { get; set; }
 
         /// <summary>
         /// Gets or Sets Lines
         /// </summary>
-        [DataMember(Name = "Lines", IsRequired = true, EmitDefaultValue = false)]
-        public List<MerchantShipmentLineRequest> Lines { get; set; }
+        [DataMember(Name = "Lines", EmitDefaultValue = true)]
+        public List<MerchantShipmentLineResponse> Lines { get; set; }
+
+        /// <summary>
+        /// The date at which the shipment was created in ChannelEngine.
+        /// </summary>
+        /// <value>The date at which the shipment was created in ChannelEngine.</value>
+        [DataMember(Name = "CreatedAt", EmitDefaultValue = false)]
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// The date at which the shipment was last modified in ChannelEngine.
+        /// </summary>
+        /// <value>The date at which the shipment was last modified in ChannelEngine.</value>
+        [DataMember(Name = "UpdatedAt", EmitDefaultValue = false)]
+        public DateTime UpdatedAt { get; set; }
 
         /// <summary>
         /// Extra data on the order. Each item must have an unqiue key
@@ -142,10 +158,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantShipmentRequest {\n");
+            sb.Append("class MerchantShipmentResponse {\n");
             sb.Append("  MerchantShipmentNo: ").Append(MerchantShipmentNo).Append("\n");
             sb.Append("  MerchantOrderNo: ").Append(MerchantOrderNo).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("  TrackTraceNo: ").Append(TrackTraceNo).Append("\n");
             sb.Append("  TrackTraceUrl: ").Append(TrackTraceUrl).Append("\n");
@@ -173,15 +191,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantShipmentRequest);
+            return this.Equals(input as MerchantShipmentResponse);
         }
 
         /// <summary>
-        /// Returns true if MerchantShipmentRequest instances are equal
+        /// Returns true if MerchantShipmentResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantShipmentRequest to be compared</param>
+        /// <param name="input">Instance of MerchantShipmentResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantShipmentRequest input)
+        public bool Equals(MerchantShipmentResponse input)
         {
             if (input == null)
                 return false;
@@ -202,6 +220,16 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.Lines != null &&
                     input.Lines != null &&
                     this.Lines.SequenceEqual(input.Lines)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    (this.UpdatedAt != null &&
+                    this.UpdatedAt.Equals(input.UpdatedAt))
                 ) && 
                 (
                     this.ExtraData == input.ExtraData ||
@@ -256,6 +284,10 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.MerchantOrderNo.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
+                if (this.CreatedAt != null)
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.UpdatedAt != null)
+                    hashCode = hashCode * 59 + this.UpdatedAt.GetHashCode();
                 if (this.ExtraData != null)
                     hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 if (this.TrackTraceNo != null)
@@ -281,30 +313,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MerchantShipmentNo (string) maxLength
-            if(this.MerchantShipmentNo != null && this.MerchantShipmentNo.Length > 250)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantShipmentNo, length must be less than 250.", new [] { "MerchantShipmentNo" });
-            }
-
-            // MerchantShipmentNo (string) minLength
-            if(this.MerchantShipmentNo != null && this.MerchantShipmentNo.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantShipmentNo, length must be greater than 0.", new [] { "MerchantShipmentNo" });
-            }
-
-            // MerchantOrderNo (string) maxLength
-            if(this.MerchantOrderNo != null && this.MerchantOrderNo.Length > 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantOrderNo, length must be less than 50.", new [] { "MerchantOrderNo" });
-            }
-
-            // MerchantOrderNo (string) minLength
-            if(this.MerchantOrderNo != null && this.MerchantOrderNo.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantOrderNo, length must be greater than 0.", new [] { "MerchantOrderNo" });
-            }
-
             // TrackTraceNo (string) maxLength
             if(this.TrackTraceNo != null && this.TrackTraceNo.Length > 50)
             {
