@@ -26,48 +26,31 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// Defines ListedProductChannelStatus
+    /// Shipment is fully fulfilled by channel or merchant  so no make sense to use FulfillmentType for orders  It is created to keep it consistent with others
     /// </summary>
+    /// <value>Shipment is fully fulfilled by channel or merchant  so no make sense to use FulfillmentType for orders  It is created to keep it consistent with others</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
-    public enum ListedProductChannelStatus
+    public enum ShipmentFulfillmentType
     {
         /// <summary>
-        /// Enum NONE for value: NONE
+        /// Enum ALL for value: ALL
         /// </summary>
-        [EnumMember(Value = "NONE")]
-        NONE = 1,
+        [EnumMember(Value = "ALL")]
+        ALL = 1,
 
         /// <summary>
-        /// Enum PUBLISHED for value: PUBLISHED
+        /// Enum ONLYMERCHANT for value: ONLY_MERCHANT
         /// </summary>
-        [EnumMember(Value = "PUBLISHED")]
-        PUBLISHED = 2,
+        [EnumMember(Value = "ONLY_MERCHANT")]
+        ONLY_MERCHANT = 2,
 
         /// <summary>
-        /// Enum NOTPUBLISHED for value: NOT_PUBLISHED
+        /// Enum ONLYCHANNEL for value: ONLY_CHANNEL
         /// </summary>
-        [EnumMember(Value = "NOT_PUBLISHED")]
-        NOT_PUBLISHED = 3,
-
-        /// <summary>
-        /// Enum UNKNOWN for value: UNKNOWN
-        /// </summary>
-        [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN = 4,
-
-        /// <summary>
-        /// Enum UNDERREVIEW for value: UNDER_REVIEW
-        /// </summary>
-        [EnumMember(Value = "UNDER_REVIEW")]
-        UNDER_REVIEW = 5,
-
-        /// <summary>
-        /// Enum INVALIDONCREATE for value: INVALID_ON_CREATE
-        /// </summary>
-        [EnumMember(Value = "INVALID_ON_CREATE")]
-        INVALID_ON_CREATE = 6
+        [EnumMember(Value = "ONLY_CHANNEL")]
+        ONLY_CHANNEL = 3
 
     }
 }

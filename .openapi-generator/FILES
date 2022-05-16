@@ -118,6 +118,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/ProductMessage.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ReturnReason.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ReturnStatus.cs
 src/ChannelEngine.Merchant.ApiClient/Model/SettingsResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/ShipmentFulfillmentType.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ShipmentLineStatus.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ShipmentSettingsResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/SingleOfDictionaryOfStringAndListOfString.cs
