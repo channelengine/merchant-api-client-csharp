@@ -40,12 +40,21 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MerchantProductExtraDataItemRequest" /> class.
         /// </summary>
-        /// <param name="key">Name of the extra data field..</param>
+        [JsonConstructorAttribute]
+        protected MerchantProductExtraDataItemRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MerchantProductExtraDataItemRequest" /> class.
+        /// </summary>
+        /// <param name="key">Name of the extra data field. (required).</param>
         /// <param name="value">Value of the extra data field..</param>
         /// <param name="type">type.</param>
         /// <param name="isPublic">Add this field to the export of the product feed to the channel..</param>
         public MerchantProductExtraDataItemRequest(string key = default(string), string value = default(string), ExtraDataType? type = default(ExtraDataType?), bool isPublic = default(bool))
         {
+            // to ensure "key" is required (not null)
+            if (key == null) {
+                throw new ArgumentNullException("key is a required property for MerchantProductExtraDataItemRequest and cannot be null");
+            }
             this.Key = key;
             this.Value = value;
             this.Type = type;
@@ -56,7 +65,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// Name of the extra data field.
         /// </summary>
         /// <value>Name of the extra data field.</value>
-        [DataMember(Name = "Key", EmitDefaultValue = true)]
+        [DataMember(Name = "Key", IsRequired = true, EmitDefaultValue = false)]
         public string Key { get; set; }
 
         /// <summary>

@@ -31,7 +31,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "2.11.0";
+        public const string Version = "2.12.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -101,8 +101,8 @@ namespace ChannelEngine.Merchant.ApiClient.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "OpenAPI-Generator/2.11.0/csharp";
-            BasePath = "http://dev.channelengine.local/api";
+            UserAgent = "OpenAPI-Generator/2.12.0/csharp";
+            BasePath = "https://demo.channelengine.net/api";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -110,7 +110,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             {
                 {
                     new Dictionary<string, object> {
-                        {"url", "http://dev.channelengine.local/api"},
+                        {"url", "https://demo.channelengine.net/api"},
                         {"description", "No description provided"},
                     }
                 }
@@ -128,7 +128,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "http://dev.channelengine.local/api") : this()
+            string basePath = "https://demo.channelengine.net/api") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");
@@ -446,7 +446,7 @@ namespace ChannelEngine.Merchant.ApiClient.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: 2.11.0\n";
-            report += "    SDK Package Version: 2.11.0\n";
+            report += "    SDK Package Version: 2.12.0\n";
 
             return report;
         }

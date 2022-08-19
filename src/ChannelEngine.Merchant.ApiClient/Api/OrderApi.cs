@@ -69,10 +69,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
-        CollectionOfMerchantOrderResponse OrderGetByFilter(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?));
+        CollectionOfMerchantOrderResponse OrderGetByFilter(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?));
 
         /// <summary>
         /// Get Orders By Filter.
@@ -96,10 +98,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
-        ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?));
+        ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?));
         /// <summary>
         /// Get New Orders.
         /// </summary>
@@ -242,11 +246,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
-        System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Orders By Filter.
@@ -270,11 +276,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterWithHttpInfoAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterWithHttpInfoAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get New Orders.
         /// </summary>
@@ -633,12 +641,14 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>CollectionOfMerchantOrderResponse</returns>
-        public CollectionOfMerchantOrderResponse OrderGetByFilter(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?))
+        public CollectionOfMerchantOrderResponse OrderGetByFilter(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?))
         {
-            ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = OrderGetByFilterWithHttpInfo(statuses, emailAddresses, merchantOrderNos, channelOrderNos, fromDate, toDate, fromCreatedAtDate, toCreatedAtDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, onlyWithCancellationRequests, channelIds, stockLocationIds, isAcknowledged, fromUpdatedAtDate, toUpdatedAtDate, page);
+            ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = OrderGetByFilterWithHttpInfo(statuses, emailAddresses, merchantOrderNos, channelOrderNos, fromDate, toDate, fromCreatedAtDate, toCreatedAtDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, onlyWithCancellationRequests, channelIds, stockLocationIds, isAcknowledged, fromUpdatedAtDate, toUpdatedAtDate, fromAcknowledgedDate, toAcknowledgedDate, page);
             return localVarResponse.Data;
         }
 
@@ -661,10 +671,12 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <returns>ApiResponse of CollectionOfMerchantOrderResponse</returns>
-        public ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?))
+        public ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse> OrderGetByFilterWithHttpInfo(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?))
         {
             ChannelEngine.Merchant.ApiClient.Client.RequestOptions localVarRequestOptions = new ChannelEngine.Merchant.ApiClient.Client.RequestOptions();
 
@@ -745,6 +757,14 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (toUpdatedAtDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ChannelEngine.Merchant.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "toUpdatedAtDate", toUpdatedAtDate));
+            }
+            if (fromAcknowledgedDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ChannelEngine.Merchant.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "fromAcknowledgedDate", fromAcknowledgedDate));
+            }
+            if (toAcknowledgedDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ChannelEngine.Merchant.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "toAcknowledgedDate", toAcknowledgedDate));
             }
             if (page != null)
             {
@@ -788,13 +808,15 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CollectionOfMerchantOrderResponse</returns>
-        public async System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CollectionOfMerchantOrderResponse> OrderGetByFilterAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = await OrderGetByFilterWithHttpInfoAsync(statuses, emailAddresses, merchantOrderNos, channelOrderNos, fromDate, toDate, fromCreatedAtDate, toCreatedAtDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, onlyWithCancellationRequests, channelIds, stockLocationIds, isAcknowledged, fromUpdatedAtDate, toUpdatedAtDate, page, cancellationToken).ConfigureAwait(false);
+            ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse> localVarResponse = await OrderGetByFilterWithHttpInfoAsync(statuses, emailAddresses, merchantOrderNos, channelOrderNos, fromDate, toDate, fromCreatedAtDate, toCreatedAtDate, excludeMarketplaceFulfilledOrdersAndLines, fulfillmentType, onlyWithCancellationRequests, channelIds, stockLocationIds, isAcknowledged, fromUpdatedAtDate, toUpdatedAtDate, fromAcknowledgedDate, toAcknowledgedDate, page, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -817,11 +839,13 @@ namespace ChannelEngine.Merchant.ApiClient.Api
         /// <param name="stockLocationIds">Filter on stock locations (optional)</param>
         /// <param name="isAcknowledged">Filter on acknowledged value (optional)</param>
         /// <param name="fromUpdatedAtDate">Filter on the order update date, starting from this date. This date is inclusive. (optional)</param>
-        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl from this date. This date is exclusive. (optional)</param>
+        /// <param name="toUpdatedAtDate">Filter on the order update date, unitl this date. This date is exclusive. (optional)</param>
+        /// <param name="fromAcknowledgedDate">Filter on the order acknowledged date, starting from this date. This date is inclusive. (optional)</param>
+        /// <param name="toAcknowledgedDate">Filter on the order acknowledged date, unitl this date. This date is exclusive. (optional)</param>
         /// <param name="page">The page to filter on. Starts at 1. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CollectionOfMerchantOrderResponse)</returns>
-        public async System.Threading.Tasks.Task<ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterWithHttpInfoAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ChannelEngine.Merchant.ApiClient.Client.ApiResponse<CollectionOfMerchantOrderResponse>> OrderGetByFilterWithHttpInfoAsync(List<OrderStatusView> statuses = default(List<OrderStatusView>), List<string> emailAddresses = default(List<string>), List<string> merchantOrderNos = default(List<string>), List<string> channelOrderNos = default(List<string>), DateTime? fromDate = default(DateTime?), DateTime? toDate = default(DateTime?), DateTime? fromCreatedAtDate = default(DateTime?), DateTime? toCreatedAtDate = default(DateTime?), bool? excludeMarketplaceFulfilledOrdersAndLines = default(bool?), FulfillmentType? fulfillmentType = default(FulfillmentType?), bool? onlyWithCancellationRequests = default(bool?), List<int> channelIds = default(List<int>), List<int> stockLocationIds = default(List<int>), bool? isAcknowledged = default(bool?), DateTime? fromUpdatedAtDate = default(DateTime?), DateTime? toUpdatedAtDate = default(DateTime?), DateTime? fromAcknowledgedDate = default(DateTime?), DateTime? toAcknowledgedDate = default(DateTime?), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             ChannelEngine.Merchant.ApiClient.Client.RequestOptions localVarRequestOptions = new ChannelEngine.Merchant.ApiClient.Client.RequestOptions();
@@ -904,6 +928,14 @@ namespace ChannelEngine.Merchant.ApiClient.Api
             if (toUpdatedAtDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ChannelEngine.Merchant.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "toUpdatedAtDate", toUpdatedAtDate));
+            }
+            if (fromAcknowledgedDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ChannelEngine.Merchant.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "fromAcknowledgedDate", fromAcknowledgedDate));
+            }
+            if (toAcknowledgedDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ChannelEngine.Merchant.ApiClient.Client.ClientUtils.ParameterToMultiMap("", "toAcknowledgedDate", toAcknowledgedDate));
             }
             if (page != null)
             {

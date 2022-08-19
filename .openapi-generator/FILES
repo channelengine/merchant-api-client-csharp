@@ -83,6 +83,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/MerchantProductExtraDataItemResponse.
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantProductRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantProductResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantProductWithBuyBoxPrice.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantReturnAcknowledgeRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantReturnLineRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantReturnLineResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantReturnLineUpdateRequest.cs

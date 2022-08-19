@@ -57,6 +57,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="merchantReturnNo">The unique return reference used by the Merchant, will be empty in case of a channel or unacknowledged return..</param>
         /// <param name="channelReturnNo">The unique return reference used by the Channel, will be empty in case of a merchant return..</param>
         /// <param name="status">status.</param>
+        /// <param name="acknowledgedDate">Date of acknowledgement.</param>
         /// <param name="id">The unique return reference used by ChannelEngine..</param>
         /// <param name="reason">reason.</param>
         /// <param name="customerComment">Optional. Comment of customer on the (reason of) the return..</param>
@@ -64,7 +65,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="refundInclVat">Refund amount incl. VAT..</param>
         /// <param name="refundExclVat">Refund amount excl. VAT..</param>
         /// <param name="returnDate">The date at which the return was originally created in the source system (if available)..</param>
-        public MerchantReturnResponse(string merchantOrderNo = default(string), string channelOrderNo = default(string), int? channelId = default(int?), int? globalChannelId = default(int?), string globalChannelName = default(string), List<MerchantReturnLineResponse> lines = default(List<MerchantReturnLineResponse>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), string merchantReturnNo = default(string), string channelReturnNo = default(string), ReturnStatus? status = default(ReturnStatus?), int id = default(int), ReturnReason? reason = default(ReturnReason?), string customerComment = default(string), string merchantComment = default(string), decimal refundInclVat = default(decimal), decimal refundExclVat = default(decimal), DateTime? returnDate = default(DateTime?))
+        /// <param name="extraData">Extra data on the return. Each item must have an unqiue key.</param>
+        public MerchantReturnResponse(string merchantOrderNo = default(string), string channelOrderNo = default(string), int? channelId = default(int?), int? globalChannelId = default(int?), string globalChannelName = default(string), List<MerchantReturnLineResponse> lines = default(List<MerchantReturnLineResponse>), DateTime createdAt = default(DateTime), DateTime updatedAt = default(DateTime), string merchantReturnNo = default(string), string channelReturnNo = default(string), ReturnStatus? status = default(ReturnStatus?), DateTime? acknowledgedDate = default(DateTime?), int id = default(int), ReturnReason? reason = default(ReturnReason?), string customerComment = default(string), string merchantComment = default(string), decimal refundInclVat = default(decimal), decimal refundExclVat = default(decimal), DateTime? returnDate = default(DateTime?), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             this.MerchantOrderNo = merchantOrderNo;
             this.ChannelOrderNo = channelOrderNo;
@@ -77,6 +79,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.MerchantReturnNo = merchantReturnNo;
             this.ChannelReturnNo = channelReturnNo;
             this.Status = status;
+            this.AcknowledgedDate = acknowledgedDate;
             this.Id = id;
             this.Reason = reason;
             this.CustomerComment = customerComment;
@@ -84,6 +87,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.RefundInclVat = refundInclVat;
             this.RefundExclVat = refundExclVat;
             this.ReturnDate = returnDate;
+            this.ExtraData = extraData;
         }
 
         /// <summary>
@@ -156,6 +160,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string ChannelReturnNo { get; set; }
 
         /// <summary>
+        /// Date of acknowledgement
+        /// </summary>
+        /// <value>Date of acknowledgement</value>
+        [DataMember(Name = "AcknowledgedDate", EmitDefaultValue = true)]
+        public DateTime? AcknowledgedDate { get; set; }
+
+        /// <summary>
         /// The unique return reference used by ChannelEngine.
         /// </summary>
         /// <value>The unique return reference used by ChannelEngine.</value>
@@ -198,6 +209,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public DateTime? ReturnDate { get; set; }
 
         /// <summary>
+        /// Extra data on the return. Each item must have an unqiue key
+        /// </summary>
+        /// <value>Extra data on the return. Each item must have an unqiue key</value>
+        [DataMember(Name = "ExtraData", EmitDefaultValue = true)]
+        public Dictionary<string, string> ExtraData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -216,6 +234,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  MerchantReturnNo: ").Append(MerchantReturnNo).Append("\n");
             sb.Append("  ChannelReturnNo: ").Append(ChannelReturnNo).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  AcknowledgedDate: ").Append(AcknowledgedDate).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  CustomerComment: ").Append(CustomerComment).Append("\n");
@@ -223,6 +242,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  RefundInclVat: ").Append(RefundInclVat).Append("\n");
             sb.Append("  RefundExclVat: ").Append(RefundExclVat).Append("\n");
             sb.Append("  ReturnDate: ").Append(ReturnDate).Append("\n");
+            sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -313,6 +333,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.Status.Equals(input.Status)
                 ) && 
                 (
+                    this.AcknowledgedDate == input.AcknowledgedDate ||
+                    (this.AcknowledgedDate != null &&
+                    this.AcknowledgedDate.Equals(input.AcknowledgedDate))
+                ) && 
+                (
                     this.Id == input.Id ||
                     this.Id.Equals(input.Id)
                 ) && 
@@ -342,6 +367,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.ReturnDate == input.ReturnDate ||
                     (this.ReturnDate != null &&
                     this.ReturnDate.Equals(input.ReturnDate))
+                ) && 
+                (
+                    this.ExtraData == input.ExtraData ||
+                    this.ExtraData != null &&
+                    input.ExtraData != null &&
+                    this.ExtraData.SequenceEqual(input.ExtraData)
                 );
         }
 
@@ -375,6 +406,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 if (this.ChannelReturnNo != null)
                     hashCode = hashCode * 59 + this.ChannelReturnNo.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.AcknowledgedDate != null)
+                    hashCode = hashCode * 59 + this.AcknowledgedDate.GetHashCode();
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.CustomerComment != null)
@@ -385,6 +418,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 hashCode = hashCode * 59 + this.RefundExclVat.GetHashCode();
                 if (this.ReturnDate != null)
                     hashCode = hashCode * 59 + this.ReturnDate.GetHashCode();
+                if (this.ExtraData != null)
+                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 return hashCode;
             }
         }

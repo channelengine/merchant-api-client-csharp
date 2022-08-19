@@ -61,6 +61,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="merchantOrderNo">The unique order reference used by the Merchant.</param>
         /// <param name="status">status.</param>
         /// <param name="isBusinessOrder">Indicating whether the order is a business order..</param>
+        /// <param name="acknowledgedDate">The date the order was acknowledged in ChannelEngine..</param>
         /// <param name="createdAt">The date the order was created in ChannelEngine..</param>
         /// <param name="updatedAt">The date the order was last updated in ChannelEngine..</param>
         /// <param name="merchantComment">The optional comment a merchant can add to an order..</param>
@@ -89,7 +90,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="orderDate">The date the order was created at the channel. (required).</param>
         /// <param name="channelCustomerNo">The unique customer reference used by the channel..</param>
         /// <param name="extraData">Extra data on the order..</param>
-        public MerchantOrderResponse(int id = default(int), string channelName = default(string), int? channelId = default(int?), string globalChannelName = default(string), int? globalChannelId = default(int?), OrderSupport? channelOrderSupport = default(OrderSupport?), string channelOrderNo = default(string), string merchantOrderNo = default(string), OrderStatusView? status = default(OrderStatusView?), bool isBusinessOrder = default(bool), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), string merchantComment = default(string), MerchantAddressResponse billingAddress = default(MerchantAddressResponse), MerchantAddressResponse shippingAddress = default(MerchantAddressResponse), decimal? subTotalInclVat = default(decimal?), decimal? subTotalVat = default(decimal?), decimal? shippingCostsVat = default(decimal?), decimal totalInclVat = default(decimal), decimal? totalVat = default(decimal?), decimal? originalSubTotalInclVat = default(decimal?), decimal? originalSubTotalVat = default(decimal?), decimal? originalShippingCostsInclVat = default(decimal?), decimal? originalShippingCostsVat = default(decimal?), decimal? originalTotalInclVat = default(decimal?), decimal? originalTotalVat = default(decimal?), List<MerchantOrderLineResponse> lines = default(List<MerchantOrderLineResponse>), decimal shippingCostsInclVat = default(decimal), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), string paymentReferenceNo = default(string), string currencyCode = default(string), DateTime orderDate = default(DateTime), string channelCustomerNo = default(string), Dictionary<string, string> extraData = default(Dictionary<string, string>))
+        public MerchantOrderResponse(int id = default(int), string channelName = default(string), int? channelId = default(int?), string globalChannelName = default(string), int? globalChannelId = default(int?), OrderSupport? channelOrderSupport = default(OrderSupport?), string channelOrderNo = default(string), string merchantOrderNo = default(string), OrderStatusView? status = default(OrderStatusView?), bool isBusinessOrder = default(bool), DateTime? acknowledgedDate = default(DateTime?), DateTime? createdAt = default(DateTime?), DateTime? updatedAt = default(DateTime?), string merchantComment = default(string), MerchantAddressResponse billingAddress = default(MerchantAddressResponse), MerchantAddressResponse shippingAddress = default(MerchantAddressResponse), decimal? subTotalInclVat = default(decimal?), decimal? subTotalVat = default(decimal?), decimal? shippingCostsVat = default(decimal?), decimal totalInclVat = default(decimal), decimal? totalVat = default(decimal?), decimal? originalSubTotalInclVat = default(decimal?), decimal? originalSubTotalVat = default(decimal?), decimal? originalShippingCostsInclVat = default(decimal?), decimal? originalShippingCostsVat = default(decimal?), decimal? originalTotalInclVat = default(decimal?), decimal? originalTotalVat = default(decimal?), List<MerchantOrderLineResponse> lines = default(List<MerchantOrderLineResponse>), decimal shippingCostsInclVat = default(decimal), string phone = default(string), string email = default(string), string companyRegistrationNo = default(string), string vatNo = default(string), string paymentMethod = default(string), string paymentReferenceNo = default(string), string currencyCode = default(string), DateTime orderDate = default(DateTime), string channelCustomerNo = default(string), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "email" is required (not null)
             if (email == null) {
@@ -112,6 +113,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.MerchantOrderNo = merchantOrderNo;
             this.Status = status;
             this.IsBusinessOrder = isBusinessOrder;
+            this.AcknowledgedDate = acknowledgedDate;
             this.CreatedAt = createdAt;
             this.UpdatedAt = updatedAt;
             this.MerchantComment = merchantComment;
@@ -194,6 +196,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <value>Indicating whether the order is a business order.</value>
         [DataMember(Name = "IsBusinessOrder", EmitDefaultValue = true)]
         public bool IsBusinessOrder { get; set; }
+
+        /// <summary>
+        /// The date the order was acknowledged in ChannelEngine.
+        /// </summary>
+        /// <value>The date the order was acknowledged in ChannelEngine.</value>
+        [DataMember(Name = "AcknowledgedDate", EmitDefaultValue = true)]
+        public DateTime? AcknowledgedDate { get; set; }
 
         /// <summary>
         /// The date the order was created in ChannelEngine.
@@ -405,6 +414,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  MerchantOrderNo: ").Append(MerchantOrderNo).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  IsBusinessOrder: ").Append(IsBusinessOrder).Append("\n");
+            sb.Append("  AcknowledgedDate: ").Append(AcknowledgedDate).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  MerchantComment: ").Append(MerchantComment).Append("\n");
@@ -512,6 +522,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 (
                     this.IsBusinessOrder == input.IsBusinessOrder ||
                     this.IsBusinessOrder.Equals(input.IsBusinessOrder)
+                ) && 
+                (
+                    this.AcknowledgedDate == input.AcknowledgedDate ||
+                    (this.AcknowledgedDate != null &&
+                    this.AcknowledgedDate.Equals(input.AcknowledgedDate))
                 ) && 
                 (
                     this.CreatedAt == input.CreatedAt ||
@@ -680,6 +695,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.MerchantOrderNo.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 hashCode = hashCode * 59 + this.IsBusinessOrder.GetHashCode();
+                if (this.AcknowledgedDate != null)
+                    hashCode = hashCode * 59 + this.AcknowledgedDate.GetHashCode();
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.UpdatedAt != null)

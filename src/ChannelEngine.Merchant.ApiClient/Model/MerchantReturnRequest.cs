@@ -55,7 +55,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <param name="refundInclVat">Refund amount incl. VAT..</param>
         /// <param name="refundExclVat">Refund amount excl. VAT..</param>
         /// <param name="returnDate">The date at which the return was originally created in the source system (if available)..</param>
-        public MerchantReturnRequest(string merchantOrderNo = default(string), string merchantReturnNo = default(string), List<MerchantReturnLineRequest> lines = default(List<MerchantReturnLineRequest>), int id = default(int), ReturnReason? reason = default(ReturnReason?), string customerComment = default(string), string merchantComment = default(string), decimal refundInclVat = default(decimal), decimal refundExclVat = default(decimal), DateTime? returnDate = default(DateTime?))
+        /// <param name="extraData">Extra data on the return. Each item must have an unqiue key.</param>
+        public MerchantReturnRequest(string merchantOrderNo = default(string), string merchantReturnNo = default(string), List<MerchantReturnLineRequest> lines = default(List<MerchantReturnLineRequest>), int id = default(int), ReturnReason? reason = default(ReturnReason?), string customerComment = default(string), string merchantComment = default(string), decimal refundInclVat = default(decimal), decimal refundExclVat = default(decimal), DateTime? returnDate = default(DateTime?), Dictionary<string, string> extraData = default(Dictionary<string, string>))
         {
             // to ensure "merchantOrderNo" is required (not null)
             if (merchantOrderNo == null) {
@@ -79,6 +80,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             this.RefundInclVat = refundInclVat;
             this.RefundExclVat = refundExclVat;
             this.ReturnDate = returnDate;
+            this.ExtraData = extraData;
         }
 
         /// <summary>
@@ -144,6 +146,13 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public DateTime? ReturnDate { get; set; }
 
         /// <summary>
+        /// Extra data on the return. Each item must have an unqiue key
+        /// </summary>
+        /// <value>Extra data on the return. Each item must have an unqiue key</value>
+        [DataMember(Name = "ExtraData", EmitDefaultValue = true)]
+        public Dictionary<string, string> ExtraData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -161,6 +170,7 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             sb.Append("  RefundInclVat: ").Append(RefundInclVat).Append("\n");
             sb.Append("  RefundExclVat: ").Append(RefundExclVat).Append("\n");
             sb.Append("  ReturnDate: ").Append(ReturnDate).Append("\n");
+            sb.Append("  ExtraData: ").Append(ExtraData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -241,6 +251,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.ReturnDate == input.ReturnDate ||
                     (this.ReturnDate != null &&
                     this.ReturnDate.Equals(input.ReturnDate))
+                ) && 
+                (
+                    this.ExtraData == input.ExtraData ||
+                    this.ExtraData != null &&
+                    input.ExtraData != null &&
+                    this.ExtraData.SequenceEqual(input.ExtraData)
                 );
         }
 
@@ -269,6 +285,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 hashCode = hashCode * 59 + this.RefundExclVat.GetHashCode();
                 if (this.ReturnDate != null)
                     hashCode = hashCode * 59 + this.ReturnDate.GetHashCode();
+                if (this.ExtraData != null)
+                    hashCode = hashCode * 59 + this.ExtraData.GetHashCode();
                 return hashCode;
             }
         }
