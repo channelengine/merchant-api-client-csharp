@@ -43,6 +43,7 @@ src/ChannelEngine.Merchant.ApiClient/Model/ChannelGlobalChannelResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/ChannelListedProductResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfChannelGlobalChannelResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfChannelListedProductResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantCancellationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantNotificationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantOfferGetStockResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/CollectionOfMerchantOrderResponse.cs
@@ -66,7 +67,9 @@ src/ChannelEngine.Merchant.ApiClient/Model/ListedProductExportStatus.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MancoReason.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantAddressResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantCancellationLineRequest.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantCancellationLineResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantCancellationRequest.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantCancellationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantChannelLabelShipmentRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantNotificationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantOfferGetStockResponse.cs
@@ -102,6 +105,8 @@ src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantShipmentTrackingRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantSingleOrderReturnLineResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantSingleOrderReturnResponse.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockLocationAddressRequest.cs
+src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockLocationCreateRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockLocationResponse.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockLocationUpdateRequest.cs
 src/ChannelEngine.Merchant.ApiClient/Model/MerchantStockPriceUpdateRequest.cs

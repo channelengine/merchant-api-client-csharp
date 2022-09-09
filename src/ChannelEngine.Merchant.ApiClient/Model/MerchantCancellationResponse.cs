@@ -26,10 +26,10 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantCancellationRequest
+    /// MerchantCancellationResponse
     /// </summary>
-    [DataContract(Name = "MerchantCancellationRequest")]
-    public partial class MerchantCancellationRequest : IEquatable<MerchantCancellationRequest>, IValidatableObject
+    [DataContract(Name = "MerchantCancellationResponse")]
+    public partial class MerchantCancellationResponse : IEquatable<MerchantCancellationResponse>, IValidatableObject
     {
 
         /// <summary>
@@ -38,35 +38,39 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         [DataMember(Name = "ReasonCode", EmitDefaultValue = false)]
         public MancoReason? ReasonCode { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantCancellationRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantCancellationResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MerchantCancellationRequest() { }
+        protected MerchantCancellationResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantCancellationRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantCancellationResponse" /> class.
         /// </summary>
         /// <param name="merchantCancellationNo">The unique cancellation reference used by the Merchant (sku). (required).</param>
-        /// <param name="merchantOrderNo">The unique order reference used by the Merchant (sku). (required).</param>
+        /// <param name="merchantOrderNo">The unique order reference used by the Merchant. (required).</param>
+        /// <param name="channelOrderNo">The unique order reference used by the Channel..</param>
         /// <param name="lines">lines (required).</param>
+        /// <param name="createdAt">The date at which the cancellation was created in ChannelEngine..</param>
         /// <param name="reason">Reason for cancellation (text)..</param>
         /// <param name="reasonCode">reasonCode.</param>
-        public MerchantCancellationRequest(string merchantCancellationNo = default(string), string merchantOrderNo = default(string), List<MerchantCancellationLineRequest> lines = default(List<MerchantCancellationLineRequest>), string reason = default(string), MancoReason? reasonCode = default(MancoReason?))
+        public MerchantCancellationResponse(string merchantCancellationNo = default(string), string merchantOrderNo = default(string), string channelOrderNo = default(string), List<MerchantCancellationLineResponse> lines = default(List<MerchantCancellationLineResponse>), DateTime createdAt = default(DateTime), string reason = default(string), MancoReason? reasonCode = default(MancoReason?))
         {
             // to ensure "merchantCancellationNo" is required (not null)
             if (merchantCancellationNo == null) {
-                throw new ArgumentNullException("merchantCancellationNo is a required property for MerchantCancellationRequest and cannot be null");
+                throw new ArgumentNullException("merchantCancellationNo is a required property for MerchantCancellationResponse and cannot be null");
             }
             this.MerchantCancellationNo = merchantCancellationNo;
             // to ensure "merchantOrderNo" is required (not null)
             if (merchantOrderNo == null) {
-                throw new ArgumentNullException("merchantOrderNo is a required property for MerchantCancellationRequest and cannot be null");
+                throw new ArgumentNullException("merchantOrderNo is a required property for MerchantCancellationResponse and cannot be null");
             }
             this.MerchantOrderNo = merchantOrderNo;
             // to ensure "lines" is required (not null)
             if (lines == null) {
-                throw new ArgumentNullException("lines is a required property for MerchantCancellationRequest and cannot be null");
+                throw new ArgumentNullException("lines is a required property for MerchantCancellationResponse and cannot be null");
             }
             this.Lines = lines;
+            this.ChannelOrderNo = channelOrderNo;
+            this.CreatedAt = createdAt;
             this.Reason = reason;
             this.ReasonCode = reasonCode;
         }
@@ -79,17 +83,31 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public string MerchantCancellationNo { get; set; }
 
         /// <summary>
-        /// The unique order reference used by the Merchant (sku).
+        /// The unique order reference used by the Merchant.
         /// </summary>
-        /// <value>The unique order reference used by the Merchant (sku).</value>
+        /// <value>The unique order reference used by the Merchant.</value>
         [DataMember(Name = "MerchantOrderNo", IsRequired = true, EmitDefaultValue = false)]
         public string MerchantOrderNo { get; set; }
+
+        /// <summary>
+        /// The unique order reference used by the Channel.
+        /// </summary>
+        /// <value>The unique order reference used by the Channel.</value>
+        [DataMember(Name = "ChannelOrderNo", EmitDefaultValue = true)]
+        public string ChannelOrderNo { get; set; }
 
         /// <summary>
         /// Gets or Sets Lines
         /// </summary>
         [DataMember(Name = "Lines", IsRequired = true, EmitDefaultValue = false)]
-        public List<MerchantCancellationLineRequest> Lines { get; set; }
+        public List<MerchantCancellationLineResponse> Lines { get; set; }
+
+        /// <summary>
+        /// The date at which the cancellation was created in ChannelEngine.
+        /// </summary>
+        /// <value>The date at which the cancellation was created in ChannelEngine.</value>
+        [DataMember(Name = "CreatedAt", EmitDefaultValue = false)]
+        public DateTime CreatedAt { get; set; }
 
         /// <summary>
         /// Reason for cancellation (text).
@@ -105,10 +123,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantCancellationRequest {\n");
+            sb.Append("class MerchantCancellationResponse {\n");
             sb.Append("  MerchantCancellationNo: ").Append(MerchantCancellationNo).Append("\n");
             sb.Append("  MerchantOrderNo: ").Append(MerchantOrderNo).Append("\n");
+            sb.Append("  ChannelOrderNo: ").Append(ChannelOrderNo).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
             sb.Append("}\n");
@@ -131,15 +151,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantCancellationRequest);
+            return this.Equals(input as MerchantCancellationResponse);
         }
 
         /// <summary>
-        /// Returns true if MerchantCancellationRequest instances are equal
+        /// Returns true if MerchantCancellationResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantCancellationRequest to be compared</param>
+        /// <param name="input">Instance of MerchantCancellationResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantCancellationRequest input)
+        public bool Equals(MerchantCancellationResponse input)
         {
             if (input == null)
                 return false;
@@ -156,10 +176,20 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.MerchantOrderNo.Equals(input.MerchantOrderNo))
                 ) && 
                 (
+                    this.ChannelOrderNo == input.ChannelOrderNo ||
+                    (this.ChannelOrderNo != null &&
+                    this.ChannelOrderNo.Equals(input.ChannelOrderNo))
+                ) && 
+                (
                     this.Lines == input.Lines ||
                     this.Lines != null &&
                     input.Lines != null &&
                     this.Lines.SequenceEqual(input.Lines)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
                 ) && 
                 (
                     this.Reason == input.Reason ||
@@ -185,8 +215,12 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     hashCode = hashCode * 59 + this.MerchantCancellationNo.GetHashCode();
                 if (this.MerchantOrderNo != null)
                     hashCode = hashCode * 59 + this.MerchantOrderNo.GetHashCode();
+                if (this.ChannelOrderNo != null)
+                    hashCode = hashCode * 59 + this.ChannelOrderNo.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
+                if (this.CreatedAt != null)
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 hashCode = hashCode * 59 + this.ReasonCode.GetHashCode();
@@ -211,18 +245,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
             if(this.MerchantCancellationNo != null && this.MerchantCancellationNo.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantCancellationNo, length must be greater than 0.", new [] { "MerchantCancellationNo" });
-            }
-
-            // MerchantOrderNo (string) maxLength
-            if(this.MerchantOrderNo != null && this.MerchantOrderNo.Length > 50)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantOrderNo, length must be less than 50.", new [] { "MerchantOrderNo" });
-            }
-
-            // MerchantOrderNo (string) minLength
-            if(this.MerchantOrderNo != null && this.MerchantOrderNo.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantOrderNo, length must be greater than 0.", new [] { "MerchantOrderNo" });
             }
 
             yield break;

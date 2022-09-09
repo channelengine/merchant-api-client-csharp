@@ -26,37 +26,42 @@ using OpenAPIDateConverter = ChannelEngine.Merchant.ApiClient.Client.OpenAPIDate
 namespace ChannelEngine.Merchant.ApiClient.Model
 {
     /// <summary>
-    /// MerchantCancellationLineRequest
+    /// MerchantCancellationLineResponse
     /// </summary>
-    [DataContract(Name = "MerchantCancellationLineRequest")]
-    public partial class MerchantCancellationLineRequest : IEquatable<MerchantCancellationLineRequest>, IValidatableObject
+    [DataContract(Name = "MerchantCancellationLineResponse")]
+    public partial class MerchantCancellationLineResponse : IEquatable<MerchantCancellationLineResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantCancellationLineRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantCancellationLineResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MerchantCancellationLineRequest() { }
+        protected MerchantCancellationLineResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MerchantCancellationLineRequest" /> class.
+        /// Initializes a new instance of the <see cref="MerchantCancellationLineResponse" /> class.
         /// </summary>
-        /// <param name="merchantProductNo">The unique product reference used by the Merchant (sku). (required).</param>
+        /// <param name="merchantProductNo">The unique product reference used by the Merchant..</param>
+        /// <param name="channelProductNo">The unique product reference used by the Channel..</param>
         /// <param name="quantity">Quantity of the product to cancel. (required).</param>
-        public MerchantCancellationLineRequest(string merchantProductNo = default(string), int quantity = default(int))
+        public MerchantCancellationLineResponse(string merchantProductNo = default(string), string channelProductNo = default(string), int quantity = default(int))
         {
-            // to ensure "merchantProductNo" is required (not null)
-            if (merchantProductNo == null) {
-                throw new ArgumentNullException("merchantProductNo is a required property for MerchantCancellationLineRequest and cannot be null");
-            }
-            this.MerchantProductNo = merchantProductNo;
             this.Quantity = quantity;
+            this.MerchantProductNo = merchantProductNo;
+            this.ChannelProductNo = channelProductNo;
         }
 
         /// <summary>
-        /// The unique product reference used by the Merchant (sku).
+        /// The unique product reference used by the Merchant.
         /// </summary>
-        /// <value>The unique product reference used by the Merchant (sku).</value>
-        [DataMember(Name = "MerchantProductNo", IsRequired = true, EmitDefaultValue = false)]
+        /// <value>The unique product reference used by the Merchant.</value>
+        [DataMember(Name = "MerchantProductNo", EmitDefaultValue = true)]
         public string MerchantProductNo { get; set; }
+
+        /// <summary>
+        /// The unique product reference used by the Channel.
+        /// </summary>
+        /// <value>The unique product reference used by the Channel.</value>
+        [DataMember(Name = "ChannelProductNo", EmitDefaultValue = true)]
+        public string ChannelProductNo { get; set; }
 
         /// <summary>
         /// Quantity of the product to cancel.
@@ -72,8 +77,9 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MerchantCancellationLineRequest {\n");
+            sb.Append("class MerchantCancellationLineResponse {\n");
             sb.Append("  MerchantProductNo: ").Append(MerchantProductNo).Append("\n");
+            sb.Append("  ChannelProductNo: ").Append(ChannelProductNo).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -95,15 +101,15 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MerchantCancellationLineRequest);
+            return this.Equals(input as MerchantCancellationLineResponse);
         }
 
         /// <summary>
-        /// Returns true if MerchantCancellationLineRequest instances are equal
+        /// Returns true if MerchantCancellationLineResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of MerchantCancellationLineRequest to be compared</param>
+        /// <param name="input">Instance of MerchantCancellationLineResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MerchantCancellationLineRequest input)
+        public bool Equals(MerchantCancellationLineResponse input)
         {
             if (input == null)
                 return false;
@@ -113,6 +119,11 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                     this.MerchantProductNo == input.MerchantProductNo ||
                     (this.MerchantProductNo != null &&
                     this.MerchantProductNo.Equals(input.MerchantProductNo))
+                ) && 
+                (
+                    this.ChannelProductNo == input.ChannelProductNo ||
+                    (this.ChannelProductNo != null &&
+                    this.ChannelProductNo.Equals(input.ChannelProductNo))
                 ) && 
                 (
                     this.Quantity == input.Quantity ||
@@ -131,6 +142,8 @@ namespace ChannelEngine.Merchant.ApiClient.Model
                 int hashCode = 41;
                 if (this.MerchantProductNo != null)
                     hashCode = hashCode * 59 + this.MerchantProductNo.GetHashCode();
+                if (this.ChannelProductNo != null)
+                    hashCode = hashCode * 59 + this.ChannelProductNo.GetHashCode();
                 hashCode = hashCode * 59 + this.Quantity.GetHashCode();
                 return hashCode;
             }
@@ -143,18 +156,6 @@ namespace ChannelEngine.Merchant.ApiClient.Model
         /// <returns>Validation Result</returns>
         public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
-            // MerchantProductNo (string) maxLength
-            if(this.MerchantProductNo != null && this.MerchantProductNo.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantProductNo, length must be less than 64.", new [] { "MerchantProductNo" });
-            }
-
-            // MerchantProductNo (string) minLength
-            if(this.MerchantProductNo != null && this.MerchantProductNo.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MerchantProductNo, length must be greater than 0.", new [] { "MerchantProductNo" });
-            }
-
             // Quantity (int) minimum
             if(this.Quantity < (int)0)
             {
